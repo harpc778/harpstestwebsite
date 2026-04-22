@@ -9,25 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream: #FAFAF7;
-      --ink: #111110;
-      --mid: #6B6B67;
-      --accent: #1A6B3C;
-      --accent-light: #E8F5EE;
-      --border: #E4E4DF;
-      --surface: #F5F5F1;
-      --forest: #0D3D22;
-    }
-
+    :root { --cream: #FAFAF7; --ink: #111110; --mid: #6B6B67; --accent: #1A6B3C; --accent-light: #E8F5EE; --border: #E4E4DF; --surface: #F5F5F1; --forest: #0D3D22; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    /* ── PROGRESS BAR ── */
     #progress-bar { position: fixed; top: 0; left: 0; z-index: 200; height: 3px; width: 0%; background: var(--accent); transition: width 0.08s linear; pointer-events: none; }
 
-    /* ── NAV ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; background: rgba(250,250,247,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
     nav.scrolled { border-color: var(--border); }
     .nav-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; line-height: 1.2; letter-spacing: -0.3px; }
@@ -40,7 +27,6 @@
     .btn-dark { background: var(--ink); color: var(--cream); }
     .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,17,16,0.18); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: none; }
@@ -51,7 +37,6 @@
     .back-link:hover { color: var(--ink); }
     .article-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.6s 0.1s forwards; }
     .badge-video { background: #FEE2E2; color: #DC2626; }
-    .badge-article { background: var(--accent-light); color: var(--accent); }
     .page-title { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 4vw, 52px); letter-spacing: -1.5px; line-height: 1.1; max-width: 820px; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.15s forwards; }
     .page-title em { font-style: italic; color: var(--accent); }
     .page-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--mid); flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 0.28s forwards; }
@@ -61,28 +46,38 @@
     .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-left: 4px; }
     .meta-tag { padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 11px; color: var(--mid); }
 
-    /* ── 3 COLUMN LAYOUT ── */
-    .three-col { max-width: 1200px; margin: 0 auto; padding: 48px 40px 80px; display: grid; grid-template-columns: 380px 1fr 260px; gap: 40px; align-items: start; }
+    /* ── FULL WIDTH VIDEO ── */
+    .video-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.38s forwards;
+    }
+    .full-video-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(17,17,16,0.14), 0 0 0 1px rgba(17,17,16,0.06);
+      background: #000;
+    }
+    .full-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
 
-    /* LEFT: long-form video — wider column, static not sticky */
-    .video-col { }
-    .long-video-wrap { border-radius: 14px; overflow: hidden; box-shadow: 0 16px 48px rgba(17,17,16,0.14), 0 0 0 1px rgba(17,17,16,0.06); background: #000; }
-    .long-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+    /* ── TWO COLUMN: article + sidebar ── */
+    .two-col {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+    }
 
-    /* Guest strip below video */
-    .guest-strip { margin-top: 16px; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
-    .guest-strip-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 10px; }
-    .guest-list { display: flex; flex-direction: column; gap: 8px; }
-    .guest { display: flex; align-items: center; gap: 10px; font-size: 13px; }
-    .guest-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .guest-name { font-weight: 500; color: var(--ink); }
-    .guest-handle { color: var(--mid); }
-
-    /* MIDDLE: article body */
+    /* ARTICLE BODY */
     .article-body { min-width: 0; }
     .article-body h2 { font-family: 'Instrument Serif', serif; font-size: 26px; letter-spacing: -0.5px; margin: 40px 0 14px; scroll-margin-top: 90px; }
     .article-body h2:first-of-type { margin-top: 0; }
-    .article-body h3 { font-size: 17px; font-weight: 500; margin: 28px 0 10px; }
+    .article-body h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: var(--ink); }
     .article-body p { font-size: 17px; line-height: 1.78; color: #2e2e2c; margin-bottom: 18px; }
     .article-body ul, .article-body ol { padding-left: 22px; margin-bottom: 18px; }
     .article-body li { font-size: 17px; line-height: 1.75; color: #2e2e2c; margin-bottom: 6px; }
@@ -90,8 +85,16 @@
     .standfirst { font-size: 19px; line-height: 1.7; color: var(--ink); font-weight: 300; margin-bottom: 32px; }
     .callout { background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 28px 0; }
     .callout p { margin: 0; font-size: 15px; color: var(--ink); }
+    .warning-callout { background: #FFF7ED; border-left: 3px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 28px 0; }
+    .warning-callout p { margin: 0; font-size: 15px; color: var(--ink); }
 
-    /* RIGHT: sidebar */
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+    .stat-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-box-num { font-family: 'Instrument Serif', serif; font-size: 36px; letter-spacing: -1px; color: var(--ink); line-height: 1; }
+    .stat-box-num.green { color: var(--accent); }
+    .stat-box-label { font-size: 12px; color: var(--mid); margin-top: 6px; }
+
+    /* SIDEBAR */
     .sidebar-col { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 20px; }
     .toc-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px; display: none; }
     .toc-card.show { display: block; }
@@ -108,7 +111,7 @@
     .side-cta-btn { display: block; text-align: center; padding: 10px 16px; border-radius: 999px; background: #fff; color: var(--forest); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.18s, transform 0.18s; }
     .side-cta-btn:hover { background: #f0faf4; transform: translateY(-1px); }
 
-    /* Mobile TOC */
+    /* MOBILE TOC */
     .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
     .mobile-toc-toggle { width: 100%; background: #fff; border: none; padding: 13px 18px; display: flex; align-items: center; justify-content: space-between; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--ink); }
     .mobile-toc-icon { font-size: 12px; transition: transform 0.2s; }
@@ -119,7 +122,7 @@
     .mobile-toc-body a:last-child { border-bottom: none; }
     .mobile-cta { display: none; background: var(--forest); border-radius: 16px; padding: 24px 22px; margin-top: 32px; }
 
-    /* ── AUTHOR BIO ── */
+    /* AUTHOR BIO */
     .author-section { max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
     .author-bio { border-top: 1px solid var(--border); padding-top: 44px; display: flex; gap: 20px; align-items: flex-start; }
     .bio-photo { width: 72px; height: 72px; border-radius: 16px; overflow: hidden; flex-shrink: 0; border: 2px solid var(--accent); }
@@ -129,7 +132,7 @@
     .bio-text { font-size: 14px; color: var(--mid); line-height: 1.65; max-width: 520px; }
     .bio-cta { margin-top: 14px; }
 
-    /* ── MORE CONTENT ── */
+    /* MORE */
     .more-section { background: var(--surface); padding: 72px 40px; }
     .more-inner { max-width: 1200px; margin: 0 auto; }
     .section-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; display: block; margin-bottom: 8px; }
@@ -148,11 +151,10 @@
     .more-meta { padding: 12px 14px; font-size: 12px; color: var(--mid); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: #fff; }
     .more-arrow { font-size: 13px; transition: transform 0.2s; }
     .more-card:hover .more-arrow { transform: translateX(3px); color: var(--ink); }
+    .g1 { background: linear-gradient(145deg,#0f2027,#2c5364); }
     .g2 { background: linear-gradient(145deg,#1a1a2e,#16213e); }
-    .g3 { background: linear-gradient(145deg,#134e5e,#71b280); }
-    .g5 { background: linear-gradient(145deg,#2d1b69,#11998e); }
+    .g4 { background: linear-gradient(145deg,#232526,#3a3d40); }
 
-    /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
     .footer-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
     .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
@@ -160,22 +162,17 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-copy { font-size: 13px; color: var(--mid); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .three-col { grid-template-columns: 340px 1fr; }
+    @media (max-width: 1024px) {
+      .two-col { grid-template-columns: 1fr; }
       .sidebar-col { display: none; }
       .mobile-toc { display: block; }
       .mobile-cta { display: block; }
     }
-    @media (max-width: 720px) {
-      .three-col { grid-template-columns: 1fr; padding: 32px 20px 60px; gap: 32px; }
-      .page-header { padding: 90px 20px 32px; }
-      .author-section { padding-left: 20px; padding-right: 20px; }
-      .more-section { padding-left: 20px; padding-right: 20px; }
-    }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
+      .page-header, .video-section, .two-col, .author-section, .more-section { padding-left: 20px; padding-right: 20px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
     }
@@ -198,7 +195,7 @@
   <a href="../contact.html" class="btn btn-dark">Let's Talk →</a>
 </nav>
 
-<!-- FULL WIDTH HEADER -->
+<!-- HEADER -->
 <div class="page-header">
   <a href="index" class="back-link">← Back to Learn</a>
   <div class="article-badge badge-video">▶ Video</div>
@@ -209,42 +206,31 @@
     </div>
     <span>Harpreet Singh Chatha</span>
     <span class="meta-dot">·</span>
-    <span>December 2025</span>
+    <span>2025</span>
     <span class="meta-dot">·</span>
     <div class="meta-tags">
-      <span class="meta-tag">SEO</span>
-      <span class="meta-tag">AI Search</span>
-      <span class="meta-tag">Strategy</span>
-      <span class="meta-tag">2026</span>
+      <span class="meta-tag">AI SEO</span>
+      <span class="meta-tag">Case Study</span>
+      <span class="meta-tag">Content Strategy</span>
+      <span class="meta-tag">Wix</span>
     </div>
   </div>
 </div>
 
-<!-- 3 COLUMN LAYOUT -->
-<div class="three-col">
-
-  <!-- LEFT: long-form video + guest strip -->
-  <div class="video-col">
-    <div class="long-video-wrap">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/yFWEpLPMl08?si=muH93AI4qg7rexBO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div class="guest-strip">
-      <div class="guest-strip-label">Guests</div>
-      <div class="guest-list">
-        <div class="guest"><div class="guest-dot"></div><div><span class="guest-name">Edward Strum</span> <span class="guest-handle">— Host, The Edward Show</span></div></div>
-        <div class="guest"><div class="guest-dot"></div><div><span class="guest-name">David Quaid</span> <span class="guest-handle">— SEO Strategist</span></div></div>
-        <div class="guest"><div class="guest-dot"></div><div><span class="guest-name">Gagan Ghotra</span> <span class="guest-handle">— SEO Consultant</span></div></div>
-      </div>
-    </div>
+<!-- FULL WIDTH VIDEO -->
+<div class="video-section">
+  <div class="full-video-wrap">
+    <iframe src="https://www.youtube.com/embed/yFWEpLPMl08?si=muH93AI4qg7rexBO" title="SEO vs AI Search Holiday Special" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
+</div>
 
-  <!-- MIDDLE: article body -->
+<!-- TWO COLUMN: article + sidebar -->
+<div class="two-col">
+
   <div class="article-body" id="article-body">
 
     <div class="mobile-toc" id="mobile-toc">
-      <button class="mobile-toc-toggle" id="mobile-toc-toggle">
-        Contents <span class="mobile-toc-icon">▼</span>
-      </button>
+      <button class="mobile-toc-toggle" id="mobile-toc-toggle">Contents <span class="mobile-toc-icon">▼</span></button>
       <div class="mobile-toc-body" id="mobile-toc-body"></div>
     </div>
 
@@ -252,18 +238,17 @@
 
     <h2 id="h2-geo-aeo">GEO, AEO and "AI SEO"</h2>
     <p>We talked about why "Generative Engine Optimization" (GEO), "Answer Engine Optimization" (AEO), and "AI SEO" are mostly rebrands of classic SEO, not truly separate disciplines. Large language models and AI search products still lean on traditional search indexes like Google for crawling, ranking, and sourcing, so anything that hurts your organic SEO usually hurts your AI visibility too.</p>
-
     <div class="callout">
-      <p>💡 <strong>Key point:</strong> If your traditional SEO is weak, your AI search visibility will be weak. The fundamentals haven't changed — the presentation layer has.</p>
+      <p>💡 <strong>Key point:</strong> If your traditional SEO is weak, your AI search visibility will be weak. The fundamentals have not changed — the presentation layer has.</p>
     </div>
 
     <h2 id="h2-disinformation">Disinformation and AI SEO Tools</h2>
     <p>A big chunk of the conversation focused on disinformation campaigns aimed at CMOs and executives, where vendors sell AI SEO as a silver bullet while mainly offering scaled AI content and dashboards. We discussed how many of these tools push "fan-out" content tactics that directly contradict the Helpful Content Update era advice to consolidate, improve quality, and reduce thin, low-value pages.</p>
-    <p>The pattern is familiar: new terminology gets attached to old tactics, repackaged with AI branding, and sold to budget holders who don't have the technical depth to question it. The result is teams producing more content, not better content — which is exactly the wrong direction.</p>
+    <p>The pattern is familiar: new terminology gets attached to old tactics, repackaged with AI branding, and sold to budget holders who do not have the technical depth to question it. The result is teams producing more content, not better content — which is exactly the wrong direction.</p>
 
     <h2 id="h2-authority">Authority, Topical Focus and Backlinks</h2>
     <p>We spent time on authority and topical relevance, including how Google still behaves very domain-centric and often over-rewards huge publishers at the expense of more specialised sites. The group argued that Google is slowly shifting toward more granular topical and subtopic-level authority, and that high-quality backlinks plus a tight topical lane remain critical for both classic rankings and AI citations.</p>
-    <p>The practical implication for smaller sites: go deep on a narrower topic rather than broad on everything. A site that owns a niche with depth will increasingly outperform a generalist site with thin coverage across many topics — in both traditional and AI search results.</p>
+    <p>The practical implication for smaller sites: go deep on a narrower topic rather than broad on everything. A site that owns a niche with depth will increasingly outperform a generalist site with thin coverage across many topics.</p>
 
     <h2 id="h2-ai-overviews">AI Overviews, Traffic and Behaviour</h2>
     <p>The episode looks closely at Google's AI Overviews and AI Mode as the real "AI SEO" battleground, with usage that dwarfs standalone chatbots. We compared notes on AI-driven traffic plateauing, engagement from AI referrals converging with organic, and what that means for attribution, PR value, and the ROI of GEO-focused campaigns.</p>
@@ -275,7 +260,7 @@
 
     <h2 id="h2-strategy-2026">Strategy Going Into 2026</h2>
     <p>To wrap up, we outlined what a realistic AI-era SEO strategy looks like heading into 2026, especially for small and mid-sized sites. The focus is on staying in your topical lane, investing in strong backlinks and digital PR, and getting SEO, content, PR, social, and video teams working together so brand and authority signals line up across both traditional search and AI experiences.</p>
-    <p>The brands that will win in 2026 aren't the ones that figured out a new AI trick — they're the ones that built real authority, published genuinely useful content, and showed up consistently across the channels that matter.</p>
+    <p>The brands that will win in 2026 are not the ones that figured out a new AI trick. They are the ones that built real authority, published genuinely useful content, and showed up consistently across the channels that matter.</p>
 
     <div class="mobile-cta">
       <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:10px;">Work with Harpreet</div>
@@ -286,7 +271,6 @@
 
   </div>
 
-  <!-- RIGHT: TOC + CTA -->
   <aside class="sidebar-col">
     <div class="toc-card" id="toc-card">
       <div class="toc-heading">Contents</div>
@@ -302,7 +286,6 @@
 
 </div>
 
-<!-- AUTHOR BIO -->
 <div class="author-section">
   <div class="author-bio reveal">
     <div class="bio-photo">
@@ -312,44 +295,26 @@
       <div class="bio-name">Harpreet Singh Chatha</div>
       <div class="bio-role">SEO & AI Search Consultant</div>
       <p class="bio-text">10+ years helping brands grow through organic search. I make videos and write about where search is heading — and what to do about it.</p>
-      <div class="bio-cta">
-        <a href="../contact.html" class="btn btn-dark" style="font-size:13px;padding:9px 18px;">Work with me →</a>
-      </div>
+      <div class="bio-cta"><a href="../contact.html" class="btn btn-dark" style="font-size:13px;padding:9px 18px;">Work with me →</a></div>
     </div>
   </div>
 </div>
 
-<!-- MORE CONTENT -->
 <div class="more-section">
   <div class="more-inner reveal">
     <span class="section-tag">More to explore</span>
     <h2 class="section-title">Keep learning.</h2>
     <div class="more-grid">
       <a href="query-fan-out" class="more-card">
-        <div class="more-thumb">
-          <div class="more-thumb-bg g2"></div>
-          <div class="more-thumb-overlay"></div>
-          <div class="more-badge more-badge-video">▶ Video</div>
-          <div class="more-thumb-title">What Is Query Fan Out & Why It Matters for AI Search</div>
-        </div>
+        <div class="more-thumb"><div class="more-thumb-bg g2"></div><div class="more-thumb-overlay"></div><div class="more-badge more-badge-video">▶ Video</div><div class="more-thumb-title">What Is Query Fan Out & Why It Matters for AI Search</div></div>
         <div class="more-meta"><span>Dec 2025</span><span class="more-arrow">→</span></div>
       </a>
-      <a href="ai-in-search-console" class="more-card">
-        <div class="more-thumb">
-          <div class="more-thumb-bg g3"></div>
-          <div class="more-thumb-overlay"></div>
-          <div class="more-badge more-badge-video">▶ Video</div>
-          <div class="more-thumb-title">How AI Is Using Google & Bing to Answer Questions</div>
-        </div>
+      <a href="ai-using-google-bing" class="more-card">
+        <div class="more-thumb"><div class="more-thumb-bg g3"></div><div class="more-thumb-overlay"></div><div class="more-badge more-badge-article">✍ Article</div><div class="more-thumb-title">You [May] Be Able to See How AI Is Using Google & Bing</div></div>
         <div class="more-meta"><span>May 2025</span><span class="more-arrow">→</span></div>
       </a>
-      <a href="track-ai-traffic" class="more-card">
-        <div class="more-thumb">
-          <div class="more-thumb-bg g5"></div>
-          <div class="more-thumb-overlay"></div>
-          <div class="more-badge more-badge-video">▶ Video</div>
-          <div class="more-thumb-title">How To Track Traffic From AI Tools Like ChatGPT</div>
-        </div>
+      <a href="ai-seo-scale-patterns-penalties" class="more-card">
+        <div class="more-thumb"><div class="more-thumb-bg g4"></div><div class="more-thumb-overlay"></div><div class="more-badge more-badge-video">▶ Video</div><div class="more-thumb-title">AI SEO at Scale: Patterns, Penalties & the Wix Case Study</div></div>
         <div class="more-meta"><span>2025</span><span class="more-arrow">→</span></div>
       </a>
     </div>
