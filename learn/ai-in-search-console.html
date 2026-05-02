@@ -23,6 +23,16 @@
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 14px; font-weight: 400; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 110; }
+    .hamburger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(250,250,247,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 16px 20px 24px; z-index: 99; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 16px; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--ink); }
     .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; border: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s; white-space: nowrap; }
     .btn-dark { background: var(--ink); color: var(--cream); }
     .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,17,16,0.18); }
@@ -31,13 +41,12 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* PAGE HEADER */
+    /* ── PAGE HEADER ── */
     .page-header { max-width: 1200px; margin: 0 auto; padding: 100px 40px 40px; border-bottom: 1px solid var(--border); }
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--mid); text-decoration: none; margin-bottom: 20px; transition: color 0.2s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
     .back-link:hover { color: var(--ink); }
     .article-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.6s 0.1s forwards; }
     .badge-video { background: #FEE2E2; color: #DC2626; }
-    .badge-article { background: var(--accent-light); color: var(--accent); }
     .page-title { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 4vw, 52px); letter-spacing: -1.5px; line-height: 1.1; max-width: 820px; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.15s forwards; }
     .page-title em { font-style: italic; color: var(--accent); }
     .page-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--mid); flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 0.28s forwards; }
@@ -47,18 +56,38 @@
     .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-left: 4px; }
     .meta-tag { padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 11px; color: var(--mid); }
 
-    /* 3 COLUMN */
-    .three-col { max-width: 1200px; margin: 0 auto; padding: 48px 40px 80px; display: grid; grid-template-columns: 380px 1fr 260px; gap: 40px; align-items: start; }
+    /* ── FULL WIDTH VIDEO ── */
+    .video-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.38s forwards;
+    }
+    .full-video-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(17,17,16,0.14), 0 0 0 1px rgba(17,17,16,0.06);
+      background: #000;
+    }
+    .full-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
 
-    .video-col { }
-    .long-video-wrap { border-radius: 14px; overflow: hidden; box-shadow: 0 16px 48px rgba(17,17,16,0.14), 0 0 0 1px rgba(17,17,16,0.06); background: #000; }
-    .long-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+    /* ── TWO COLUMN: article + sidebar ── */
+    .two-col {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+    }
 
     /* ARTICLE BODY */
     .article-body { min-width: 0; }
     .article-body h2 { font-family: 'Instrument Serif', serif; font-size: 26px; letter-spacing: -0.5px; margin: 40px 0 14px; scroll-margin-top: 90px; }
     .article-body h2:first-of-type { margin-top: 0; }
-    .article-body h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; margin: 28px 0 10px; color: var(--ink); }
+    .article-body h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: var(--ink); }
     .article-body p { font-size: 17px; line-height: 1.78; color: #2e2e2c; margin-bottom: 18px; }
     .article-body ul, .article-body ol { padding-left: 22px; margin-bottom: 18px; }
     .article-body li { font-size: 17px; line-height: 1.75; color: #2e2e2c; margin-bottom: 6px; }
@@ -69,7 +98,6 @@
     .warning-callout { background: #FFF7ED; border-left: 3px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 28px 0; }
     .warning-callout p { margin: 0; font-size: 15px; color: var(--ink); }
 
-    /* Stat highlight boxes */
     .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
     .stat-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
     .stat-box-num { font-family: 'Instrument Serif', serif; font-size: 36px; letter-spacing: -1px; color: var(--ink); line-height: 1; }
@@ -144,21 +172,19 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-copy { font-size: 13px; color: var(--mid); }
 
-    @media (max-width: 1100px) {
-      .three-col { grid-template-columns: 340px 1fr; }
+    @media (max-width: 1024px) {
+      .two-col { grid-template-columns: 1fr; }
       .sidebar-col { display: none; }
       .mobile-toc { display: block; }
       .mobile-cta { display: block; }
     }
-    @media (max-width: 720px) {
-      .three-col { grid-template-columns: 1fr; padding: 32px 20px 60px; gap: 32px; }
-      .page-header { padding: 90px 20px 32px; }
-      .author-section, .more-section { padding-left: 20px; padding-right: 20px; }
-      .stat-row { grid-template-columns: 1fr; }
-    }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
+      .btn-dark { display: none; }
+      .hamburger { display: flex; }
+      .page-header, .video-section, .two-col, .author-section, .more-section { padding-left: 20px; padding-right: 20px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
     }
@@ -179,8 +205,19 @@
     <li><a href="../contact.html">Let's Talk</a></li>
   </ul>
   <a href="../contact.html" class="btn btn-dark">Let's Talk →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../services.html">Services</a>
+  <a href="index">Learn</a>
+  <a href="../contact.html">Let's Talk</a>
+</div>
+
+<!-- HEADER -->
 <div class="page-header">
   <a href="index" class="back-link">← Back to Learn</a>
   <div class="article-badge badge-video">▶ Video</div>
@@ -202,16 +239,16 @@
   </div>
 </div>
 
-<div class="three-col">
-
-  <!-- LEFT: video -->
-  <div class="video-col">
-    <div class="long-video-wrap">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+<!-- FULL WIDTH VIDEO -->
+<div class="video-section">
+  <div class="full-video-wrap">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
+</div>
 
-  <!-- MIDDLE: article -->
+<!-- TWO COLUMN: article + sidebar -->
+<div class="two-col">
+
   <div class="article-body" id="article-body">
 
     <div class="mobile-toc" id="mobile-toc">
@@ -224,14 +261,8 @@
     <p>On the surface, it looks like it worked. Their organic traffic doubled — from around 5M to 10M monthly visits. But when you dig deeper, the strategy and the risks become much clearer.</p>
 
     <div class="stat-row">
-      <div class="stat-box">
-        <div class="stat-box-num">5M</div>
-        <div class="stat-box-label">Monthly visits before</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-box-num green">10M</div>
-        <div class="stat-box-label">Monthly visits after</div>
-      </div>
+      <div class="stat-box"><div class="stat-box-num">5M</div><div class="stat-box-label">Monthly visits before</div></div>
+      <div class="stat-box"><div class="stat-box-num green">10M</div><div class="stat-box-label">Monthly visits after</div></div>
     </div>
 
     <h2 id="h2-what-wix-did">What Wix Actually Did</h2>
@@ -240,21 +271,14 @@
 
     <h2 id="h2-high-risk">The Reality: This Is High-Risk SEO</h2>
     <p>Here's the key insight: this strategy works differently depending on your authority. Wix has a domain rating around 95. That gives them significant margin for error. If a smaller site tried the same approach, you might see a short-term spike — then a sharp decline.</p>
-
-    <p>This is what people are calling "Mount AI" — scale AI content quickly, traffic rises, then rankings collapse. Why? Because large-scale AI content introduces system-level signals, not just page-level issues:</p>
-    <ul>
-      <li>Repetition across URLs</li>
-      <li>Predictable internal linking</li>
-      <li>Similar topical coverage with low differentiation</li>
-      <li>Weak engagement signals over time</li>
-    </ul>
+    <p>This is what people are calling "Mount AI" — scale AI content quickly, traffic rises, then rankings collapse. Because large-scale AI content introduces system-level signals, not just page-level issues: repetition across URLs, predictable internal linking, similar topical coverage with low differentiation, and weak engagement signals over time.</p>
 
     <div class="warning-callout">
       <p>⚠️ <strong>Mount AI:</strong> Once enough of these signals accumulate, the entire folder — or even the domain — can get devalued. This isn't a page-level problem. It's a system-level one.</p>
     </div>
 
     <h2 id="h2-patterns">The Biggest Problem: Patterns</h2>
-    <p>The core issue isn't "AI content." It's detectable patterns across a system of pages. When you scale dozens (or hundreds) of pages, patterns start showing up that Google reads as signals:</p>
+    <p>The core issue isn't "AI content." It's detectable patterns across a system of pages. When you scale dozens of pages, patterns start showing up that Google reads as signals:</p>
 
     <h3>Repetitive content structures</h3>
     <p>Same intro format, same H2 flow (definition → steps → tips → conclusion), same list formatting across pages.</p>
@@ -273,35 +297,20 @@
     </div>
 
     <h2 id="h2-outbound">Another Hidden Pattern: Outbound Links</h2>
-    <p>One of the more subtle issues: many AI-generated sites link to the same authority sources repeatedly — McKinsey, Deloitte, BCG. The logic is simple: add authority by citing trusted sources. But at scale, this becomes a footprint. Same domains linked across dozens of pages, same type of studies referenced, same placement in content. It's not that linking out is bad — it's that doing it the same way across 50+ pages is a detectable pattern of manufactured credibility.</p>
+    <p>Many AI-generated sites link to the same authority sources repeatedly — McKinsey, Deloitte, BCG. The logic is simple: add authority by citing trusted sources. But at scale, this becomes a footprint. Same domains linked across dozens of pages, same type of studies referenced, same placement in content. It's not that linking out is bad — it's that doing it the same way across 50+ pages is a detectable pattern of manufactured credibility.</p>
 
     <h2 id="h2-why-wix-survives">Why Wix Hasn't Been Crushed (Yet)</h2>
-    <p>There are a few practical reasons Wix is still ranking. First, domain authority — they can absorb weak content signals because they have a strong backlink profile, brand searches, and high trust signals. A smaller site doesn't have that buffer.</p>
-    <p>Second, timing. They launched this content in early 2023, when there was less competition from AI content and less aggressive pattern detection. Third, relative scale — roughly 50 pages in this cluster on a domain like Wix is small. On a smaller site, that could be 80% of your content. And finally, Wix doesn't need these pages to survive. They have product pages, branded traffic, and direct traffic. Even if this content underperforms, the business is unaffected.</p>
+    <p>There are a few practical reasons Wix is still ranking. First, domain authority — they can absorb weak content signals because they have a strong backlink profile, brand searches, and high trust signals. A smaller site doesn't have that buffer. Second, timing — they launched in early 2023, when there was less competition from AI content and less aggressive pattern detection. Third, relative scale — roughly 50 pages in this cluster on a domain like Wix is small. On a smaller site, that could be 80% of your content. And finally, Wix doesn't need these pages to survive. Even if this content underperforms, the business is unaffected.</p>
 
     <h2 id="h2-information-gain">The Information Gain Problem</h2>
-    <p>This is where most AI SEO strategies fall apart. AI struggles to create new information. Most AI content rewrites existing ideas, combines known concepts, and doesn't introduce anything genuinely new. That creates two problems.</p>
-    <p>First, no reason to rank — if 20 pages already exist on a topic and yours says the same thing, why should Google rank yours? Second, no reason to be cited by AI — LLMs prefer data points, unique insights, and original examples. Generic content won't get cited.</p>
-
-    <p>What information gain actually looks like in practice: original data (even small datasets), aggregated stats from multiple sources, real examples from your product or users, step-by-step workflows that aren't obvious. Even something simple like "we analysed 50 SaaS landing pages" or "here's a calculator to apply this" is enough to differentiate.</p>
+    <p>This is where most AI SEO strategies fall apart. AI struggles to create genuinely new information. Most AI content rewrites existing ideas, combines known concepts, and doesn't introduce anything new. That creates two problems: no reason to rank (if 20 pages already exist on a topic and yours says the same thing), and no reason to be cited by AI (LLMs prefer data points, unique insights, and original examples).</p>
+    <p>What information gain actually looks like: original data (even small datasets), aggregated stats from multiple sources, real examples from your product or users, step-by-step workflows that aren't obvious. Even something simple like "we analysed 50 SaaS landing pages" is enough to differentiate.</p>
 
     <h2 id="h2-what-works">What Actually Works Instead</h2>
-    <p>The takeaway isn't "don't use AI." It's: stop using AI like a content factory.</p>
-
-    <h3>Break patterns</h3>
-    <p>Don't systematise content too aggressively. Change structure between pages, mix formats (guides, comparisons, templates), and vary depth and layout. If everything looks the same, it will get treated the same.</p>
-
-    <h3>Expand beyond one query type</h3>
-    <p>Wix focused heavily on "how to" queries. A stronger approach includes comparison pages, tool pages, templates, case studies, and commercial intent pages. This diversifies your footprint.</p>
-
-    <h3>Add functional value</h3>
-    <p>Text alone is weak. Add something users can actually do — calculators, quizzes, tools, templates. Instead of "What is gross profit?", add a calculator, a real example, and a downloadable template. Now the page has utility.</p>
-
-    <h3>Use AI as drafting, not publishing</h3>
-    <p>Better workflow: AI → first draft, human → restructuring + examples, then add data, tools, or UX elements. Most teams skip the second and third steps entirely.</p>
+    <p>The takeaway isn't "don't use AI." It's: stop using AI like a content factory. Break patterns by changing structure between pages, mixing formats, and varying depth. Expand beyond one query type — comparison pages, tool pages, templates, case studies, commercial intent pages. Add functional value with calculators, quizzes, or templates. Use AI as drafting, not publishing — AI first draft, human restructuring and examples, then add data or UX elements.</p>
 
     <h2 id="h2-final-thought">Final Thought</h2>
-    <p>AI content isn't the problem. Predictable systems are. If your content strategy looks like the same structure, the same sources, the same intent, scaled across dozens of pages — it will work until it doesn't. The sites that last are the ones that mix formats, add real utility, and create small but meaningful differences across pages. Because at scale, search engines don't just evaluate content. They evaluate patterns.</p>
+    <p>AI content isn't the problem. Predictable systems are. If your content strategy looks like the same structure, same sources, same intent, scaled across dozens of pages — it will work until it doesn't. The sites that last mix formats, add real utility, and create small but meaningful differences across pages. Because at scale, search engines don't just evaluate content. They evaluate patterns.</p>
 
     <div class="mobile-cta">
       <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:10px;">Work with Harpreet</div>
@@ -312,7 +321,6 @@
 
   </div>
 
-  <!-- RIGHT: TOC + CTA -->
   <aside class="sidebar-col">
     <div class="toc-card" id="toc-card">
       <div class="toc-heading">Contents</div>
@@ -386,6 +394,17 @@
 
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }));
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); io.unobserve(e.target); } });
