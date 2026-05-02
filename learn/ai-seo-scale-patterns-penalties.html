@@ -4,21 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI SEO at Scale: Patterns, Penalties & the Wix Case Study — Harpreet Singh Chatha</title>
-
-  <!-- OG / Social -->
-  <meta property="og:title" content="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" />
-  <meta property="og:description" content="After ChatGPT launched, a lot of companies started asking the same question: can we scale SEO with AI and win? Wix is one of the most interesting real-world examples." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://harpstestwebsite.vercel.app/learn/ai-seo-scale-patterns-penalties" />
-  <meta property="og:image" content="https://harpstestwebsite.vercel.app/images/og/ai-seo-scale-patterns-penalties.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" />
-  <meta name="twitter:description" content="After ChatGPT launched, a lot of companies started asking the same question: can we scale SEO with AI and win?" />
-  <meta name="twitter:image" content="https://harpstestwebsite.vercel.app/images/og/ai-seo-scale-patterns-penalties.png" />
-  <meta property="article:published_time" content="2026-03-03" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -38,6 +23,16 @@
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 14px; font-weight: 400; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 110; }
+    .hamburger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(250,250,247,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 16px 20px 24px; z-index: 99; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 16px; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--ink); }
     .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; border: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s; white-space: nowrap; }
     .btn-dark { background: var(--ink); color: var(--cream); }
     .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,17,16,0.18); }
@@ -46,7 +41,7 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* PAGE HEADER */
+    /* ── PAGE HEADER ── */
     .page-header { max-width: 1200px; margin: 0 auto; padding: 100px 40px 40px; border-bottom: 1px solid var(--border); }
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--mid); text-decoration: none; margin-bottom: 20px; transition: color 0.2s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
     .back-link:hover { color: var(--ink); }
@@ -61,13 +56,32 @@
     .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-left: 4px; }
     .meta-tag { padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 11px; color: var(--mid); }
 
-    /* MOBILE VIDEO — shown only on small screens */
-    .mobile-video { display: none; padding: 28px 20px 0; }
-    .mobile-video-wrap { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(17,17,16,0.14); background: #000; }
-    .mobile-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+    /* ── FULL WIDTH VIDEO ── */
+    .video-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.38s forwards;
+    }
+    .full-video-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(17,17,16,0.14), 0 0 0 1px rgba(17,17,16,0.06);
+      background: #000;
+    }
+    .full-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
 
-    /* THREE COLUMN: article | right sidebar (video + toc + cta) */
-    .three-col { max-width: 1200px; margin: 0 auto; padding: 48px 40px 80px; display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
+    /* ── TWO COLUMN: article + sidebar ── */
+    .two-col {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 56px;
+      align-items: start;
+    }
 
     /* ARTICLE BODY */
     .article-body { min-width: 0; }
@@ -90,13 +104,8 @@
     .stat-box-num.green { color: var(--accent); }
     .stat-box-label { font-size: 12px; color: var(--mid); margin-top: 6px; }
 
-    /* RIGHT SIDEBAR */
+    /* SIDEBAR */
     .sidebar-col { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 20px; }
-
-    /* Sticky video in sidebar */
-    .sidebar-video-wrap { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(17,17,16,0.16), 0 0 0 1px rgba(17,17,16,0.06); background: #000; }
-    .sidebar-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
-
     .toc-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px; display: none; }
     .toc-card.show { display: block; }
     .toc-heading { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 12px; }
@@ -164,19 +173,17 @@
     .footer-copy { font-size: 13px; color: var(--mid); }
 
     @media (max-width: 1024px) {
-      .three-col { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
       .sidebar-col { display: none; }
-      .mobile-video { display: block; }
       .mobile-toc { display: block; }
       .mobile-cta { display: block; }
-      .three-col { padding: 32px 20px 60px; }
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .page-header { padding: 90px 20px 32px; }
-      .author-section { padding-left: 20px; padding-right: 20px; }
-      .more-section { padding-left: 20px; padding-right: 20px; }
+      .btn-dark { display: none; }
+      .hamburger { display: flex; }
+      .page-header, .video-section, .two-col, .author-section, .more-section { padding-left: 20px; padding-right: 20px; }
       .stat-row { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
@@ -198,19 +205,30 @@
     <li><a href="../contact.html">Let's Talk</a></li>
   </ul>
   <a href="../contact.html" class="btn btn-dark">Let's Talk →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../services.html">Services</a>
+  <a href="index">Learn</a>
+  <a href="../contact.html">Let's Talk</a>
+</div>
+
+<!-- HEADER -->
 <div class="page-header">
   <a href="index" class="back-link">← Back to Learn</a>
   <div class="article-badge badge-video">▶ Video</div>
   <h1 class="page-title">AI SEO at Scale: <em>Patterns, Penalties & the Wix Case Study</em></h1>
   <div class="page-meta">
     <div class="meta-avatar">
-      <img src="https://harpsdigital.com/wp-content/uploads/2025/05/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Chatha" />
+      <img src="https://harpsdigital.com/wp-content/uploads/2025/05/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Singh Chatha" />
     </div>
-    <span>Harpreet Chatha</span>
+    <span>Harpreet Singh Chatha</span>
     <span class="meta-dot">·</span>
-    <span>March 3, 2026</span>
+    <span>2025</span>
     <span class="meta-dot">·</span>
     <div class="meta-tags">
       <span class="meta-tag">AI SEO</span>
@@ -221,16 +239,16 @@
   </div>
 </div>
 
-<!-- MOBILE VIDEO (hidden on desktop) -->
-<div class="mobile-video">
-  <div class="mobile-video-wrap">
-    <iframe src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!-- FULL WIDTH VIDEO -->
+<div class="video-section">
+  <div class="full-video-wrap">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
 
-<div class="three-col">
+<!-- TWO COLUMN: article + sidebar -->
+<div class="two-col">
 
-  <!-- ARTICLE -->
   <div class="article-body" id="article-body">
 
     <div class="mobile-toc" id="mobile-toc">
@@ -303,11 +321,7 @@
 
   </div>
 
-  <!-- RIGHT SIDEBAR: sticky video + TOC + CTA -->
   <aside class="sidebar-col">
-    <div class="sidebar-video-wrap">
-      <iframe src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
     <div class="toc-card" id="toc-card">
       <div class="toc-heading">Contents</div>
       <ul class="toc-list" id="toc-list"></ul>
@@ -380,6 +394,17 @@
 
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }));
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); io.unobserve(e.target); } });
