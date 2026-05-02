@@ -10,7 +10,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --cream: #FAFAF7; --ink: #111110; --mid: #6B6B67; --accent: #1A6B3C; --accent-light: #E8F5EE; --border: #E4E4DF; --surface: #F5F5F1; --forest: #0D3D22; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
     /* NAV */
@@ -61,41 +61,20 @@
     .hero-photo-wrap::before { content: ''; position: absolute; width: 80px; height: 80px; border-radius: 50%; background: var(--accent-light); top: -20px; right: -20px; z-index: -1; }
     .hero-photo-wrap::after { content: ''; position: absolute; width: 48px; height: 48px; border-radius: 50%; background: var(--border); bottom: -16px; left: -16px; z-index: -1; }
 
-    <!-- CLIENT SCROLLER -->
+    /* SCROLLER */
     .scroller-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
-.scroller-label { text-align: center; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 20px; }
-.scroller-track { display: flex; align-items: center; width: max-content; animation: ticker 28s linear infinite; }
-.scroller-track:hover { animation-play-state: paused; }
-.scroller-item { padding: 0 48px; font-family: 'Instrument Serif', serif; font-size: 22px; letter-spacing: -0.5px; color: #C5C5BF; white-space: nowrap; transition: color 0.3s; cursor: default; display: flex; align-items: center; }
-.scroller-item:hover { color: var(--ink); }
-.scroller-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
-.scroller-item img { height: 64px; width: auto; opacity: 0.45; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; display: block; }
-.scroller-item:hover img { opacity: 1; filter: grayscale(0%); }
-<div class="scroller-section">
-  <div class="scroller-label">Clients & Brands</div>
-  <div class="scroller-track">
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
-  </div>
-</div>
+    .scroller-label { text-align: center; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 20px; }
+    .scroller-track { display: flex; align-items: center; width: max-content; animation: ticker 28s linear infinite; }
+    .scroller-track:hover { animation-play-state: paused; }
+    .scroller-item { padding: 0 48px; font-family: 'Instrument Serif', serif; font-size: 22px; letter-spacing: -0.5px; color: #C5C5BF; white-space: nowrap; transition: color 0.3s; cursor: default; display: flex; align-items: center; }
+    .scroller-item:hover { color: var(--ink); }
+    .scroller-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+    .scroller-item img { height: 64px; width: auto; opacity: 0.45; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; display: block; }
+    .scroller-item:hover img { opacity: 1; filter: grayscale(0%); }
 
     /* SERVICES */
     .services-list { margin-top: 48px; }
-    .service-row { display: grid; grid-template-columns: 80px 1fr; gap: 0 40px; padding: 32px 0; border-bottom: 1px solid var(--border); align-items: start; transition: background 0.2s; cursor: default; }
+    .service-row { display: grid; grid-template-columns: 80px 1fr; gap: 0 40px; padding: 32px 0; border-bottom: 1px solid var(--border); align-items: start; cursor: default; }
     .service-row:first-child { border-top: 1px solid var(--border); }
     .service-row:hover .service-num { color: var(--accent); }
     .service-row:hover .service-name { color: var(--accent); }
@@ -127,8 +106,6 @@
     .mc-forest { background: linear-gradient(145deg, #0a2010, #0d3d22); }
     .mc-slate { background: linear-gradient(145deg, #141820, #1e2433); }
     .mc-plum  { background: linear-gradient(145deg, #1a0d26, #2d1545); }
-    @media (max-width: 900px) { .media-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .media-grid { grid-template-columns: 1fr; } }
 
     /* TESTIMONIALS */
     .testimonials-slider-wrap { margin-top: 48px; position: relative; overflow: hidden; }
@@ -168,6 +145,7 @@
       .hero h1 { font-size: clamp(38px, 9vw, 58px); }
       .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; margin-top: 48px; }
       .stat-num { font-size: 30px; }
+      .media-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
@@ -175,6 +153,10 @@
       section { padding: 70px 20px; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
+    }
+    @media (max-width: 560px) {
+      .media-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
       .hero { padding: 90px 20px 56px; }
