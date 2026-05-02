@@ -96,6 +96,9 @@
     .service-desc { font-size: 14px; color: var(--mid); line-height: 1.7; max-width: 560px; }
     .services-footer { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
 
+    /* NUMBERS */
+    .nums-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+
     /* MEDIA CARDS */
     .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
     .media-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #fff; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.22s, box-shadow 0.22s; }
@@ -165,6 +168,7 @@
       .btn-dark { display: none; }
       .hamburger { display: flex; }
       section { padding: 70px 20px; }
+      .nums-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
     }
@@ -317,7 +321,7 @@
       <span class="section-tag">Proven results</span>
       <h2 class="section-title">Numbers that matter.</h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;" class="reveal">
+    <div class="nums-grid reveal">
       <div style="background:#fff;border:1px solid #E4E4DF;border-radius:16px;padding:36px;">
         <div style="font-family:'Instrument Serif',serif;font-size:72px;letter-spacing:-3px;line-height:1;color:#111110;margin-bottom:4px;">$50<span style="color:#1A6B3C;">M+</span></div>
         <div style="font-size:13px;color:#6B6B67;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #E4E4DF;">Revenue generated for clients</div>
