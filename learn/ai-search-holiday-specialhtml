@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SEO vs AI Search: The AI Search Holiday Special — Harpreet Singh Chatha</title>
+  <title>SEO vs AI Search: The AI Search Holiday Special — Harpreet Chatha</title>
+  <meta property="og:title" content="SEO vs AI Search: The AI Search Holiday Special" />
+  <meta property="og:description" content="A two-hour holiday roundtable on the future of AI and SEO — what actually changed in search in 2025, what stayed the same, and how much noise has crept into the industry." />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2025-12-30" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -12,9 +16,7 @@
     :root { --cream: #FAFAF7; --ink: #111110; --mid: #6B6B67; --accent: #1A6B3C; --accent-light: #E8F5EE; --border: #E4E4DF; --surface: #F5F5F1; --forest: #0D3D22; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-
     #progress-bar { position: fixed; top: 0; left: 0; z-index: 200; height: 3px; width: 0%; background: var(--accent); transition: width 0.08s linear; pointer-events: none; }
-
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; background: rgba(250,250,247,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
     nav.scrolled { border-color: var(--border); }
     .nav-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; line-height: 1.2; letter-spacing: -0.3px; }
@@ -26,12 +28,9 @@
     .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; border: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s; white-space: nowrap; }
     .btn-dark { background: var(--ink); color: var(--cream); }
     .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,17,16,0.18); }
-
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── PAGE HEADER ── */
     .page-header { max-width: 1200px; margin: 0 auto; padding: 100px 40px 40px; border-bottom: 1px solid var(--border); }
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--mid); text-decoration: none; margin-bottom: 20px; transition: color 0.2s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
     .back-link:hover { color: var(--ink); }
@@ -45,57 +44,23 @@
     .meta-dot { color: var(--border); }
     .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-left: 4px; }
     .meta-tag { padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 11px; color: var(--mid); }
-
-    /* ── FULL WIDTH VIDEO ── */
-    .video-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 48px 40px 0;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.38s forwards;
-    }
-    .full-video-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 16px 48px rgba(17,17,16,0.14), 0 0 0 1px rgba(17,17,16,0.06);
-      background: #000;
-    }
-    .full-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
-
-    /* ── TWO COLUMN: article + sidebar ── */
-    .two-col {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 48px 40px 80px;
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 56px;
-      align-items: start;
-    }
-
-    /* ARTICLE BODY */
+    .mobile-video { display: none; padding: 28px 20px 0; }
+    .mobile-video-wrap { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(17,17,16,0.14); background: #000; }
+    .mobile-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+    .three-col { max-width: 1200px; margin: 0 auto; padding: 48px 40px 80px; display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
     .article-body { min-width: 0; }
     .article-body h2 { font-family: 'Instrument Serif', serif; font-size: 26px; letter-spacing: -0.5px; margin: 40px 0 14px; scroll-margin-top: 90px; }
     .article-body h2:first-of-type { margin-top: 0; }
-    .article-body h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: var(--ink); }
     .article-body p { font-size: 17px; line-height: 1.78; color: #2e2e2c; margin-bottom: 18px; }
-    .article-body ul, .article-body ol { padding-left: 22px; margin-bottom: 18px; }
+    .article-body ul { padding-left: 22px; margin-bottom: 18px; }
     .article-body li { font-size: 17px; line-height: 1.75; color: #2e2e2c; margin-bottom: 6px; }
     .article-body strong { font-weight: 500; color: var(--ink); }
     .standfirst { font-size: 19px; line-height: 1.7; color: var(--ink); font-weight: 300; margin-bottom: 32px; }
     .callout { background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 28px 0; }
     .callout p { margin: 0; font-size: 15px; color: var(--ink); }
-    .warning-callout { background: #FFF7ED; border-left: 3px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 28px 0; }
-    .warning-callout p { margin: 0; font-size: 15px; color: var(--ink); }
-
-    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
-    .stat-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
-    .stat-box-num { font-family: 'Instrument Serif', serif; font-size: 36px; letter-spacing: -1px; color: var(--ink); line-height: 1; }
-    .stat-box-num.green { color: var(--accent); }
-    .stat-box-label { font-size: 12px; color: var(--mid); margin-top: 6px; }
-
-    /* SIDEBAR */
     .sidebar-col { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-video-wrap { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(17,17,16,0.16), 0 0 0 1px rgba(17,17,16,0.06); background: #000; }
+    .sidebar-video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
     .toc-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px; display: none; }
     .toc-card.show { display: block; }
     .toc-heading { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 12px; }
@@ -110,8 +75,6 @@
     .side-cta-sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 18px; }
     .side-cta-btn { display: block; text-align: center; padding: 10px 16px; border-radius: 999px; background: #fff; color: var(--forest); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.18s, transform 0.18s; }
     .side-cta-btn:hover { background: #f0faf4; transform: translateY(-1px); }
-
-    /* MOBILE TOC */
     .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
     .mobile-toc-toggle { width: 100%; background: #fff; border: none; padding: 13px 18px; display: flex; align-items: center; justify-content: space-between; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--ink); }
     .mobile-toc-icon { font-size: 12px; transition: transform 0.2s; }
@@ -121,8 +84,6 @@
     .mobile-toc-body a { display: block; font-size: 14px; color: var(--mid); text-decoration: none; padding: 7px 0; border-bottom: 1px solid var(--border); }
     .mobile-toc-body a:last-child { border-bottom: none; }
     .mobile-cta { display: none; background: var(--forest); border-radius: 16px; padding: 24px 22px; margin-top: 32px; }
-
-    /* AUTHOR BIO */
     .author-section { max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
     .author-bio { border-top: 1px solid var(--border); padding-top: 44px; display: flex; gap: 20px; align-items: flex-start; }
     .bio-photo { width: 72px; height: 72px; border-radius: 16px; overflow: hidden; flex-shrink: 0; border: 2px solid var(--accent); }
@@ -131,8 +92,6 @@
     .bio-role { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
     .bio-text { font-size: 14px; color: var(--mid); line-height: 1.65; max-width: 520px; }
     .bio-cta { margin-top: 14px; }
-
-    /* MORE */
     .more-section { background: var(--surface); padding: 72px 40px; }
     .more-inner { max-width: 1200px; margin: 0 auto; }
     .section-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; display: block; margin-bottom: 8px; }
@@ -151,28 +110,27 @@
     .more-meta { padding: 12px 14px; font-size: 12px; color: var(--mid); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: #fff; }
     .more-arrow { font-size: 13px; transition: transform 0.2s; }
     .more-card:hover .more-arrow { transform: translateX(3px); color: var(--ink); }
-    .g1 { background: linear-gradient(145deg,#0f2027,#2c5364); }
     .g2 { background: linear-gradient(145deg,#1a1a2e,#16213e); }
+    .g3 { background: linear-gradient(145deg,#134e5e,#71b280); }
     .g4 { background: linear-gradient(145deg,#232526,#3a3d40); }
-
     footer { border-top: 1px solid var(--border); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
     .footer-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
     .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
     .footer-links a { font-size: 13px; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--ink); }
     .footer-copy { font-size: 13px; color: var(--mid); }
-
     @media (max-width: 1024px) {
-      .two-col { grid-template-columns: 1fr; }
+      .three-col { grid-template-columns: 1fr; padding: 32px 20px 60px; }
       .sidebar-col { display: none; }
+      .mobile-video { display: block; }
       .mobile-toc { display: block; }
       .mobile-cta { display: block; }
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .page-header, .video-section, .two-col, .author-section, .more-section { padding-left: 20px; padding-right: 20px; }
-      .stat-row { grid-template-columns: 1fr 1fr; }
+      .page-header { padding: 90px 20px 32px; }
+      .author-section, .more-section { padding-left: 20px; padding-right: 20px; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
     }
@@ -188,14 +146,13 @@
     <span class="nav-logo-bottom">Search</span>
   </a>
   <ul class="nav-links">
-    <li><a href="../services.html">Services</a></li>
-    <li><a href="index" class="active">Learn</a></li>
-    <li><a href="../contact.html">Let's Talk</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="learn/index.html">Learn</a></li>
   </ul>
   <a href="../contact.html" class="btn btn-dark">Let's Talk →</a>
 </nav>
 
-<!-- HEADER -->
 <div class="page-header">
   <a href="index" class="back-link">← Back to Learn</a>
   <div class="article-badge badge-video">▶ Video</div>
@@ -204,28 +161,26 @@
     <div class="meta-avatar">
       <img src="https://harpsdigital.com/wp-content/uploads/2025/05/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Singh Chatha" />
     </div>
-    <span>Harpreet Singh Chatha</span>
+    <span>Harpreet Chatha</span>
     <span class="meta-dot">·</span>
     <span>30 December 2025</span>
     <span class="meta-dot">·</span>
     <div class="meta-tags">
-      <span class="meta-tag">AI SEO</span>
-      <span class="meta-tag">Case Study</span>
-      <span class="meta-tag">Content Strategy</span>
-      <span class="meta-tag">Wix</span>
+      <span class="meta-tag">SEO</span>
+      <span class="meta-tag">AI Search</span>
+      <span class="meta-tag">Strategy</span>
+      <span class="meta-tag">2026</span>
     </div>
   </div>
 </div>
 
-<!-- FULL WIDTH VIDEO -->
-<div class="video-section">
-  <div class="full-video-wrap">
+<div class="mobile-video">
+  <div class="mobile-video-wrap">
     <iframe src="https://www.youtube.com/embed/yFWEpLPMl08?si=muH93AI4qg7rexBO" title="SEO vs AI Search Holiday Special" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
 
-<!-- TWO COLUMN: article + sidebar -->
-<div class="two-col">
+<div class="three-col">
 
   <div class="article-body" id="article-body">
 
@@ -272,6 +227,9 @@
   </div>
 
   <aside class="sidebar-col">
+    <div class="sidebar-video-wrap">
+      <iframe src="https://www.youtube.com/embed/yFWEpLPMl08?si=muH93AI4qg7rexBO" title="SEO vs AI Search Holiday Special" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <div class="toc-card" id="toc-card">
       <div class="toc-heading">Contents</div>
       <ul class="toc-list" id="toc-list"></ul>
@@ -292,7 +250,7 @@
       <img src="https://harpsdigital.com/wp-content/uploads/2025/05/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Singh Chatha" />
     </div>
     <div>
-      <div class="bio-name">Harpreet Singh Chatha</div>
+      <div class="bio-name">Harpreet Chatha</div>
       <div class="bio-role">SEO & AI Search Consultant</div>
       <p class="bio-text">10+ years helping brands grow through organic search. I make videos and write about where search is heading — and what to do about it.</p>
       <div class="bio-cta"><a href="../contact.html" class="btn btn-dark" style="font-size:13px;padding:9px 18px;">Work with me →</a></div>
@@ -332,7 +290,7 @@
     <li><a href="../contact.html">Let's Talk</a></li>
     <li><a href="https://seoespresso.com" target="_blank">Newsletter</a></li>
   </ul>
-  <div class="footer-copy">© 2026 Harpreet Singh Chatha</div>
+  <div class="footer-copy">© 2026 Harpreet Chatha</div>
 </footer>
 
 <script>
@@ -341,36 +299,26 @@
     const d = document.documentElement;
     bar.style.width = ((d.scrollTop || document.body.scrollTop) / (d.scrollHeight - d.clientHeight) * 100 || 0) + '%';
   }, { passive: true });
-
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
-
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
   const h2s = document.querySelectorAll('.article-body h2');
   const tocList = document.getElementById('toc-list');
   const tocCard = document.getElementById('toc-card');
   const mobileToc = document.getElementById('mobile-toc');
   const mobileTocBody = document.getElementById('mobile-toc-body');
-
   if (h2s.length >= 4) {
     h2s.forEach(h => {
       if (!h.id) h.id = 'h2-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 50);
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = '#' + h.id; a.textContent = h.textContent;
-      li.appendChild(a); tocList.appendChild(li);
-      const ma = document.createElement('a');
-      ma.href = '#' + h.id; ma.textContent = h.textContent;
-      mobileTocBody.appendChild(ma);
+      const li = document.createElement('li'); const a = document.createElement('a');
+      a.href = '#' + h.id; a.textContent = h.textContent; li.appendChild(a); tocList.appendChild(li);
+      const ma = document.createElement('a'); ma.href = '#' + h.id; ma.textContent = h.textContent; mobileTocBody.appendChild(ma);
     });
-    tocCard.classList.add('show');
-    mobileToc.style.display = 'block';
+    tocCard.classList.add('show'); mobileToc.style.display = 'block';
   }
-
   h2s.forEach(h => {
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -382,7 +330,6 @@
       });
     }, { rootMargin: '-10% 0px -80% 0px' }).observe(h);
   });
-
   const mToggle = document.getElementById('mobile-toc-toggle');
   const mBody = document.getElementById('mobile-toc-body');
   if (mToggle) {
