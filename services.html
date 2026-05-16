@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SEO Services — Harpreet Singh Chatha</title>
+  <title>SEO Services — Harpreet Chatha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -45,13 +45,17 @@
     .mobile-menu a { font-size: 16px; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu a:hover { color: var(--ink); }
+
+    /* BUTTONS */
     .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; border: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s; white-space: nowrap; }
     .btn-dark { background: var(--ink); color: var(--cream); }
     .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,17,16,0.18); }
     .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
     .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
-    .btn-green { background: var(--accent); color: #fff; }
-    .btn-green:hover { background: #155a32; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,107,60,0.25); }
+    .btn-white { background: #fff; color: var(--ink); border-radius: 999px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: border-color 0.18s; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
 
     /* LAYOUT */
     .container { max-width: 1200px; margin: 0 auto; }
@@ -61,6 +65,7 @@
 
     /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: none; }
 
@@ -71,7 +76,17 @@
     .page-hero h1 em { font-style: italic; color: var(--accent); }
     .hero-sub { margin-top: 24px; font-size: 19px; color: var(--mid); max-width: 600px; font-weight: 300; line-height: 1.6; opacity: 0; animation: fadeUp 0.8s 0.28s forwards; }
 
-    /* AI CONTEXT SECTION */
+    /* CLIENT SCROLLER */
+    .scroller-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
+    .scroller-label { text-align: center; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 20px; }
+    .scroller-track { display: flex; align-items: center; width: max-content; animation: ticker 28s linear infinite; }
+    .scroller-track:hover { animation-play-state: paused; }
+    .scroller-item { padding: 0 48px; display: flex; align-items: center; }
+    .scroller-item img { height: 64px; width: auto; opacity: 0.45; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; display: block; }
+    .scroller-item:hover img { opacity: 1; filter: grayscale(0%); }
+    .scroller-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+
+    /* AI CONTEXT */
     .ai-context { background: var(--forest); }
     .ai-context-inner { max-width: 1200px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .ai-context-left h2 { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 3.5vw, 48px); color: #fff; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
@@ -86,7 +101,7 @@
     /* SERVICES LIST */
     .services-section { padding: 100px 40px; }
     .services-list { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
-    .service-row { padding: 28px 0; border-bottom: 1px solid var(--border); cursor: default; }
+    .service-row { padding: 28px 0; border-bottom: 1px solid var(--border); }
     .service-row:nth-child(1), .service-row:nth-child(2) { border-top: 1px solid var(--border); }
     .service-row:hover .service-num { color: var(--accent); }
     .service-row:hover .service-name { color: var(--accent); }
@@ -97,10 +112,19 @@
     .service-bullets { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
     .service-bullets li { font-size: 13px; color: var(--mid); display: flex; align-items: center; gap: 8px; }
     .service-bullets li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    @media (max-width: 768px) {
-      .services-list { grid-template-columns: 1fr; }
-      .service-row:nth-child(2) { border-top: none; }
-    }
+    .service-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; transition: gap 0.2s; }
+    .service-link:hover { gap: 8px; }
+
+    /* WHAT'S INCLUDED */
+    .included-section { padding: 80px 40px; background: var(--surface); }
+    .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .included-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; }
+    .included-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .included-card-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .included-card-title { font-family: 'Instrument Serif', serif; font-size: 20px; letter-spacing: -0.4px; margin-bottom: 20px; }
+    .included-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .included-bullets li { font-size: 14px; color: var(--mid); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .included-bullets li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
 
     /* PROCESS */
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 56px; }
@@ -110,14 +134,16 @@
     .step-desc { font-size: 14px; color: var(--mid); line-height: 1.6; }
 
     /* CTA BAND */
-    .cta-band { background: var(--ink); border-radius: 24px; padding: 64px 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .cta-band { background: var(--ink); border-radius: 24px; padding: 64px 56px; }
+    .cta-band-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
     .cta-band h2 { font-family: 'Instrument Serif', serif; font-size: clamp(28px, 3vw, 42px); color: #fff; letter-spacing: -1px; max-width: 480px; line-height: 1.1; }
     .cta-band h2 em { font-style: italic; color: #6EE7A0; }
+    .cta-pricing { text-align: right; }
+    .cta-pricing-num { font-family: 'Instrument Serif', serif; font-size: 48px; color: #fff; letter-spacing: -2px; line-height: 1; }
+    .cta-pricing-num span { color: #6EE7A0; }
+    .cta-pricing-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+    .cta-band-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px; }
     .cta-band-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: var(--ink); border-radius: 999px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s; display: inline-flex; align-items: center; gap: 6px; }
-    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-    .btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: border-color 0.18s; display: inline-flex; align-items: center; gap: 6px; }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
 
     /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
@@ -132,8 +158,8 @@
       .ai-context-inner { grid-template-columns: 1fr; gap: 48px; }
       .included-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
       .cta-band { padding: 40px 28px; }
+      .cta-pricing { text-align: left; }
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
@@ -143,7 +169,9 @@
       .page-hero { padding: 110px 20px 60px; }
       section { padding: 70px 20px; }
       .services-section { padding: 70px 20px; }
-      .pricing-section { padding: 70px 20px; }
+      .included-section { padding: 70px 20px; }
+      .services-list { grid-template-columns: 1fr; }
+      .service-row:nth-child(2) { border-top: none; }
       .process-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; justify-content: center; }
       .footer-links { justify-content: center; }
@@ -163,7 +191,7 @@
     <li><a href="learn/index.html">Learn</a></li>
     <li><a href="contact.html">Let's Talk</a></li>
   </ul>
-  <a href="contact.html" class="btn btn-dark">Let's Talk</a>
+  <a href="contact.html" class="btn btn-dark">Let's Talk →</a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -180,30 +208,30 @@
 <div class="page-hero">
   <span class="page-eyebrow">Services</span>
   <h1>Organic visibility across <em>search and AI.</em></h1>
-  <p class="hero-sub">SEO strategy built for how search actually works today. Google, Bing, AI Overviews, ChatGPT, Perplexity. One integrated approach that covers all of it.</p>
+  <p class="hero-sub">SEO strategy built for how search actually works today. Google, Bing, AI Overviews, ChatGPT, Perplexity, Cluade. One integrated approach that covers all of it.</p>
 </div>
 
-<!-- AI CONTEXT -->
-<div class="ai-context">
-  <div class="ai-context-inner">
-    <div class="ai-context-left reveal">
-      <h2>Search has changed. The <em>strategy</em> has to as well.</h2>
-      <p>Traditional SEO is still the foundation. But ranking in blue links is no longer the whole game. AI platforms are now answering questions, recommending brands, and citing sources without users ever clicking a result. If your content is not visible in those systems, you are missing half the picture.</p>
-    </div>
-    <div class="ai-context-right reveal">
-      <div class="ai-point">
-        <div class="ai-point-label">Traditional SEO</div>
-        <div class="ai-point-text">Ranking on Google and Bing through technical foundations, content quality, and authority signals. Still essential. Still the base.</div>
-      </div>
-      <div class="ai-point">
-        <div class="ai-point-label">AEO / GEO</div>
-        <div class="ai-point-text">Answer Engine Optimisation and Generative Engine Optimisation. Getting your brand cited in AI-generated responses across ChatGPT, Perplexity, Gemini, and AI Overviews.</div>
-      </div>
-      <div class="ai-point">
-        <div class="ai-point-label">The integrated approach</div>
-        <div class="ai-point-text">Both channels feed each other. Strong organic SEO signals improve AI citation likelihood. Strong AI visibility builds brand authority that flows back into search rankings.</div>
-      </div>
-    </div>
+<!-- CLIENT SCROLLER -->
+<div class="scroller-section">
+  <div class="scroller-label">Clients & Brands</div>
+  <div class="scroller-track">
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
   </div>
 </div>
 
@@ -215,111 +243,125 @@
       <h2 class="section-title">Every service you need to grow.</h2>
     </div>
     <div class="services-list reveal">
+
       <div class="service-row">
         <div class="service-num">01</div>
         <div class="service-content">
           <div class="service-name">AEO and AI Search</div>
-          <p class="service-desc">Win visibility in AI-generated answers across ChatGPT, Perplexity, Gemini, and Google AI Overviews.</p>
-          <ul class="service-bullets">
-            <li>AI citation building and monitoring</li>
-            <li>Knowledge graph optimisation</li>
-            <li>Prompt visibility audits</li>
-            <li>LLM index and crawl strategy</li>
-            <li>Query fan-out content planning</li>
-          </ul>
+          <p class="service-desc">Get your brand cited and recommended in AI-generated answers across ChatGPT, Perplexity, Gemini, and Google AI Overviews</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">02</div>
         <div class="service-content">
           <div class="service-name">SEO Strategy</div>
-          <p class="service-desc">A bespoke strategy built around your goals, your market, and your competitive landscape.</p>
-          <ul class="service-bullets">
-            <li>12-month roadmap and KPI framework</li>
-            <li>Competitive gap analysis</li>
-            <li>Topical authority planning</li>
-            <li>Quarterly strategy reviews</li>
-          </ul>
+          <p class="service-desc">A bespoke roadmap built around your market, your competitors, and where your biggest organic growth opportunities actually are.</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">03</div>
         <div class="service-content">
           <div class="service-name">SEO Audits</div>
-          <p class="service-desc">Solution-driven audits that surface what is actually holding your site back. Delivered with a clear priority action plan.</p>
-          <ul class="service-bullets">
-            <li>Technical SEO audit</li>
-            <li>Content and semantic audit</li>
-            <li>Backlink profile review</li>
-            <li>Video walkthrough of findings</li>
-          </ul>
+          <p class="service-desc">Find out exactly what is holding your site back. You'll get solution-driven audits with a clear priority action plan, not a 60-page PDF never open.</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">04</div>
         <div class="service-content">
           <div class="service-name">Ecommerce SEO</div>
-          <p class="service-desc">Organic revenue growth for ecommerce brands. From product pages to category architecture.</p>
-          <ul class="service-bullets">
-            <li>Product and category page optimisation</li>
-            <li>Faceted navigation SEO</li>
-            <li>Structured data and rich results</li>
-            <li>Revenue-focused keyword strategy</li>
-          </ul>
+          <p class="service-desc">Shopify, Woo Commerce, something else? Turn organic search into a revenue channel. From product pages to category architecture, I build strategies around what drives purchases.</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">05</div>
         <div class="service-content">
           <div class="service-name">International SEO</div>
-          <p class="service-desc">Expand into new markets with a strategy built for multi-region, multi-language growth.</p>
-          <ul class="service-bullets">
-            <li>Hreflang implementation</li>
-            <li>Localisation audits</li>
-            <li>Geo-targeted content planning</li>
-            <li>International site architecture</li>
-          </ul>
+          <p class="service-desc">Expand into new markets without losing the rankings you already have. Multi-region, multi-language strategies that actually scale.</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">06</div>
         <div class="service-content">
           <div class="service-name">Migration and Redesign</div>
-          <p class="service-desc">Protect your rankings through site migrations, CMS changes, and domain moves.</p>
-          <ul class="service-bullets">
-            <li>Pre-migration SEO audit</li>
-            <li>Redirect mapping and implementation</li>
-            <li>Post-migration monitoring</li>
-            <li>CMS and platform transitions</li>
-          </ul>
+          <p class="service-desc">Protect the organic revenue you've built during site migrations, CMS changes, and domain moves.</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">07</div>
         <div class="service-content">
           <div class="service-name">Training and Workshops</div>
-          <p class="service-desc">Bespoke in-house workshops for marketing, content, and development teams.</p>
-          <ul class="service-bullets">
-            <li>SEO fundamentals for content teams</li>
-            <li>AI search strategy training</li>
-            <li>Technical SEO for developers</li>
-            <li>E-E-A-T and authority building</li>
-          </ul>
+          <p class="service-desc">Build search expertise inside your team. Bespoke in-house workshops for marketing, content, and development teams.</p>
         </div>
       </div>
+
       <div class="service-row">
         <div class="service-num">08</div>
         <div class="service-content">
           <div class="service-name">On-Demand Consulting</div>
-          <p class="service-desc">Senior SEO expertise whenever you need it. Think of it as a senior SEO in your back pocket.</p>
-          <ul class="service-bullets">
-            <li>Async Q and A support</li>
-            <li>Review and feedback rounds</li>
-            <li>Penalty recovery advice</li>
-            <li>Flexible retainer options</li>
-          </ul>
+          <p class="service-desc">Senior SEO expertise whenever you need it, without a long-term retainer. Think of it as a senior SEO in your back pocket.</p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<div class="included-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">What's included</span>
+      <h2 class="section-title">Three pillars of every engagement.</h2>
+    </div>
+    <div class="included-grid reveal">
+
+      <div class="included-card">
+        <div class="included-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M9 8h6M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="included-card-title">On-Page SEO</div>
+        <ul class="included-bullets">
+          <li>Content audits</li>
+          <li>Schema markup implementation</li>
+          <li>E-E-A-T signals</li>
+          <li>Internal linking audits</li>
+          <li>and a whole lot more</li>
+        </ul>
+      </div>
+
+      <div class="included-card">
+        <div class="included-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <div class="included-card-title">Technical SEO</div>
+        <ul class="included-bullets">
+          <li>Site migrations and redirects</li>
+          <li>JavaScript SEO</li>
+          <li>Index and crawl management</li>
+          <li>Speed and Core Web Vitals</li>
+          <li>Site architecture review</li>
+        </ul>
+      </div>
+
+      <div class="included-card">
+        <div class="included-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+        </div>
+        <div class="included-card-title">Off-Page SEO</div>
+        <ul class="included-bullets">
+          <li>Digital PR and link building</li>
+          <li>Multi-domain SEO</li>
+          <li>Knowledge graph optimisation</li>
+          <li>Reputation management</li>
+          <li>Podcast and video opportunities</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </div>
@@ -340,7 +382,7 @@
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-title">Audit and Strategy</div>
-        <p class="step-desc">I dig into your site, competitors, and market, then build a prioritised roadmap with clear next steps.</p>
+        <p class="step-desc">I dig into your site, competitors, and market, then deliver a prioritised action plan — not a document you'll never read.</p>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
@@ -360,9 +402,15 @@
 <section>
   <div class="container">
     <div class="cta-band reveal">
-      <h2>Ready to grow your <em>organic search?</em></h2>
+      <div class="cta-band-inner">
+        <h2>Ready to grow your <em>organic search?</em></h2>
+        <div class="cta-pricing">
+          
+        </div>
+      </div>
+      <hr class="cta-band-divider" />
       <div class="cta-band-actions">
-        <a href="contact.html" class="btn-white">Book a Consultation</a>
+        <a href="contact.html" class="btn-white">Book a Consultation →</a>
         <a href="contact.html" class="btn-ghost">Get a Quote</a>
       </div>
     </div>
@@ -375,7 +423,7 @@
     <span style="display:block;font-size:16px;font-family:'Instrument Serif',serif;">Harp Chatha</span>
     <span style="display:block;font-size:12px;color:var(--accent);font-style:italic;font-family:'Instrument Serif',serif;">Search</span>
   </a>
-  <ul class="footer-links">
+  <ul class="footer-links">se
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="learn/index.html">Learn</a></li>
