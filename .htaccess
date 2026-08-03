@@ -1,0 +1,77 @@
+# ---------------------------------------------------------
+# Enable Apache rewrite rules
+# ---------------------------------------------------------
+
+RewriteEngine On
+
+
+# ---------------------------------------------------------
+# Disable MultiViews
+#
+# MultiViews can interfere with extensionless URLs by trying
+# to guess which file should be served.
+# ---------------------------------------------------------
+
+Options -MultiViews
+
+
+# ---------------------------------------------------------
+# Set the default homepage
+# ---------------------------------------------------------
+
+DirectoryIndex index.html
+
+
+# ---------------------------------------------------------
+# Redirect /index.html to the homepage
+#
+# Example:
+# https://example.com/index.html
+# becomes:
+# https://example.com/
+# ---------------------------------------------------------
+
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[\s?]|$) [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+
+# ---------------------------------------------------------
+# Redirect visible .html URLs to clean URLs
+#
+# Example:
+# /learn/geo-aeo-ai-seo-panel.html
+# becomes:
+# /learn/geo-aeo-ai-seo-panel
+# ---------------------------------------------------------
+
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(?:[\s?]|$) [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
+
+
+# ---------------------------------------------------------
+# Leave real files and folders alone
+#
+# This prevents CSS, JavaScript, images, fonts and other
+# existing files from being rewritten.
+# ---------------------------------------------------------
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+
+# ---------------------------------------------------------
+# Internally load the matching HTML file
+#
+# Example:
+# Browser requests:
+# /learn/geo-aeo-ai-seo-panel
+#
+# Server internally serves:
+# /learn/geo-aeo-ai-seo-panel.html
+#
+# The visitor continues seeing the clean URL.
+# ---------------------------------------------------------
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
