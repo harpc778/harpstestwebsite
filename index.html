@@ -75,7 +75,7 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     /* HERO */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 40px 80px; max-width: 1200px; margin: 0 auto; }
+    .hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 40px 80px; max-width: 1200px; margin: 0 auto; }
     .hero-inner { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.7s 0.1s forwards; }
     .hero-eyebrow::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
@@ -83,7 +83,7 @@
     .hero h1 em { font-style: italic; color: var(--accent); }
     .hero-sub { margin-top: 28px; font-size: 18px; color: var(--mid); max-width: 520px; line-height: 1.65; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; }
     .hero-actions { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
-    .hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 36px; border-top: 1px solid var(--border); opacity: 0; animation: fadeUp 0.8s 0.65s forwards; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
     .stat-num { font-family: 'Instrument Serif', serif; font-size: 36px; letter-spacing: -1px; line-height: 1; }
     .stat-label { font-size: 13px; color: var(--mid); margin-top: 4px; }
     .hero-photo-wrap { opacity: 0; animation: fadeUp 0.9s 0.4s forwards; position: relative; }
@@ -92,6 +92,10 @@
     .hero-photo-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(26,107,60,0.18) 100%); pointer-events: none; }
     .hero-photo-wrap::before { content: ''; position: absolute; width: 80px; height: 80px; border-radius: 50%; background: var(--accent-light); top: -20px; right: -20px; z-index: -1; }
     .hero-photo-wrap::after { content: ''; position: absolute; width: 48px; height: 48px; border-radius: 50%; background: var(--border); bottom: -16px; left: -16px; z-index: -1; }
+
+    /* STATS (moved below client scroller, all screen sizes) */
+    .hero-stats-section { max-width: 1200px; margin: 0 auto; padding: 48px 40px 0; }
+    .hero-stats-section .hero-stats { border-top: 1px solid var(--border); padding-top: 36px; }
 
     /* SCROLLER */
     .scroller-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
@@ -171,51 +175,45 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-  .hero { padding: 100px 24px 64px; }
+      .hero { padding: 100px 24px 64px; }
 
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
 
-  .hero-left { display: contents; }
+      .hero-left { display: contents; }
 
-  .hero-eyebrow  { order: 1; }
-  .hero h1       { order: 2; font-size: clamp(38px, 9vw, 58px); }
-  .hero-photo-wrap {
-    order: 3;
-    width: 180px;
-    margin: 36px auto;
-    animation: fadeUp 0.8s 0.1s forwards;
-  }
-  .hero-sub      { order: 4; }
-  .hero-actions  { order: 5; }
-  .hero-stats {
-    order: 6;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px 20px;
-    margin-top: 48px;
-  }
+      .hero-eyebrow  { order: 1; }
+      .hero h1       { order: 2; font-size: clamp(38px, 9vw, 58px); }
+      .hero-photo-wrap {
+        order: 3;
+        width: 180px;
+        margin: 36px auto;
+        animation: fadeUp 0.8s 0.1s forwards;
+      }
+      .hero-sub      { order: 4; }
+      .hero-actions  { order: 5; }
 
-  .hero-photo-frame { border-radius: 18px; }
-  .hero-photo-wrap::before { width: 44px; height: 44px; top: -12px; right: -12px; }
-  .hero-photo-wrap::after  { width: 28px; height: 28px; bottom: -10px; left: -10px; }
+      .hero-photo-frame { border-radius: 18px; }
+      .hero-photo-wrap::before { width: 44px; height: 44px; top: -12px; right: -12px; }
+      .hero-photo-wrap::after  { width: 28px; height: 28px; bottom: -10px; left: -10px; }
 
-  .stat-num { font-size: 30px; }
-  .media-grid { grid-template-columns: repeat(2, 1fr); }
-}
+      .hero-stats-section { padding: 32px 24px 0; }
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .stat-num { font-size: 30px; }
+      .media-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-cta { display: none; }   /* was: nav .btn-dark */
-  .hamburger { display: flex; }
-  section { padding: 70px 20px; }
-  .nums-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; text-align: center; justify-content: center; }
-  .footer-links { justify-content: center; }
-}
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 70px 20px; }
+      .nums-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; justify-content: center; }
+      .footer-links { justify-content: center; }
     }
     @media (max-width: 560px) {
       .media-grid { grid-template-columns: 1fr; }
@@ -263,11 +261,6 @@
         <a href="contact.html" class="btn btn-dark">Book a Consultation →</a>
         <a href="services.html" class="btn btn-outline">See Services</a>
       </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">$50M+</div><div class="stat-label">Revenue generated</div></div>
-        <div><div class="stat-num">3M+</div><div class="stat-label">Keywords & prompts ranked</div></div>
-        <div><div class="stat-num">10+</div><div class="stat-label">Years experience</div></div>
-      </div>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
@@ -297,6 +290,15 @@
     <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
     <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
     <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="hero-stats-section">
+  <div class="hero-stats">
+    <div><div class="stat-num">$50M+</div><div class="stat-label">Revenue generated</div></div>
+    <div><div class="stat-num">3M+</div><div class="stat-label">Keywords & prompts ranked</div></div>
+    <div><div class="stat-num">10+</div><div class="stat-label">Years experience</div></div>
   </div>
 </div>
 
