@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SEO Services — Harpreet Chatha</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-  <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEO Services — Harpreet Chatha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KDY6ZBKLE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,7 +15,6 @@
   gtag('js', new Date());
   gtag('config', 'G-3KDY6ZBKLE');
 </script>
-
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -24,176 +23,216 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xttsbhj2pp");
 </script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --cream:#FAFAF7; --ink:#111110; --mid:#6B6B67; --accent:#1A6B3C;
+    --accent-light:#E8F5EE; --border:#111110; --surface:#F5F5F1; --forest:#0D3D22;
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background-color:var(--cream);
+    background-image: radial-gradient(var(--border) 0.6px, transparent 0.6px);
+    background-size: 22px 22px;
+    color:var(--ink); font-size:16px; line-height:1.6; overflow-x:hidden;
+  }
+  .container{ max-width:1200px; margin:0 auto; }
+  section{ padding:100px 40px; }
+  .section-tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--cream);
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:18px; display:inline-flex;
+    background:var(--accent); border:2px solid var(--border); padding:5px 12px; box-shadow:3px 3px 0 var(--border);
+  }
+  .section-title{ font-family:'Instrument Serif', serif; font-size:clamp(36px,4vw,56px); letter-spacing:-1.5px; line-height:1.08; margin-top:6px; }
+  .section-title em{ font-style:italic; color:var(--accent); }
 
-    :root {
-      --cream: #FAFAF7;
-      --ink: #111110;
-      --mid: #6B6B67;
-      --accent: #1A6B3C;
-      --accent-light: #E8F5EE;
-      --border: #E4E4DF;
-      --surface: #F5F5F1;
-      --forest: #0D3D22;
-    }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes ticker{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity 0.7s, transform 0.7s; }
+  .reveal.visible{ opacity:1; transform:none; }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+  /* NAV */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 40px; height:68px; background:var(--cream); border-bottom:3px solid var(--border);
+  }
+  .nav-logo{ font-family:'Instrument Serif', serif; color:var(--ink); text-decoration:none; display:flex; flex-direction:column; line-height:1.15; letter-spacing:-0.3px; }
+  .nav-logo-top{ font-size:17px; }
+  .nav-logo-bottom{ font-size:12px; color:var(--accent); font-style:italic; }
+  .nav-links{ display:flex; align-items:center; gap:30px; list-style:none; }
+  .nav-links a{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--mid); text-decoration:none; transition:color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--ink); }
+  .nav-links a.active{ color:var(--accent); }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; background: rgba(250,250,247,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-    nav.scrolled { border-color: var(--border); }
-    .nav-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; line-height: 1.2; letter-spacing: -0.3px; }
-    .nav-logo-top { font-size: 16px; }
-    .nav-logo-bottom { font-size: 12px; color: var(--accent); font-style: italic; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 14px; font-weight: 400; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .btn-brut{
+    display:inline-flex; align-items:center; gap:6px; padding:9px 18px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--ink); color:var(--cream); border:2px solid var(--border); box-shadow:4px 4px 0 var(--border);
+    text-decoration:none; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-brut:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--border); }
+  .btn-brut-outline{
+    display:inline-flex; align-items:center; gap:6px; padding:9px 18px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--cream); color:var(--ink); border:2px solid var(--border); box-shadow:4px 4px 0 var(--border);
+    text-decoration:none; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-brut-outline:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--border); background:var(--accent-light); }
+  .btn-brut-light{
+    display:inline-flex; align-items:center; gap:6px; padding:11px 22px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--cream); color:var(--ink); border:2px solid var(--cream); box-shadow:4px 4px 0 rgba(255,255,255,0.35);
+    text-decoration:none; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-brut-light:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(255,255,255,0.35); }
+  .btn-brut-ghost{
+    display:inline-flex; align-items:center; gap:6px; padding:11px 22px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:transparent; color:var(--cream); border:2px solid rgba(255,255,255,0.5);
+    text-decoration:none; cursor:pointer; transition:border-color 0.15s, transform 0.15s;
+  }
+  .btn-brut-ghost:hover{ border-color:var(--cream); transform:translate(-2px,-2px); }
 
-    /* HAMBURGER */
-    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 110; }
-    .hamburger span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(250,250,247,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 16px 20px 24px; z-index: 99; flex-direction: column; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 16px; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { color: var(--ink); }
+  /* HAMBURGER */
+  .hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; cursor:pointer; background:var(--cream); border:2px solid var(--border); padding:6px; z-index:110; }
+  .hamburger span{ display:block; height:2px; background:var(--ink); transition:transform 0.3s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu{ display:none; position:fixed; top:68px; left:0; right:0; background:var(--cream); border-bottom:3px solid var(--border); padding:16px 20px 24px; z-index:99; flex-direction:column; }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    font-family:'JetBrains Mono',monospace; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;
+    color:var(--mid); text-decoration:none; padding:14px 0; border-bottom:2px solid var(--border); transition:color 0.2s;
+  }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  .mobile-menu a:hover{ color:var(--ink); }
 
-    /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; border: none; transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s; white-space: nowrap; }
-    .btn-dark { background: var(--ink); color: var(--cream); }
-    .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,17,16,0.18); }
-    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
-    .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
-    .btn-white { background: #fff; color: var(--ink); border-radius: 999px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s; display: inline-flex; align-items: center; gap: 6px; }
-    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-    .btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: border-color 0.18s; display: inline-flex; align-items: center; gap: 6px; }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
+  /* PAGE HERO */
+  .page-hero{ padding:148px 40px 72px; max-width:1200px; margin:0 auto; border-bottom:3px solid var(--border); }
+  .page-eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--cream);
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:22px; display:inline-flex;
+    background:var(--accent); border:2px solid var(--border); padding:5px 12px; box-shadow:3px 3px 0 var(--border);
+    opacity:0; animation:fadeUp 0.6s 0.05s forwards;
+  }
+  .page-hero h1{ font-family:'Instrument Serif', serif; font-size:clamp(44px,6vw,80px); letter-spacing:-2px; line-height:1.06; max-width:800px; opacity:0; animation:fadeUp 0.8s 0.15s forwards; }
+  .page-hero h1 em{ font-style:italic; color:var(--accent); }
+  .hero-sub{ margin-top:22px; font-size:17px; color:var(--mid); max-width:600px; font-weight:400; line-height:1.65; opacity:0; animation:fadeUp 0.8s 0.28s forwards; }
 
-    /* LAYOUT */
-    .container { max-width: 1200px; margin: 0 auto; }
-    section { padding: 100px 40px; }
-    .section-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 20px; display: block; }
-    .section-title { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); letter-spacing: -1.5px; line-height: 1.08; }
+  /* CLIENT SCROLLER */
+  .scroller-section{ border-bottom:3px solid var(--border); padding:20px 0; overflow:hidden; }
+  .scroller-label{ text-align:center; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); margin-bottom:20px; }
+  .scroller-track{ display:flex; align-items:center; width:max-content; animation:ticker 28s linear infinite; gap:16px; }
+  .scroller-track:hover{ animation-play-state:paused; }
+  .scroller-item{
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--border); background:#fff; padding:16px 30px;
+    transition:box-shadow 0.2s, transform 0.2s;
+  }
+  .scroller-item:hover{ box-shadow:4px 4px 0 var(--border); transform:translate(-2px,-2px); }
+  .scroller-item img{ height:56px; width:auto; opacity:1; filter:grayscale(0%); display:block; }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
-    .reveal.visible { opacity: 1; transform: none; }
+  /* AI CONTEXT */
+  .ai-context{ background:var(--forest); border-bottom:3px solid var(--border); }
+  .ai-context-inner{ max-width:1200px; margin:0 auto; padding:88px 40px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  .ai-context-left .section-tag{ background:#6EE7A0; color:var(--forest); }
+  .ai-context-left h2{ font-family:'Instrument Serif', serif; font-size:clamp(32px,3.5vw,48px); color:#fff; letter-spacing:-1.5px; line-height:1.1; margin:14px 0 18px; }
+  .ai-context-left h2 em{ font-style:italic; color:#6EE7A0; }
+  .ai-context-left p{ font-size:15px; color:rgba(255,255,255,0.7); line-height:1.7; }
+  .ai-context-right{ display:flex; flex-direction:column; gap:14px; }
+  .ai-point{ border:2px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.03); padding:18px 20px; }
+  .ai-point-label{ font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6EE7A0; margin-bottom:8px; }
+  .ai-point-text{ font-size:14px; color:rgba(255,255,255,0.8); line-height:1.6; }
 
-    /* HERO */
-    .page-hero { padding: 140px 40px 80px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
-    .page-eyebrow { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 20px; display: block; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
-    .page-hero h1 { font-family: 'Instrument Serif', serif; font-size: clamp(44px, 6vw, 80px); letter-spacing: -2px; line-height: 1.06; max-width: 800px; opacity: 0; animation: fadeUp 0.8s 0.15s forwards; }
-    .page-hero h1 em { font-style: italic; color: var(--accent); }
-    .hero-sub { margin-top: 24px; font-size: 19px; color: var(--mid); max-width: 600px; font-weight: 300; line-height: 1.6; opacity: 0; animation: fadeUp 0.8s 0.28s forwards; }
+  /* SERVICES LIST */
+  .services-section{ padding:100px 40px; }
+  .services-list{ margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .service-row{
+    background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border);
+    padding:26px 24px; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .service-row:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--border); }
+  .service-num{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--cream);
+    background:var(--ink); border:2px solid var(--border); width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+  }
+  .service-row:hover .service-num{ background:var(--accent); }
+  .service-content{ display:flex; flex-direction:column; gap:6px; }
+  .service-name{ font-family:'Instrument Serif', serif; font-size:21px; letter-spacing:-0.4px; line-height:1.1; }
+  .service-desc{ font-size:14px; color:var(--mid); line-height:1.7; }
 
-    /* CLIENT SCROLLER */
-    .scroller-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
-    .scroller-label { text-align: center; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-bottom: 20px; }
-    .scroller-track { display: flex; align-items: center; width: max-content; animation: ticker 28s linear infinite; }
-    .scroller-track:hover { animation-play-state: paused; }
-    .scroller-item { padding: 0 48px; display: flex; align-items: center; }
-    .scroller-item img { height: 64px; width: auto; opacity: 0.45; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; display: block; }
-    .scroller-item:hover img { opacity: 1; filter: grayscale(0%); }
-    .scroller-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+  /* WHAT'S INCLUDED */
+  .included-section{ padding:96px 40px; background:var(--surface); border-bottom:3px solid var(--border); }
+  .included-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:48px; }
+  .included-card{ background:#fff; border:3px solid var(--border); box-shadow:7px 7px 0 var(--border); padding:30px 26px; }
+  .included-card-icon{
+    width:42px; height:42px; border:2.5px solid var(--border); background:var(--accent-light);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .included-card-icon svg{ width:20px; height:20px; stroke:var(--ink); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .included-card-title{ font-family:'Instrument Serif', serif; font-size:20px; letter-spacing:-0.4px; margin-bottom:18px; }
+  .included-bullets{ list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .included-bullets li{ font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--mid); display:flex; align-items:flex-start; gap:9px; line-height:1.5; }
+  .included-bullets li::before{ content:''; width:6px; height:6px; background:var(--accent); flex-shrink:0; margin-top:5px; }
 
-    /* AI CONTEXT */
-    .ai-context { background: var(--forest); }
-    .ai-context-inner { max-width: 1200px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .ai-context-left h2 { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 3.5vw, 48px); color: #fff; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
-    .ai-context-left h2 em { font-style: italic; color: #6EE7A0; }
-    .ai-context-left p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7; }
-    .ai-context-right { display: flex; flex-direction: column; gap: 0; }
-    .ai-point { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .ai-point:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
-    .ai-point-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #6EE7A0; margin-bottom: 6px; }
-    .ai-point-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  /* PROCESS */
+  .process-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:52px; }
+  .process-step{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:30px 24px; transition:transform 0.15s, box-shadow 0.15s; }
+  .process-step:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--border); }
+  .step-num{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--cream);
+    background:var(--ink); border:2px solid var(--border); width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .process-step:hover .step-num{ background:var(--accent); }
+  .step-title{ font-family:'Instrument Serif', serif; font-size:19px; letter-spacing:-0.3px; margin-bottom:8px; }
+  .step-desc{ font-size:13.5px; color:var(--mid); line-height:1.6; }
 
-    /* SERVICES LIST */
-    .services-section { padding: 100px 40px; }
-    .services-list { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
-    .service-row { padding: 28px 0; border-bottom: 1px solid var(--border); }
-    .service-row:nth-child(1), .service-row:nth-child(2) { border-top: 1px solid var(--border); }
-    .service-row:hover .service-num { color: var(--accent); }
-    .service-row:hover .service-name { color: var(--accent); }
-    .service-num { font-family: 'Instrument Serif', serif; font-size: 36px; color: var(--border); line-height: 1; letter-spacing: -2px; transition: color 0.3s; margin-bottom: 8px; }
-    .service-content { display: flex; flex-direction: column; gap: 6px; }
-    .service-name { font-family: 'Instrument Serif', serif; font-size: 21px; letter-spacing: -0.4px; line-height: 1.1; transition: color 0.3s; }
-    .service-desc { font-size: 14px; color: var(--mid); line-height: 1.7; }
-    .service-bullets { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
-    .service-bullets li { font-size: 13px; color: var(--mid); display: flex; align-items: center; gap: 8px; }
-    .service-bullets li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .service-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; transition: gap 0.2s; }
-    .service-link:hover { gap: 8px; }
+  /* CTA BAND */
+  .cta-band{ background:var(--ink); border:3px solid var(--border); box-shadow:8px 8px 0 var(--border); padding:56px 48px; }
+  .cta-band-inner{ display:flex; align-items:flex-start; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:32px; }
+  .cta-band h2{ font-family:'Instrument Serif', serif; font-size:clamp(28px,3vw,42px); color:#fff; letter-spacing:-1px; max-width:480px; line-height:1.1; }
+  .cta-band h2 em{ font-style:italic; color:#6EE7A0; }
+  .cta-band-divider{ border:none; border-top:2px solid rgba(255,255,255,0.15); margin-bottom:28px; }
+  .cta-band-actions{ display:flex; gap:12px; flex-wrap:wrap; }
 
-    /* WHAT'S INCLUDED */
-    .included-section { padding: 80px 40px; background: var(--surface); }
-    .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .included-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; }
-    .included-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-    .included-card-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .included-card-title { font-family: 'Instrument Serif', serif; font-size: 20px; letter-spacing: -0.4px; margin-bottom: 20px; }
-    .included-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .included-bullets li { font-size: 14px; color: var(--mid); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
-    .included-bullets li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
+  /* FOOTER */
+  footer{ border-top:3px solid var(--border); padding:40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer-logo{ font-family:'Instrument Serif', serif; color:var(--ink); text-decoration:none; }
+  .footer-links{ display:flex; gap:24px; list-style:none; flex-wrap:wrap; }
+  .footer-links a{ font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--mid); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover{ color:var(--ink); }
+  .footer-copy{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); }
 
-    /* PROCESS */
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 56px; }
-    .process-step { background: var(--cream); padding: 36px 28px; }
-    .step-num { font-family: 'Instrument Serif', serif; font-size: 48px; color: var(--border); line-height: 1; margin-bottom: 16px; }
-    .step-title { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
-    .step-desc { font-size: 14px; color: var(--mid); line-height: 1.6; }
-
-    /* CTA BAND */
-    .cta-band { background: var(--ink); border-radius: 24px; padding: 64px 56px; }
-    .cta-band-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
-    .cta-band h2 { font-family: 'Instrument Serif', serif; font-size: clamp(28px, 3vw, 42px); color: #fff; letter-spacing: -1px; max-width: 480px; line-height: 1.1; }
-    .cta-band h2 em { font-style: italic; color: #6EE7A0; }
-    .cta-pricing { text-align: right; }
-    .cta-pricing-num { font-family: 'Instrument Serif', serif; font-size: 48px; color: #fff; letter-spacing: -2px; line-height: 1; }
-    .cta-pricing-num span { color: #6EE7A0; }
-    .cta-pricing-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
-    .cta-band-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px; }
-    .cta-band-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-    .footer-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
-    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-    .footer-links a { font-size: 13px; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-copy { font-size: 13px; color: var(--mid); }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .ai-context-inner { grid-template-columns: 1fr; gap: 48px; }
-      .included-grid { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .cta-band { padding: 40px 28px; }
-      .cta-pricing { text-align: left; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .btn-dark { display: none; }
-      .hamburger { display: flex; }
-      .page-hero { padding: 110px 20px 60px; }
-      section { padding: 70px 20px; }
-      .services-section { padding: 70px 20px; }
-      .included-section { padding: 70px 20px; }
-      .services-list { grid-template-columns: 1fr; }
-      .service-row:nth-child(2) { border-top: none; }
-      .process-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; justify-content: center; }
-      .footer-links { justify-content: center; }
-    }
-  </style>
+  /* RESPONSIVE */
+  @media (max-width:900px){
+    .ai-context-inner{ grid-template-columns:1fr; gap:40px; }
+    .included-grid{ grid-template-columns:1fr; }
+    .process-grid{ grid-template-columns:1fr 1fr; }
+    .services-list{ grid-template-columns:1fr; }
+    .cta-band{ padding:36px 26px; }
+  }
+  @media (max-width:768px){
+    nav{ padding:0 20px; }
+    .nav-links{ display:none; }
+    .nav-cta{ display:none; }
+    .hamburger{ display:flex; }
+    .page-hero{ padding:118px 20px 56px; }
+    section{ padding:70px 20px; }
+    .services-section{ padding:70px 20px; }
+    .included-section{ padding:70px 20px; }
+    .process-grid{ grid-template-columns:1fr; }
+    footer{ flex-direction:column; text-align:center; justify-content:center; }
+    .footer-links{ justify-content:center; }
+  }
+</style>
 </head>
 <body>
 
@@ -208,10 +247,8 @@
     <li><a href="learn/index.html">Learn</a></li>
     <li><a href="contact.html">Let's Talk</a></li>
   </ul>
-  <a href="contact.html" class="btn btn-dark">Let's Talk →</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="contact.html" class="btn-brut nav-cta">Let's Talk →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
@@ -225,30 +262,54 @@
 <div class="page-hero">
   <span class="page-eyebrow">Services</span>
   <h1>Organic visibility across <em>search and AI.</em></h1>
-  <p class="hero-sub">SEO strategy built for how search actually works today. Google, Bing, AI Overviews, ChatGPT, Perplexity, Cluade. One integrated approach that covers all of it.</p>
+  <p class="hero-sub">SEO strategy built for how search actually works today. Google, Bing, AI Overviews, ChatGPT, Perplexity, Claude. One integrated approach that covers all of it.</p>
 </div>
 
 <!-- CLIENT SCROLLER -->
 <div class="scroller-section">
   <div class="scroller-label">Clients & Brands</div>
   <div class="scroller-track">
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
-    <!-- Duplicate for seamless loop -->
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div><div class="scroller-dot"></div>
-    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div><div class="scroller-dot"></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Audi-Logo-1.png" alt="Audi" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/RBC-Logo.png" alt="RBC" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div>
+    <div class="scroller-item"><img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/main/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div>
+  </div>
+</div>
+
+<!-- AI CONTEXT -->
+<div class="ai-context">
+  <div class="ai-context-inner">
+    <div class="ai-context-left reveal">
+      <span class="section-tag">Why this matters now</span>
+      <h2>Search isn't just <em>Google anymore.</em></h2>
+      <p>Buyers are asking ChatGPT and Perplexity for recommendations before they ever open a search bar. If your brand isn't showing up in those answers, you're invisible to a growing share of your market — no matter how well you rank on page one.</p>
+    </div>
+    <div class="ai-context-right reveal">
+      <div class="ai-point">
+        <div class="ai-point-label">Traditional SEO</div>
+        <div class="ai-point-text">Ranking on Google and Bing is still the foundation — most traffic still starts there.</div>
+      </div>
+      <div class="ai-point">
+        <div class="ai-point-label">AI Overviews</div>
+        <div class="ai-point-text">Google's AI-generated summaries now answer queries before a single blue link appears.</div>
+      </div>
+      <div class="ai-point">
+        <div class="ai-point-label">LLM Citations</div>
+        <div class="ai-point-text">ChatGPT, Perplexity, and Claude cite sources directly — getting cited is the new page one.</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -257,73 +318,17 @@
   <div class="container">
     <div class="reveal">
       <span class="section-tag">What I do</span>
-      <h2 class="section-title">Every service you need to grow.</h2>
+      <h2 class="section-title">Every service you need to <em>grow.</em></h2>
     </div>
     <div class="services-list reveal">
-
-      <div class="service-row">
-        <div class="service-num">01</div>
-        <div class="service-content">
-          <div class="service-name">AEO and AI Search</div>
-          <p class="service-desc">Get your brand cited and recommended in AI-generated answers across ChatGPT, Perplexity, Gemini, and Google AI Overviews</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">02</div>
-        <div class="service-content">
-          <div class="service-name">SEO Strategy</div>
-          <p class="service-desc">A bespoke roadmap built around your market, your competitors, and where your biggest organic growth opportunities actually are.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">03</div>
-        <div class="service-content">
-          <div class="service-name">SEO Audits</div>
-          <p class="service-desc">Find out exactly what is holding your site back. You'll get solution-driven audits with a clear priority action plan, not a 60-page PDF never open.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">04</div>
-        <div class="service-content">
-          <div class="service-name">Ecommerce SEO</div>
-          <p class="service-desc">Shopify, Woo Commerce, something else? Turn organic search into a revenue channel. From product pages to category architecture, I build strategies around what drives purchases.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">05</div>
-        <div class="service-content">
-          <div class="service-name">International SEO</div>
-          <p class="service-desc">Expand into new markets without losing the rankings you already have. Multi-region, multi-language strategies that actually scale.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">06</div>
-        <div class="service-content">
-          <div class="service-name">Migration and Redesign</div>
-          <p class="service-desc">Protect the organic revenue you've built during site migrations, CMS changes, and domain moves.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">07</div>
-        <div class="service-content">
-          <div class="service-name">Training and Workshops</div>
-          <p class="service-desc">Build search expertise inside your team. Bespoke in-house workshops for marketing, content, and development teams.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-num">08</div>
-        <div class="service-content">
-          <div class="service-name">On-Demand Consulting</div>
-          <p class="service-desc">Senior SEO expertise whenever you need it, without a long-term retainer. Think of it as a senior SEO in your back pocket.</p>
-        </div>
-      </div>
+      <div class="service-row"><div class="service-num">01</div><div class="service-content"><div class="service-name">AEO and AI Search</div><p class="service-desc">Get your brand cited and recommended in AI-generated answers across ChatGPT, Perplexity, Gemini, and Google AI Overviews.</p></div></div>
+      <div class="service-row"><div class="service-num">02</div><div class="service-content"><div class="service-name">SEO Strategy</div><p class="service-desc">A bespoke roadmap built around your market, your competitors, and where your biggest organic growth opportunities actually are.</p></div></div>
+      <div class="service-row"><div class="service-num">03</div><div class="service-content"><div class="service-name">SEO Audits</div><p class="service-desc">Find out exactly what is holding your site back. You'll get solution-driven audits with a clear priority action plan, not a 60-page PDF never opened.</p></div></div>
+      <div class="service-row"><div class="service-num">04</div><div class="service-content"><div class="service-name">Ecommerce SEO</div><p class="service-desc">Shopify, WooCommerce, something else? Turn organic search into a revenue channel. From product pages to category architecture, I build strategies around what drives purchases.</p></div></div>
+      <div class="service-row"><div class="service-num">05</div><div class="service-content"><div class="service-name">International SEO</div><p class="service-desc">Expand into new markets without losing the rankings you already have. Multi-region, multi-language strategies that actually scale.</p></div></div>
+      <div class="service-row"><div class="service-num">06</div><div class="service-content"><div class="service-name">Migration and Redesign</div><p class="service-desc">Protect the organic revenue you've built during site migrations, CMS changes, and domain moves.</p></div></div>
+      <div class="service-row"><div class="service-num">07</div><div class="service-content"><div class="service-name">Training and Workshops</div><p class="service-desc">Build search expertise inside your team. Bespoke in-house workshops for marketing, content, and development teams.</p></div></div>
+      <div class="service-row"><div class="service-num">08</div><div class="service-content"><div class="service-name">On-Demand Consulting</div><p class="service-desc">Senior SEO expertise whenever you need it, without a long-term retainer. Think of it as a senior SEO in your back pocket.</p></div></div>
     </div>
   </div>
 </div>
@@ -333,7 +338,7 @@
   <div class="container">
     <div class="reveal">
       <span class="section-tag">What's included</span>
-      <h2 class="section-title">Three pillars of every engagement.</h2>
+      <h2 class="section-title">Three pillars of <em>every engagement.</em></h2>
     </div>
     <div class="included-grid reveal">
 
@@ -388,29 +393,13 @@
   <div class="container">
     <div class="reveal">
       <span class="section-tag">How it works</span>
-      <h2 class="section-title">Simple, transparent process.</h2>
+      <h2 class="section-title">Simple, <em>transparent process.</em></h2>
     </div>
     <div class="process-grid reveal">
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <div class="step-title">Discovery Call</div>
-        <p class="step-desc">We talk through your goals, current situation, and what success looks like for your business.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <div class="step-title">Audit and Strategy</div>
-        <p class="step-desc">I dig into your site, competitors, and market, then deliver a prioritised action plan — not a document you'll never read.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <div class="step-title">Execution</div>
-        <p class="step-desc">I work alongside your team, or independently, to implement recommendations and iterate based on data.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">04</div>
-        <div class="step-title">Report and Grow</div>
-        <p class="step-desc">Regular reporting, honest communication, and a strategy that evolves as your results come in.</p>
-      </div>
+      <div class="process-step"><div class="step-num">01</div><div class="step-title">Discovery Call</div><p class="step-desc">We talk through your goals, current situation, and what success looks like for your business.</p></div>
+      <div class="process-step"><div class="step-num">02</div><div class="step-title">Audit and Strategy</div><p class="step-desc">I dig into your site, competitors, and market, then deliver a prioritised action plan — not a document you'll never read.</p></div>
+      <div class="process-step"><div class="step-num">03</div><div class="step-title">Execution</div><p class="step-desc">I work alongside your team, or independently, to implement recommendations and iterate based on data.</p></div>
+      <div class="process-step"><div class="step-num">04</div><div class="step-title">Report and Grow</div><p class="step-desc">Regular reporting, honest communication, and a strategy that evolves as your results come in.</p></div>
     </div>
   </div>
 </section>
@@ -421,14 +410,11 @@
     <div class="cta-band reveal">
       <div class="cta-band-inner">
         <h2>Ready to grow your <em>organic search?</em></h2>
-        <div class="cta-pricing">
-          
-        </div>
       </div>
       <hr class="cta-band-divider" />
       <div class="cta-band-actions">
-        <a href="contact.html" class="btn-white">Book a Consultation →</a>
-        <a href="contact.html" class="btn-ghost">Get a Quote</a>
+        <a href="contact.html" class="btn-brut-light">Book a Consultation →</a>
+        <a href="contact.html" class="btn-brut-ghost">Get a Quote</a>
       </div>
     </div>
   </div>
@@ -451,17 +437,6 @@
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
-
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => io.observe(el));
-
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => {
@@ -472,6 +447,14 @@
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
   }));
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
 </script>
 </body>
 </html>
