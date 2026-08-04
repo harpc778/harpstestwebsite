@@ -93,9 +93,14 @@
     .hero-photo-wrap::before { content: ''; position: absolute; width: 80px; height: 80px; border-radius: 50%; background: var(--accent-light); top: -20px; right: -20px; z-index: -1; }
     .hero-photo-wrap::after { content: ''; position: absolute; width: 48px; height: 48px; border-radius: 50%; background: var(--border); bottom: -16px; left: -16px; z-index: -1; }
 
-    /* STATS (moved below client scroller, all screen sizes) */
-    .hero-stats-section { max-width: 1200px; margin: 0 auto; padding: 48px 40px 0; }
-    .hero-stats-section .hero-stats { border-top: 1px solid var(--border); padding-top: 36px; }
+    .hero-stats-desktop { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); }
+    @media (min-width: 901px) {
+      .hero-stats-section { display: none; }
+    }
+
+    /* STATS (mobile: below client scroller) */
+    .hero-stats-section { max-width: 1200px; margin: 0 auto; padding: 56px 40px 0; text-align: center; }
+    .hero-stats-section .hero-stats { border-top: 1px solid var(--border); padding-top: 40px; justify-content: center; gap: 72px; }
 
     /* SCROLLER */
     .scroller-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
@@ -195,6 +200,7 @@
       }
       .hero-sub      { order: 4; }
       .hero-actions  { order: 5; }
+      .hero-stats-desktop { display: none; }
 
       .hero-photo-frame { border-radius: 18px; }
       .hero-photo-wrap::before { width: 44px; height: 44px; top: -12px; right: -12px; }
@@ -263,6 +269,11 @@
       <div class="hero-actions">
         <a href="contact.html" class="btn btn-dark">Book a Consultation →</a>
         <a href="services.html" class="btn btn-outline">See Services</a>
+      </div>
+      <div class="hero-stats hero-stats-desktop">
+        <div><div class="stat-num">$50M+</div><div class="stat-label">Revenue generated</div></div>
+        <div><div class="stat-num">3M+</div><div class="stat-label">Keywords & prompts ranked</div></div>
+        <div><div class="stat-num">10+</div><div class="stat-label">Years experience</div></div>
       </div>
     </div>
     <div class="hero-photo-wrap">
