@@ -4,6 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AI SEO at Scale: Patterns, Penalties & the Wix Case Study — Harpreet Singh Chatha</title>
+
+<!-- OG / Social -->
+<meta property="og:title" content="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" />
+<meta property="og:description" content="After ChatGPT launched, a lot of companies started asking the same question: can we scale SEO with AI and win? Wix is one of the most interesting real-world examples." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://harpstestwebsite.vercel.app/learn/ai-seo-scale-patterns-penalties" />
+<meta property="og:image" content="https://harpstestwebsite.vercel.app/images/og/ai-seo-scale-patterns-penalties.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" />
+<meta name="twitter:description" content="After ChatGPT launched, a lot of companies started asking the same question: can we scale SEO with AI and win?" />
+<meta name="twitter:image" content="https://harpstestwebsite.vercel.app/images/og/ai-seo-scale-patterns-penalties.png" />
+<meta property="article:published_time" content="2026-03-03" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -105,13 +120,13 @@
   .meta-tags{ display:flex; gap:6px; flex-wrap:wrap; margin-left:2px; }
   .meta-tag{ padding:3px 10px; background:#fff; border:2px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink); text-transform:uppercase; }
 
-  /* VIDEO */
-  .video-section{ max-width:1200px; margin:0 auto; padding:44px 40px 0; opacity:0; animation:fadeUp 0.8s 0.38s forwards; }
-  .full-video-wrap{ border:3px solid var(--border); box-shadow:8px 8px 0 var(--border); overflow:hidden; background:#000; }
-  .full-video-wrap iframe{ display:block; width:100%; aspect-ratio:16/9; border:none; }
+  /* MOBILE VIDEO */
+  .mobile-video{ display:none; padding:28px 20px 0; }
+  .mobile-video-wrap{ border:3px solid var(--border); box-shadow:6px 6px 0 var(--border); overflow:hidden; background:#000; }
+  .mobile-video-wrap iframe{ display:block; width:100%; aspect-ratio:16/9; border:none; }
 
-  /* TWO COLUMN */
-  .two-col{ max-width:1200px; margin:0 auto; padding:48px 40px 80px; display:grid; grid-template-columns:1fr 260px; gap:56px; align-items:start; }
+  /* THREE COLUMN */
+  .three-col{ max-width:1200px; margin:0 auto; padding:48px 40px 80px; display:grid; grid-template-columns:1fr 320px; gap:56px; align-items:start; }
 
   .article-body{ min-width:0; }
   .article-body h2{ font-family:'Instrument Serif', serif; font-size:26px; letter-spacing:-0.5px; margin:44px 0 14px; scroll-margin-top:90px; }
@@ -133,8 +148,11 @@
   .stat-box-num.green{ color:var(--accent); }
   .stat-box-label{ font-family:'JetBrains Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--mid); margin-top:8px; }
 
-  /* SIDEBAR */
+  /* RIGHT SIDEBAR */
   .sidebar-col{ position:sticky; top:88px; display:flex; flex-direction:column; gap:20px; }
+  .sidebar-video-wrap{ border:3px solid var(--border); box-shadow:7px 7px 0 var(--border); overflow:hidden; background:#000; }
+  .sidebar-video-wrap iframe{ display:block; width:100%; aspect-ratio:16/9; border:none; }
+
   .toc-card{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:20px 22px; display:none; }
   .toc-card.show{ display:block; }
   .toc-heading{ font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); margin-bottom:12px; }
@@ -208,13 +226,14 @@
     padding:11px 13px; width:80%;
   }
   .more-label-box.tilt-r{ transform:translate(-50%,-50%) rotate(2.5deg); }
+  .more-label-box.tilt-l-sm{ transform:translate(-50%,-50%) rotate(-1.5deg); }
   .more-label-title{ font-family:'Instrument Serif', serif; font-size:15px; line-height:1.16; color:var(--ink); }
   .more-body{ padding:12px 14px 13px; display:flex; align-items:center; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); }
   .more-arrow{ font-size:13px; transition:transform 0.2s; }
   .more-card:hover .more-arrow{ transform:translateX(3px); color:var(--ink); }
   .p1{ background: repeating-linear-gradient(135deg, #0D3D22 0px, #0D3D22 10px, #1A6B3C 10px, #1A6B3C 20px); }
   .p2{ background-color:#151A2E; background-image: radial-gradient(#3A4470 1.6px, transparent 1.6px); background-size:14px 14px; }
-  .p4{ background-color:#0E3B3E; background-image: linear-gradient(135deg, rgba(255,255,255,0.12) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.12) 75%, transparent 75%, transparent); background-size:22px 22px; }
+  .p6{ background-color:#4A4A1E; background-image: linear-gradient(45deg, rgba(255,255,255,0.09) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.09) 75%), linear-gradient(45deg, rgba(255,255,255,0.09) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.09) 75%); background-size:24px 24px; background-position:0 0, 12px 12px; }
 
   footer{ border-top:3px solid var(--border); padding:40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
   .footer-logo{ font-family:'Instrument Serif', serif; color:var(--ink); text-decoration:none; }
@@ -224,17 +243,21 @@
   .footer-copy{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); }
 
   @media (max-width:1024px){
-    .two-col{ grid-template-columns:1fr; }
+    .three-col{ grid-template-columns:1fr; }
     .sidebar-col{ display:none; }
+    .mobile-video{ display:block; }
     .mobile-toc{ display:block; }
     .mobile-cta{ display:block; }
+    .three-col{ padding:32px 20px 60px; }
   }
   @media (max-width:768px){
     nav{ padding:0 20px; }
     .nav-links{ display:none; }
     .nav-cta{ display:none; }
     .hamburger{ display:flex; }
-    .page-header, .video-section, .two-col, .author-section, .more-section{ padding-left:20px; padding-right:20px; }
+    .page-header{ padding:96px 20px 32px; }
+    .author-section{ padding-left:20px; padding-right:20px; }
+    .more-section{ padding-left:20px; padding-right:20px; }
     .stat-row{ grid-template-columns:1fr 1fr; }
     footer{ flex-direction:column; text-align:center; justify-content:center; }
     .footer-links{ justify-content:center; }
@@ -267,18 +290,17 @@
   <a href="../contact.html">Let's Talk</a>
 </div>
 
-<!-- HEADER -->
 <div class="page-header">
   <a href="index" class="back-link">← Back to Learn</a>
   <div class="article-badge">▶ Video</div>
   <h1 class="page-title">AI SEO at Scale: <em>Patterns, Penalties & the Wix Case Study</em></h1>
   <div class="page-meta">
     <div class="meta-avatar">
-      <img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/refs/heads/main/images/homepage/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Singh Chatha" />
+      <img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/refs/heads/main/images/homepage/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Chatha" />
     </div>
-    <span>Harpreet Singh Chatha</span>
+    <span>Harpreet Chatha</span>
     <span class="meta-dot">·</span>
-    <span>2025</span>
+    <span>March 3, 2026</span>
     <span class="meta-dot">·</span>
     <div class="meta-tags">
       <span class="meta-tag">AI SEO</span>
@@ -289,16 +311,16 @@
   </div>
 </div>
 
-<!-- FULL WIDTH VIDEO -->
-<div class="video-section">
-  <div class="full-video-wrap">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!-- MOBILE VIDEO (hidden on desktop) -->
+<div class="mobile-video">
+  <div class="mobile-video-wrap">
+    <iframe src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
 
-<!-- TWO COLUMN -->
-<div class="two-col">
+<div class="three-col">
 
+  <!-- ARTICLE -->
   <div class="article-body" id="article-body">
 
     <div class="mobile-toc" id="mobile-toc">
@@ -371,7 +393,11 @@
 
   </div>
 
+  <!-- RIGHT SIDEBAR: sticky video + TOC + CTA -->
   <aside class="sidebar-col">
+    <div class="sidebar-video-wrap">
+      <iframe src="https://www.youtube.com/embed/G3x8f3r1UB0?si=xXtXfZBtT1B2kC7q" title="AI SEO at Scale: Patterns, Penalties & the Wix Case Study" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <div class="toc-card" id="toc-card">
       <div class="toc-heading">Contents</div>
       <ul class="toc-list" id="toc-list"></ul>
@@ -400,32 +426,31 @@
   </div>
 </div>
 
-<!-- MORE -->
 <div class="more-section">
-  <div class="more-inner">
-    <span class="section-tag">Keep learning</span>
-    <h2 class="section-title">More from the <em>Learn hub.</em></h2>
+  <div class="more-inner reveal">
+    <span class="section-tag">More to explore</span>
+    <h2 class="section-title">Keep <em>learning.</em></h2>
     <div class="more-grid">
-      <a href="query-fan-out" class="more-card">
+      <a href="seo-vs-ai-search" class="more-card">
         <div class="more-thumb p1">
           <div class="more-badge-row"><span class="more-badge video">▶ Video</span></div>
-          <div class="more-label-box"><div class="more-label-title">What Is Query Fan Out & <em style="font-style:italic;color:var(--accent);">Why It Matters</em></div></div>
+          <div class="more-label-box"><div class="more-label-title">SEO vs AI Search: <em style="font-style:italic;color:var(--accent);">The Holiday Special</em></div></div>
         </div>
         <div class="more-body"><span>Dec 2025</span><span class="more-arrow">→</span></div>
       </a>
-      <a href="ai-search-console-signals" class="more-card">
-        <div class="more-thumb p4">
-          <div class="more-badge-row"><span class="more-badge">✍ Article</span></div>
-          <div class="more-label-box tilt-r"><div class="more-label-title">Something Strange Is Happening in <em style="font-style:italic;color:var(--accent);">Search Console</em></div></div>
-        </div>
-        <div class="more-body"><span>2026</span><span class="more-arrow">→</span></div>
-      </a>
-      <a href="geo-aeo-ai-seo-panel" class="more-card">
+      <a href="query-fan-out" class="more-card">
         <div class="more-thumb p2">
           <div class="more-badge-row"><span class="more-badge video">▶ Video</span></div>
-          <div class="more-label-box"><div class="more-label-title">GEO, AEO & AI SEO: <em style="font-style:italic;color:var(--accent);">What's Real, What's Hype</em></div></div>
+          <div class="more-label-box tilt-r"><div class="more-label-title">What Is Query Fan Out & <em style="font-style:italic;color:var(--accent);">Why It Matters</em></div></div>
         </div>
-        <div class="more-body"><span>May 2026</span><span class="more-arrow">→</span></div>
+        <div class="more-body"><span>Dec 2025</span><span class="more-arrow">→</span></div>
+      </a>
+      <a href="chatgpt-calculator" class="more-card">
+        <div class="more-thumb p6">
+          <div class="more-badge-row"><span class="more-badge video">▶ Video</span></div>
+          <div class="more-label-box tilt-l-sm"><div class="more-label-title">How to Build Your Own <em style="font-style:italic;color:var(--accent);">Calculator in ChatGPT</em></div></div>
+        </div>
+        <div class="more-body"><span>Mar 2025</span><span class="more-arrow">→</span></div>
       </a>
     </div>
   </div>
