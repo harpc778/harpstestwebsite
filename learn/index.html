@@ -79,6 +79,20 @@
   }
   .btn-brut:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--border); }
 
+  .hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; cursor:pointer; background:var(--cream); border:2px solid var(--border); padding:6px; z-index:110; }
+  .hamburger span{ display:block; height:2px; background:var(--ink); transition:transform 0.3s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu{ display:none; position:fixed; top:68px; left:0; right:0; background:var(--cream); border-bottom:3px solid var(--border); padding:16px 20px 24px; z-index:99; flex-direction:column; }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    font-family:'JetBrains Mono',monospace; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;
+    color:var(--mid); text-decoration:none; padding:14px 0; border-bottom:2px solid var(--border); transition:color 0.2s;
+  }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  .mobile-menu a:hover{ color:var(--ink); }
+
   @keyframes fadeUp{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
   .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.6s, transform 0.6s; }
   .reveal.visible{ opacity:1; transform:none; }
@@ -203,6 +217,8 @@
   @media (max-width:768px){
     nav{ padding:0 20px; }
     .nav-links{ display:none; }
+    .nav-cta{ display:none; }
+    .hamburger{ display:flex; }
     .page-hero, .grid-section{ padding-left:20px; padding-right:20px; }
     footer{ flex-direction:column; text-align:center; justify-content:center; }
     .footer-links{ justify-content:center; }
@@ -222,8 +238,17 @@
     <li><a href="https://harpsdigital.com/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="index.html" class="active">Learn</a></li>
   </ul>
-  <a href="../contact.html" class="btn-brut">Let's Talk →</a>
+  <a href="../contact.html" class="btn-brut nav-cta">Let's Talk →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../services.html">Services</a>
+  <a href="https://harpsdigital.com/aeo-leaderboard">AEO Leaderboard</a>
+  <a href="index.html">Learn</a>
+  <a href="../contact.html">Let's Talk</a>
+</div>
 
 <div class="page-hero">
   <div class="page-eyebrow">Learn</div>
@@ -340,6 +365,17 @@
 </footer>
 
 <script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }));
+
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 60); io.unobserve(e.target); } });
