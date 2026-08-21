@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schema Markup Generator — Harpreet Chatha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FAFAF7; --ink: #111110; --mid: #6B6B67; --accent: #1A6B3C;
+      --accent-light: #E8F5EE; --border: #E4E4DF; --surface: #F5F5F1; --forest: #0D3D22;
+      --error: #B3261E; --error-light: #FBEAE9;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; }
+
+    /* NAV — matches site-wide navigation */
+    nav { position: sticky; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 68px; background: var(--cream); border-bottom: 3px solid var(--ink); }
+    .nav-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; letter-spacing: -0.3px; }
+    .nav-logo-top { font-size: 17px; }
+    .nav-logo-bottom { font-size: 12px; color: var(--accent); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-links a.active { color: var(--accent); }
+    .btn-brut { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: var(--ink); color: var(--cream); border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); text-decoration: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn-brut:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: var(--cream); border: 2px solid var(--ink); padding: 6px; z-index: 110; }
+    .hamburger span { display: block; height: 2px; background: var(--ink); transition: transform 0.3s, opacity 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--cream); border-bottom: 3px solid var(--ink); padding: 16px 20px 24px; z-index: 99; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'JetBrains Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 2px solid var(--ink); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--ink); }
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-cta { display: none; } .hamburger { display: flex; } nav { padding: 0 20px; } }
+
+    .page-header { max-width: 1240px; margin: 0 auto; padding: 56px 40px 32px; border-bottom: 1px solid var(--border); }
+    .article-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; background: var(--accent-light); color: var(--accent); }
+    .page-title { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 4vw, 50px); letter-spacing: -1.5px; line-height: 1.1; max-width: 720px; margin-bottom: 14px; }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .page-sub { font-size: 16px; color: var(--mid); max-width: 560px; line-height: 1.6; }
+
+    .tool-wrap { max-width: 1240px; margin: 0 auto; padding: 40px 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    @media (max-width: 980px) { .tool-wrap { grid-template-columns: 1fr; padding: 32px 20px 60px; } .page-header { padding: 40px 20px 28px; } }
+
+    /* FORM PANEL */
+    .panel { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+    .panel-heading { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 16px; }
+
+    .select-wrap { position: relative; margin-bottom: 24px; }
+    select#schemaType {
+      width: 100%; appearance: none; -webkit-appearance: none; font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 500; color: var(--ink); background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px; padding: 14px 42px 14px 16px; cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    select#schemaType:focus { outline: none; border-color: var(--accent); }
+    .select-wrap::after { content: '▾'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); pointer-events: none; font-size: 14px; }
+
+    .field-group { margin-bottom: 16px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+    label .req { color: var(--accent); }
+    label .hint { display: block; font-weight: 400; color: var(--mid); font-size: 11.5px; margin-top: 2px; }
+    input[type="text"], input[type="url"], input[type="date"], input[type="number"], textarea, select.field-select {
+      width: 100%; font-family: 'DM Sans', sans-serif; font-size: 14.5px; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 13px; transition: border-color 0.15s, background 0.15s;
+    }
+    select.field-select { cursor: pointer; }
+    textarea { resize: vertical; min-height: 64px; line-height: 1.5; }
+    input:focus, textarea:focus, select.field-select:focus { outline: none; border-color: var(--accent); background: #fff; }
+    input.invalid, textarea.invalid, select.field-select.invalid { border-color: var(--error); background: var(--error-light); }
+    .field-error { font-size: 11.5px; color: var(--error); margin-top: 4px; display: none; }
+    .field-error.show { display: block; }
+
+    .section-divider { border-top: 1px solid var(--border); margin: 24px 0 20px; padding-top: 20px; }
+    .subsection-label { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+
+    .repeat-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; position: relative; }
+    .repeat-item-remove { position: absolute; top: 12px; right: 12px; width: 24px; height: 24px; border-radius: 50%; border: none; background: #fff; color: var(--mid); font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s; }
+    .repeat-item-remove:hover { background: var(--error-light); color: var(--error); }
+    .repeat-add { width: 100%; padding: 11px; border-radius: 10px; border: 1.5px dashed var(--border); background: transparent; color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+    .repeat-add:hover { border-color: var(--accent); background: var(--accent-light); }
+
+    /* PREVIEW PANEL */
+    .preview-col { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 16px; }
+    .preview-panel { background: var(--forest); border-radius: 16px; padding: 24px; overflow: hidden; }
+    .preview-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .preview-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .copy-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; background: #fff; color: var(--forest); font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 600; border: none; cursor: pointer; transition: background 0.18s, transform 0.18s; }
+    .copy-btn:hover { background: #f0faf4; transform: translateY(-1px); }
+    .copy-btn.copied { background: #6EE7A0; color: var(--forest); }
+    pre#schemaOutput { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.65; color: #E8F5EE; white-space: pre-wrap; word-break: break-word; max-height: 560px; overflow-y: auto; }
+    pre#schemaOutput .k { color: #6EE7A0; }
+    pre#schemaOutput::-webkit-scrollbar { width: 6px; }
+    pre#schemaOutput::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 6px; }
+
+    .validity-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 12px; font-size: 13.5px; }
+    .validity-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .validity-dot.warn { background: #C9821A; }
+    .validity-card a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); margin-left: auto; white-space: nowrap; font-weight: 500; }
+
+    footer { border-top: 3px solid var(--ink); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1240px; margin: 0 auto; }
+    .footer-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mid); }
+    @media (max-width: 768px) { footer { flex-direction: column; text-align: center; justify-content: center; } .footer-links { justify-content: center; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/index.html" class="nav-logo">
+    <span class="nav-logo-top">Harp Chatha</span>
+    <span class="nav-logo-bottom">Search</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
+    <li><a href="/learn.html">Learn</a></li>
+    <li><a href="/contact.html">Let's Talk</a></li>
+  </ul>
+  <a href="/contact.html" class="btn-brut nav-cta">Let's Talk →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/index.html">Home</a>
+  <a href="/services.html">Services</a>
+  <a href="/aeo-leaderboard">AEO Leaderboard</a>
+  <a href="/learn.html">Learn</a>
+  <a href="/contact.html">Let's Talk</a>
+</div>
+
+<div class="page-header">
+  <div class="article-badge">✦ Free Tool</div>
+  <h1 class="page-title">Schema Markup <em>Generator</em></h1>
+  <p class="page-sub">Pick a schema type, fill in the fields, and copy clean JSON-LD straight into your page's &lt;head&gt;. No sign-up, nothing sent anywhere — it all runs in your browser.</p>
+</div>
+
+<div class="tool-wrap">
+
+  <!-- FORM -->
+  <div class="panel">
+    <div class="panel-heading">1. Choose a schema type</div>
+    <div class="select-wrap">
+      <select id="schemaType">
+        <option value="Article">Article</option>
+        <option value="BlogPosting">Blog Posting</option>
+        <option value="FAQPage">FAQ Page</option>
+        <option value="Person">Person</option>
+        <option value="Event">Event</option>
+        <option value="BreadcrumbList">Breadcrumb</option>
+        <option value="SoftwareApplication">Software Application</option>
+      </select>
+    </div>
+
+    <div class="panel-heading">2. Fill in the details</div>
+    <form id="schemaForm" novalidate></form>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview-col">
+    <div class="preview-panel">
+      <div class="preview-head">
+        <span class="preview-label">JSON-LD Output</span>
+        <button class="copy-btn" id="copyBtn" type="button">Copy code</button>
+      </div>
+      <pre id="schemaOutput"></pre>
+    </div>
+    <div class="validity-card">
+      <span class="validity-dot" id="validityDot"></span>
+      <span id="validityText">Required fields complete.</span>
+      <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Test in Google →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/index.html" class="footer-logo">
+    <span style="display:block;font-size:16px;font-family:'Instrument Serif',serif;">Harp Chatha</span>
+    <span style="display:block;font-size:12px;color:var(--accent);font-style:italic;font-family:'Instrument Serif',serif;">Search</span>
+  </a>
+  <ul class="footer-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/learn/index.html">Learn</a></li>
+    <li><a href="/contact.html">Let's Talk</a></li>
+    <li><a href="https://seoespresso.com" target="_blank">Newsletter</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Harpreet Singh Chatha</div>
+</footer>
+
+<script>
+/* ---------------------------------------------------------
+   Schema field definitions
+   Each field: { key, label, type, placeholder, required, hint }
+   Repeatable blocks (FAQ items, breadcrumb items) handled separately
+--------------------------------------------------------- */
+
+const schemaConfigs = {
+  Article: {
+    label: "Article",
+    fields: [
+      { key: "headline", label: "Headline", type: "text", required: true, placeholder: "How To Perform An SEO Audit For Free" },
+      { key: "description", label: "Description", type: "textarea", required: true, placeholder: "A short summary of the article." },
+      { key: "image", label: "Image URL", type: "url", required: true, placeholder: "https://example.com/images/article.png" },
+      { key: "url", label: "Article URL", type: "url", required: true, placeholder: "https://example.com/blog/seo-audit" },
+      { key: "authorName", label: "Author name", type: "text", required: true, placeholder: "Jane Smith" },
+      { key: "authorUrl", label: "Author URL", type: "url", required: false, placeholder: "https://example.com/about/jane-smith" },
+      { key: "publisherName", label: "Publisher / site name", type: "text", required: true, placeholder: "Example Co." },
+      { key: "publisherLogo", label: "Publisher logo URL", type: "url", required: true, placeholder: "https://example.com/logo.png" },
+      { key: "datePublished", label: "Date published", type: "date", required: true },
+      { key: "dateModified", label: "Date modified", type: "date", required: false },
+      { key: "articleSection", label: "Section / category", type: "text", required: false, placeholder: "Technical SEO" },
+      { key: "keywords", label: "Keywords", type: "text", required: false, placeholder: "seo audit, technical seo, site crawl", hint: "Comma-separated" },
+      { key: "wordCount", label: "Word count", type: "number", required: false, placeholder: "1800" },
+      { key: "inLanguage", label: "Language code", type: "text", required: false, placeholder: "en-US" },
+      { key: "isAccessibleForFree", label: "Free to read?", type: "select", options: ["", "true", "false"], required: false }
+    ]
+  },
+  BlogPosting: {
+    label: "Blog Posting",
+    fields: [
+      { key: "headline", label: "Headline", type: "text", required: true, placeholder: "Improving Salience Scores: Going From 0.0 to 1.0" },
+      { key: "description", label: "Description", type: "textarea", required: true, placeholder: "A short summary of the post." },
+      { key: "image", label: "Image URL", type: "url", required: true, placeholder: "https://example.com/images/post.png" },
+      { key: "url", label: "Post URL", type: "url", required: true, placeholder: "https://example.com/blog/salience-scores" },
+      { key: "authorName", label: "Author name", type: "text", required: true, placeholder: "Jane Smith" },
+      { key: "authorUrl", label: "Author URL", type: "url", required: false, placeholder: "https://example.com/about/jane-smith" },
+      { key: "publisherName", label: "Publisher / site name", type: "text", required: true, placeholder: "Example Co." },
+      { key: "publisherLogo", label: "Publisher logo URL", type: "url", required: true, placeholder: "https://example.com/logo.png" },
+      { key: "datePublished", label: "Date published", type: "date", required: true },
+      { key: "dateModified", label: "Date modified", type: "date", required: false },
+      { key: "articleSection", label: "Section / category", type: "text", required: false, placeholder: "AI Search" },
+      { key: "keywords", label: "Keywords", type: "text", required: false, placeholder: "aeo, geo, ai search", hint: "Comma-separated" },
+      { key: "wordCount", label: "Word count", type: "number", required: false, placeholder: "1200" },
+      { key: "inLanguage", label: "Language code", type: "text", required: false, placeholder: "en-US" },
+      { key: "isAccessibleForFree", label: "Free to read?", type: "select", options: ["", "true", "false"], required: false }
+    ]
+  },
+  Person: {
+    label: "Person",
+    fields: [
+      { key: "name", label: "Full name", type: "text", required: true, placeholder: "Jane Smith" },
+      { key: "jobTitle", label: "Job title", type: "text", required: false, placeholder: "Marketing Director" },
+      { key: "description", label: "Short bio", type: "textarea", required: false, placeholder: "A sentence or two about this person." },
+      { key: "url", label: "Profile / website URL", type: "url", required: true, placeholder: "https://example.com/about/jane-smith" },
+      { key: "image", label: "Photo URL", type: "url", required: false, placeholder: "https://example.com/images/headshot.jpg" },
+      { key: "email", label: "Email", type: "text", required: false, placeholder: "jane@example.com" },
+      { key: "telephone", label: "Phone number", type: "text", required: false, placeholder: "+1-604-555-0134" },
+      { key: "worksFor", label: "Works for (organization)", type: "text", required: false, placeholder: "Example Co." },
+      { key: "alumniOf", label: "Alumni of (school)", type: "text", required: false, placeholder: "University of British Columbia" },
+      { key: "addressLocality", label: "City", type: "text", required: false, placeholder: "Vancouver" },
+      { key: "addressRegion", label: "Province / state", type: "text", required: false, placeholder: "BC" },
+      { key: "addressCountry", label: "Country code", type: "text", required: false, placeholder: "CA" },
+      { key: "knowsAbout", label: "Areas of expertise", type: "text", required: false, placeholder: "SEO, content strategy, AI search", hint: "Comma-separated" },
+      { key: "sameAs", label: "Social profile URLs", type: "textarea", required: false, placeholder: "One per line: LinkedIn, Instagram, TikTok URLs" }
+    ]
+  },
+  Event: {
+    label: "Event",
+    fields: [
+      { key: "name", label: "Event name", type: "text", required: true, placeholder: "Live Q&A: AI Search Strategy" },
+      { key: "description", label: "Description", type: "textarea", required: false, placeholder: "What the event is about." },
+      { key: "image", label: "Image URL", type: "url", required: false, placeholder: "https://example.com/images/event.png" },
+      { key: "startDate", label: "Start date & time", type: "text", required: true, placeholder: "2026-09-12T18:00-07:00", hint: "ISO 8601 format" },
+      { key: "endDate", label: "End date & time", type: "text", required: false, placeholder: "2026-09-12T19:30-07:00" },
+      { key: "eventAttendanceMode", label: "Attendance mode", type: "select", options: ["Offline", "Online", "Mixed"], required: true },
+      { key: "eventStatus", label: "Event status", type: "select", options: ["Scheduled", "Rescheduled", "Cancelled", "Postponed"], required: false },
+      { key: "locationName", label: "Venue name", type: "text", required: true, placeholder: "Vancouver Convention Centre" },
+      { key: "locationAddress", label: "Venue street address", type: "text", required: false, placeholder: "1055 Canada Pl" },
+      { key: "locationCity", label: "City", type: "text", required: false, placeholder: "Vancouver" },
+      { key: "locationRegion", label: "Province / state", type: "text", required: false, placeholder: "BC" },
+      { key: "locationCountry", label: "Country code", type: "text", required: false, placeholder: "CA" },
+      { key: "url", label: "Event URL", type: "url", required: false, placeholder: "https://example.com/events/ai-search-qa" },
+      { key: "offerPrice", label: "Ticket price", type: "text", required: false, placeholder: "0" },
+      { key: "offerCurrency", label: "Currency", type: "text", required: false, placeholder: "CAD" },
+      { key: "offerUrl", label: "Ticket purchase URL", type: "url", required: false, placeholder: "https://example.com/events/ai-search-qa/tickets" },
+      { key: "offerAvailability", label: "Ticket availability", type: "select", options: ["InStock", "SoldOut", "PreOrder"], required: false },
+      { key: "performerName", label: "Performer / host name", type: "text", required: false, placeholder: "Jane Smith" },
+      { key: "organizerName", label: "Organizer name", type: "text", required: false, placeholder: "Example Co." },
+      { key: "organizerUrl", label: "Organizer URL", type: "url", required: false, placeholder: "https://example.com" }
+    ]
+  },
+  SoftwareApplication: {
+    label: "Software Application",
+    fields: [
+      { key: "name", label: "Application name", type: "text", required: true, placeholder: "AEO Leaderboard Tracker" },
+      { key: "description", label: "Description", type: "textarea", required: false, placeholder: "What the software does." },
+      { key: "url", label: "App URL", type: "url", required: false, placeholder: "https://example.com/tools/aeo-tracker" },
+      { key: "image", label: "Image / icon URL", type: "url", required: false, placeholder: "https://example.com/images/tool.png" },
+      { key: "screenshot", label: "Screenshot URL", type: "url", required: false, placeholder: "https://example.com/images/tool-screenshot.png" },
+      { key: "applicationCategory", label: "Application category", type: "text", required: true, placeholder: "BusinessApplication", hint: "e.g. BusinessApplication, GameApplication, UtilityApplication" },
+      { key: "operatingSystem", label: "Operating system", type: "text", required: false, placeholder: "Web, iOS, Android" },
+      { key: "softwareVersion", label: "Software version", type: "text", required: false, placeholder: "2.1.0" },
+      { key: "datePublished", label: "Date published", type: "date", required: false },
+      { key: "authorName", label: "Author / developer name", type: "text", required: false, placeholder: "Example Co." },
+      { key: "downloadUrl", label: "Download URL", type: "url", required: false, placeholder: "https://example.com/tools/aeo-tracker/download" },
+      { key: "offerPrice", label: "Price", type: "text", required: false, placeholder: "0" },
+      { key: "offerCurrency", label: "Currency", type: "text", required: false, placeholder: "USD" },
+      { key: "ratingValue", label: "Average rating", type: "text", required: false, placeholder: "4.8" },
+      { key: "ratingCount", label: "Number of ratings", type: "text", required: false, placeholder: "42" }
+    ]
+  }
+};
+
+/* FAQPage and BreadcrumbList use repeatable item blocks instead of a flat field list */
+
+let faqItems = [
+  { question: "", answer: "" }
+];
+let faqPageUrl = "";
+let crumbItems = [
+  { name: "", url: "" },
+  { name: "", url: "" }
+];
+
+const formEl = document.getElementById("schemaForm");
+const typeSelect = document.getElementById("schemaType");
+const output = document.getElementById("schemaOutput");
+const validityDot = document.getElementById("validityDot");
+const validityText = document.getElementById("validityText");
+
+let currentValues = {};
+
+function renderForm() {
+  const type = typeSelect.value;
+  formEl.innerHTML = "";
+  currentValues = {};
+
+  if (type === "FAQPage") {
+    renderFaqForm();
+    return;
+  }
+  if (type === "BreadcrumbList") {
+    renderBreadcrumbForm();
+    return;
+  }
+
+  const config = schemaConfigs[type];
+  config.fields.forEach(field => {
+    const group = document.createElement("div");
+    group.className = "field-group";
+
+    const label = document.createElement("label");
+    label.setAttribute("for", "f_" + field.key);
+    label.innerHTML = field.label + (field.required ? ' <span class="req">*</span>' : '') + (field.hint ? `<span class="hint">${field.hint}</span>` : '');
+    group.appendChild(label);
+
+    let input;
+    if (field.type === "textarea") {
+      input = document.createElement("textarea");
+      input.placeholder = field.placeholder || "";
+      input.addEventListener("input", updateOutput);
+    } else if (field.type === "select") {
+      input = document.createElement("select");
+      input.className = "field-select";
+      (field.options || []).forEach(opt => {
+        const o = document.createElement("option");
+        o.value = opt;
+        o.textContent = opt === "" ? "— Select —" : opt;
+        input.appendChild(o);
+      });
+      input.addEventListener("change", updateOutput);
+    } else {
+      input = document.createElement("input");
+      input.type = field.type;
+      input.placeholder = field.placeholder || "";
+      input.addEventListener("input", updateOutput);
+    }
+    input.id = "f_" + field.key;
+    group.appendChild(input);
+
+    const err = document.createElement("div");
+    err.className = "field-error";
+    err.id = "err_" + field.key;
+    err.textContent = "This field is required.";
+    group.appendChild(err);
+
+    formEl.appendChild(group);
+  });
+
+  updateOutput();
+}
+
+function renderFaqForm() {
+  const wrap = document.createElement("div");
+
+  const noteBox = document.createElement("div");
+  noteBox.style.cssText = "background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px; font-size: 12.5px; color: var(--mid); line-height: 1.5;";
+  noteBox.innerHTML = "Google currently shows FAQ rich results mainly for government and health sites, and is retiring the FAQ check in its Rich Results Test. The markup is still valid schema.org — useful for AI search citation — just don't expect the classic dropdown in Google for most sites.";
+  wrap.appendChild(noteBox);
+
+  const urlGroup = document.createElement("div");
+  urlGroup.className = "field-group";
+  const urlLabel = document.createElement("label");
+  urlLabel.innerHTML = 'Page URL <span class="hint">Optional — the page this FAQ content lives on. Not required by Google, but nice for context.</span>';
+  urlGroup.appendChild(urlLabel);
+  const urlInput = document.createElement("input");
+  urlInput.type = "url";
+  urlInput.id = "f_pageUrl";
+  urlInput.placeholder = "https://example.com/blog/seo-audit-faq";
+  urlInput.value = faqPageUrl;
+  urlInput.addEventListener("input", e => { faqPageUrl = e.target.value; updateOutput(); });
+  urlGroup.appendChild(urlInput);
+  wrap.appendChild(urlGroup);
+
+  const subsection = document.createElement("div");
+  subsection.className = "subsection-label";
+  subsection.style.marginTop = "20px";
+  subsection.textContent = "Questions & answers";
+  wrap.appendChild(subsection);
+
+  faqItems.forEach((item, i) => {
+    const block = document.createElement("div");
+    block.className = "repeat-item";
+
+    if (faqItems.length > 1) {
+      const rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "repeat-item-remove";
+      rm.textContent = "×";
+      rm.addEventListener("click", () => { faqItems.splice(i, 1); renderFaqForm(); updateOutput(); });
+      block.appendChild(rm);
+    }
+
+    const qLabel = document.createElement("label");
+    qLabel.innerHTML = `Question ${i + 1} <span class="req">*</span>`;
+    block.appendChild(qLabel);
+
+    const qInput = document.createElement("input");
+    qInput.type = "text";
+    qInput.placeholder = "What is an SEO audit?";
+    qInput.value = item.question;
+    qInput.addEventListener("input", e => { faqItems[i].question = e.target.value; updateOutput(); });
+    block.appendChild(qInput);
+
+    const aLabel = document.createElement("label");
+    aLabel.style.marginTop = "12px";
+    aLabel.innerHTML = `Answer ${i + 1} <span class="req">*</span>`;
+    block.appendChild(aLabel);
+
+    const aInput = document.createElement("textarea");
+    aInput.placeholder = "An SEO audit involves analyzing a website for opportunities...";
+    aInput.value = item.answer;
+    aInput.addEventListener("input", e => { faqItems[i].answer = e.target.value; updateOutput(); });
+    block.appendChild(aInput);
+
+    wrap.appendChild(block);
+  });
+
+  const addBtn = document.createElement("button");
+  addBtn.type = "button";
+  addBtn.className = "repeat-add";
+  addBtn.textContent = "+ Add another question";
+  addBtn.addEventListener("click", () => { faqItems.push({ question: "", answer: "" }); renderFaqForm(); updateOutput(); });
+  wrap.appendChild(addBtn);
+
+  formEl.appendChild(wrap);
+  updateOutput();
+}
+
+function renderBreadcrumbForm() {
+  const wrap = document.createElement("div");
+  const subsection = document.createElement("div");
+  subsection.className = "subsection-label";
+  subsection.textContent = "Breadcrumb trail (in order)";
+  wrap.appendChild(subsection);
+
+  crumbItems.forEach((item, i) => {
+    const block = document.createElement("div");
+    block.className = "repeat-item";
+
+    if (crumbItems.length > 1) {
+      const rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "repeat-item-remove";
+      rm.textContent = "×";
+      rm.addEventListener("click", () => { crumbItems.splice(i, 1); renderBreadcrumbForm(); updateOutput(); });
+      block.appendChild(rm);
+    }
+
+    const nLabel = document.createElement("label");
+    nLabel.innerHTML = `Step ${i + 1} name <span class="req">*</span>`;
+    block.appendChild(nLabel);
+
+    const nInput = document.createElement("input");
+    nInput.type = "text";
+    nInput.placeholder = i === 0 ? "Home" : "Learn";
+    nInput.value = item.name;
+    nInput.addEventListener("input", e => { crumbItems[i].name = e.target.value; updateOutput(); });
+    block.appendChild(nInput);
+
+    const uLabel = document.createElement("label");
+    uLabel.style.marginTop = "12px";
+    uLabel.innerHTML = `Step ${i + 1} URL <span class="req">*</span>`;
+    block.appendChild(uLabel);
+
+    const uInput = document.createElement("input");
+    uInput.type = "url";
+    uInput.placeholder = i === 0 ? "https://harpsdigital.com" : "https://harpsdigital.com/learn";
+    uInput.value = item.url;
+    uInput.addEventListener("input", e => { crumbItems[i].url = e.target.value; updateOutput(); });
+    block.appendChild(uInput);
+
+    wrap.appendChild(block);
+  });
+
+  const addBtn = document.createElement("button");
+  addBtn.type = "button";
+  addBtn.className = "repeat-add";
+  addBtn.textContent = "+ Add another step";
+  addBtn.addEventListener("click", () => { crumbItems.push({ name: "", url: "" }); renderBreadcrumbForm(); updateOutput(); });
+  wrap.appendChild(addBtn);
+
+  formEl.appendChild(wrap);
+  updateOutput();
+}
+
+/* ---------------------------------------------------------
+   Build JSON-LD objects per type
+--------------------------------------------------------- */
+
+function getVal(key) {
+  const el = document.getElementById("f_" + key);
+  return el ? el.value.trim() : "";
+}
+
+function csvList(raw) {
+  return raw ? raw.split(",").map(s => s.trim()).filter(Boolean) : [];
+}
+
+function buildSchema() {
+  const type = typeSelect.value;
+
+  if (type === "Article" || type === "BlogPosting") {
+    const keywords = csvList(getVal("keywords"));
+    return {
+      "@context": "https://schema.org",
+      "@type": type,
+      "headline": getVal("headline"),
+      "description": getVal("description"),
+      "image": getVal("image") ? [getVal("image")] : [],
+      "url": getVal("url"),
+      "author": {
+        "@type": "Person",
+        "name": getVal("authorName"),
+        ...(getVal("authorUrl") && { "url": getVal("authorUrl") })
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": getVal("publisherName"),
+        "logo": {
+          "@type": "ImageObject",
+          "url": getVal("publisherLogo")
+        }
+      },
+      "datePublished": getVal("datePublished"),
+      ...(getVal("dateModified") && { "dateModified": getVal("dateModified") }),
+      ...(getVal("articleSection") && { "articleSection": getVal("articleSection") }),
+      ...(keywords.length && { "keywords": keywords.join(", ") }),
+      ...(getVal("wordCount") && { "wordCount": Number(getVal("wordCount")) }),
+      ...(getVal("inLanguage") && { "inLanguage": getVal("inLanguage") }),
+      ...(getVal("isAccessibleForFree") && { "isAccessibleForFree": getVal("isAccessibleForFree") === "true" }),
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": getVal("url")
+      }
+    };
+  }
+
+  if (type === "FAQPage") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      ...(faqPageUrl && { "url": faqPageUrl, "mainEntityOfPage": { "@type": "WebPage", "@id": faqPageUrl } }),
+      "mainEntity": faqItems
+        .filter(i => i.question || i.answer)
+        .map(i => ({
+          "@type": "Question",
+          "name": i.question,
+          "acceptedAnswer": { "@type": "Answer", "text": i.answer }
+        }))
+    };
+  }
+
+  if (type === "Person") {
+    const sameAsRaw = getVal("sameAs");
+    const sameAs = sameAsRaw ? sameAsRaw.split("\n").map(s => s.trim()).filter(Boolean) : [];
+    const knowsAbout = csvList(getVal("knowsAbout"));
+    const hasAddress = getVal("addressLocality") || getVal("addressRegion") || getVal("addressCountry");
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": getVal("name"),
+      ...(getVal("jobTitle") && { "jobTitle": getVal("jobTitle") }),
+      ...(getVal("description") && { "description": getVal("description") }),
+      "url": getVal("url"),
+      ...(getVal("image") && { "image": getVal("image") }),
+      ...(getVal("email") && { "email": getVal("email") }),
+      ...(getVal("telephone") && { "telephone": getVal("telephone") }),
+      ...(getVal("worksFor") && { "worksFor": { "@type": "Organization", "name": getVal("worksFor") } }),
+      ...(getVal("alumniOf") && { "alumniOf": { "@type": "EducationalOrganization", "name": getVal("alumniOf") } }),
+      ...(hasAddress && {
+        "address": {
+          "@type": "PostalAddress",
+          ...(getVal("addressLocality") && { "addressLocality": getVal("addressLocality") }),
+          ...(getVal("addressRegion") && { "addressRegion": getVal("addressRegion") }),
+          ...(getVal("addressCountry") && { "addressCountry": getVal("addressCountry") })
+        }
+      }),
+      ...(knowsAbout.length && { "knowsAbout": knowsAbout }),
+      ...(sameAs.length && { "sameAs": sameAs })
+    };
+  }
+
+  if (type === "Event") {
+    const hasLocationAddress = getVal("locationAddress") || getVal("locationCity") || getVal("locationRegion") || getVal("locationCountry");
+    return {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": getVal("name"),
+      ...(getVal("description") && { "description": getVal("description") }),
+      ...(getVal("image") && { "image": [getVal("image")] }),
+      "startDate": getVal("startDate"),
+      ...(getVal("endDate") && { "endDate": getVal("endDate") }),
+      ...(getVal("eventAttendanceMode") && { "eventAttendanceMode": `https://schema.org/${getVal("eventAttendanceMode")}EventAttendanceMode` }),
+      ...(getVal("eventStatus") && { "eventStatus": `https://schema.org/Event${getVal("eventStatus")}` }),
+      "location": {
+        "@type": "Place",
+        "name": getVal("locationName"),
+        ...(hasLocationAddress && {
+          "address": {
+            "@type": "PostalAddress",
+            ...(getVal("locationAddress") && { "streetAddress": getVal("locationAddress") }),
+            ...(getVal("locationCity") && { "addressLocality": getVal("locationCity") }),
+            ...(getVal("locationRegion") && { "addressRegion": getVal("locationRegion") }),
+            ...(getVal("locationCountry") && { "addressCountry": getVal("locationCountry") })
+          }
+        })
+      },
+      ...(getVal("url") && { "url": getVal("url") }),
+      ...((getVal("offerPrice") || getVal("offerCurrency") || getVal("offerUrl") || getVal("offerAvailability")) && {
+        "offers": {
+          "@type": "Offer",
+          ...(getVal("offerPrice") && { "price": getVal("offerPrice") }),
+          ...(getVal("offerCurrency") && { "priceCurrency": getVal("offerCurrency") }),
+          ...(getVal("offerUrl") && { "url": getVal("offerUrl") }),
+          ...(getVal("offerAvailability") && { "availability": `https://schema.org/${getVal("offerAvailability")}` })
+        }
+      }),
+      ...(getVal("performerName") && { "performer": { "@type": "Person", "name": getVal("performerName") } }),
+      ...((getVal("organizerName") || getVal("organizerUrl")) && {
+        "organizer": {
+          "@type": "Organization",
+          ...(getVal("organizerName") && { "name": getVal("organizerName") }),
+          ...(getVal("organizerUrl") && { "url": getVal("organizerUrl") })
+        }
+      })
+    };
+  }
+
+  if (type === "BreadcrumbList") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": crumbItems
+        .filter(i => i.name || i.url)
+        .map((i, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": i.name,
+          "item": i.url
+        }))
+    };
+  }
+
+  if (type === "SoftwareApplication") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": getVal("name"),
+      ...(getVal("description") && { "description": getVal("description") }),
+      ...(getVal("url") && { "url": getVal("url") }),
+      ...(getVal("image") && { "image": getVal("image") }),
+      ...(getVal("screenshot") && { "screenshot": getVal("screenshot") }),
+      "applicationCategory": getVal("applicationCategory"),
+      ...(getVal("operatingSystem") && { "operatingSystem": getVal("operatingSystem") }),
+      ...(getVal("softwareVersion") && { "softwareVersion": getVal("softwareVersion") }),
+      ...(getVal("datePublished") && { "datePublished": getVal("datePublished") }),
+      ...(getVal("authorName") && { "author": { "@type": "Organization", "name": getVal("authorName") } }),
+      ...(getVal("downloadUrl") && { "downloadUrl": getVal("downloadUrl") }),
+      ...((getVal("offerPrice") || getVal("offerCurrency")) && {
+        "offers": {
+          "@type": "Offer",
+          ...(getVal("offerPrice") && { "price": getVal("offerPrice") }),
+          ...(getVal("offerCurrency") && { "priceCurrency": getVal("offerCurrency") })
+        }
+      }),
+      ...((getVal("ratingValue") && getVal("ratingCount")) && {
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": getVal("ratingValue"),
+          "ratingCount": getVal("ratingCount")
+        }
+      })
+    };
+  }
+
+  return {};
+}
+
+/* ---------------------------------------------------------
+   Validation
+--------------------------------------------------------- */
+
+function validate() {
+  const type = typeSelect.value;
+  let missing = [];
+
+  if (type === "FAQPage") {
+    const incomplete = faqItems.filter(i => !i.question || !i.answer);
+    if (faqItems.length === 0 || incomplete.length) missing.push("all questions need both a question and an answer");
+  } else if (type === "BreadcrumbList") {
+    const incomplete = crumbItems.filter(i => !i.name || !i.url);
+    if (crumbItems.length < 2 || incomplete.length) missing.push("every step needs a name and URL (at least 2 steps)");
+  } else {
+    schemaConfigs[type].fields.filter(f => f.required).forEach(f => {
+      const el = document.getElementById("f_" + f.key);
+      const errEl = document.getElementById("err_" + f.key);
+      const isEmpty = !el.value.trim();
+      if (el) el.classList.toggle("invalid", false);
+      if (errEl) errEl.classList.toggle("show", false);
+      if (isEmpty) missing.push(f.label);
+    });
+  }
+  return missing;
+}
+
+/* ---------------------------------------------------------
+   Syntax highlight + output
+--------------------------------------------------------- */
+
+function highlight(json) {
+  return json.replace(/"([^"]+)":/g, '<span class="k">"$1"</span>:');
+}
+
+function updateOutput() {
+  const schema = buildSchema();
+  const json = JSON.stringify(schema, null, 2);
+  const snippet = `<script type="application/ld+json">\n${json}\n<\/script>`;
+  output.innerHTML = highlight(escapeHtml(snippet));
+
+  const missing = validate();
+  if (missing.length === 0) {
+    validityDot.classList.remove("warn");
+    validityText.textContent = "Required fields complete.";
+  } else {
+    validityDot.classList.add("warn");
+    validityText.textContent = `Missing: ${missing.slice(0, 2).join(", ")}${missing.length > 2 ? "…" : ""}`;
+  }
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const schema = buildSchema();
+  const json = JSON.stringify(schema, null, 2);
+  const snippet = `<script type="application/ld+json">\n${json}\n<\/script>`;
+  navigator.clipboard.writeText(snippet).then(() => {
+    const btn = document.getElementById("copyBtn");
+    const original = btn.textContent;
+    btn.textContent = "Copied ✓";
+    btn.classList.add("copied");
+    setTimeout(() => { btn.textContent = original; btn.classList.remove("copied"); }, 1800);
+  });
+});
+
+typeSelect.addEventListener("change", renderForm);
+renderForm();
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}));
+</script>
+</body>
+</html>
