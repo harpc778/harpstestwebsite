@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#1B4332"/>
+
+  <!-- Hard offset shadow (neobrutalist depth) -->
+  <path d="M19 15 H29 V30 H41 V15 H51 V55 H41 V40 H29 V55 H19 Z" fill="#0B0B0B"/>
+
+  <!-- H letterform -->
+  <path d="M16 12 H26 V27 H38 V12 H48 V52 H38 V37 H26 V52 H16 Z" fill="#F5F0E6"/>
+</svg>
