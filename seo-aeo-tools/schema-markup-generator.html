@@ -44,8 +44,45 @@
       --error: #B3261E; --error-light: #FBEAE9;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
+    /* NAV (matches homepage) */
+    nav { position: sticky; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 68px; background: var(--cream); border-bottom: 3px solid var(--ink); }
+    .nav-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; letter-spacing: -0.3px; }
+    .nav-logo-top { font-size: 17px; }
+    .nav-logo-bottom { font-size: 12px; color: var(--accent); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn-brut { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: var(--ink); color: var(--cream); border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); text-decoration: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn-brut:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: var(--cream); border: 2px solid var(--ink); padding: 6px; z-index: 110; }
+    .hamburger span { display: block; height: 2px; background: var(--ink); transition: transform 0.3s, opacity 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--cream); border-bottom: 3px solid var(--ink); padding: 16px 20px 24px; z-index: 99; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'JetBrains Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 2px solid var(--ink); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--ink); }
+
+    /* FOOTER */
+    footer { border-top: 3px solid var(--ink); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mid); }
+    nav a:focus-visible, nav button:focus-visible, .mobile-menu a:focus-visible, footer a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      footer { flex-direction: column; text-align: center; justify-content: center; padding: 32px 20px; }
+      .footer-links { justify-content: center; }
+    }
 
     .page-header { max-width: 1240px; margin: 0 auto; padding: 56px 40px 32px; border-bottom: 1px solid var(--border); }
     .article-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; background: var(--accent-light); color: var(--accent); }
@@ -163,7 +200,7 @@
     <li><a href="/index.html">Home</a></li>
     <li><a href="/services.html">Services</a></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
-    <li><a href="/learn.html">Learn</a></li>
+    <li><a href="/learn/">Learn</a></li>
     <li><a href="/contact.html">Let's Talk</a></li>
   </ul>
   <a href="/contact.html" class="btn-brut nav-cta">Let's Talk →</a>
@@ -174,12 +211,11 @@
   <a href="/index.html">Home</a>
   <a href="/services.html">Services</a>
   <a href="/aeo-leaderboard">AEO Leaderboard</a>
-  <a href="/learn.html">Learn</a>
+  <a href="/learn/">Learn</a>
   <a href="/contact.html">Let's Talk</a>
 </div>
 
 <div class="page-header">
-  <a class="back-link" href="/seo-aeo-tools">&larr; Back to all tools</a><br />
   <div class="article-badge">✦ Free Tool</div>
   <h1 class="page-title">Schema Markup <em>Generator</em></h1>
   <p class="page-sub">Pick a schema type, fill in the fields, and copy clean JSON-LD straight into your page's &lt;head&gt;. No sign-up, and nothing is sent anywhere: it all runs in your browser.</p>
@@ -235,9 +271,6 @@
 
 <p class="privacy-note">Runs in your browser. Nothing is stored or sent anywhere.</p>
 
-<!-- tools:more slug="schema-markup-generator" -->
-<!-- /tools:more -->
-
 <footer>
   <a href="/index.html" class="footer-logo">
     <span style="display:block;font-size:16px;font-family:'Instrument Serif',serif;">Harp Chatha</span>
@@ -246,7 +279,7 @@
   <ul class="footer-links">
     <li><a href="/index.html">Home</a></li>
     <li><a href="/services.html">Services</a></li>
-    <li><a href="/learn/index.html">Learn</a></li>
+    <li><a href="/learn/">Learn</a></li>
     <li><a href="/contact.html">Let's Talk</a></li>
     <li><a href="https://seoespresso.com" target="_blank">Newsletter</a></li>
   </ul>

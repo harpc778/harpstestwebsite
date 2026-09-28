@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robots.txt Generator with AI Crawlers | Harpreet Chatha</title>
+  <meta name="description" content="Free robots.txt generator with presets and per bot controls for GPTBot, ClaudeBot, PerplexityBot and other AI crawlers. Build, check and download in seconds." />
+  <link rel="canonical" href="https://harpsdigital.com/seo-aeo-tools/robots-txt-generator" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Harpreet Chatha" />
+  <meta property="og:title" content="Robots.txt Generator" />
+  <meta property="og:description" content="Free robots.txt generator with presets and per bot controls for GPTBot, ClaudeBot, PerplexityBot and other AI crawlers. Build, check and download in seconds." />
+  <meta property="og:url" content="https://harpsdigital.com/seo-aeo-tools/robots-txt-generator" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Robots.txt Generator" />
+  <meta name="twitter:description" content="Free robots.txt generator with presets and per bot controls for GPTBot, ClaudeBot, PerplexityBot and other AI crawlers. Build, check and download in seconds." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/tools.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Robots.txt Generator",
+    "url": "https://harpsdigital.com/seo-aeo-tools/robots-txt-generator",
+    "description": "Free robots.txt generator with presets and per bot controls for GPTBot, ClaudeBot, PerplexityBot and other AI crawlers. Build, check and download in seconds.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Harpreet Singh Chatha", "url": "https://harpsdigital.com/" }
+  }
+  </script>
+  <style>
+    .bot-group { margin-bottom: 18px; }
+    .bot-group-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .bot-group-desc { font-size: 12.5px; color: var(--mid); margin-bottom: 6px; }
+    .bot-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+    .bot-list .check-row { font-family: 'JetBrains Mono', monospace; font-size: 13.5px; }
+    @media (max-width: 640px) { .bot-list { grid-template-columns: minmax(0, 1fr); } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/index.html" class="nav-logo">
+    <span class="nav-logo-top">Harp Chatha</span>
+    <span class="nav-logo-bottom">Search</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
+    <li><a href="/learn/">Learn</a></li>
+    <li><a href="/contact.html">Let's Talk</a></li>
+  </ul>
+  <a href="/contact.html" class="btn-brut nav-cta">Let's Talk →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/index.html">Home</a>
+  <a href="/services.html">Services</a>
+  <a href="/aeo-leaderboard">AEO Leaderboard</a>
+  <a href="/learn/">Learn</a>
+  <a href="/contact.html">Let's Talk</a>
+</div>
+
+<header class="page-header">
+  <div class="article-badge">✦ Free Tool</div>
+  <h1 class="page-title">Robots.txt <em>Generator</em></h1>
+  <p class="page-sub">Build a clean robots.txt file with presets, custom rules and a toggle for every major AI crawler. Check the warnings, then copy or download the file for your site root.</p>
+</header>
+
+<main class="tool-wrap">
+  <div>
+    <section class="panel" aria-labelledby="presets-h">
+      <div class="panel-top">
+        <h2 class="panel-heading" id="presets-h">1. Start from a preset</h2>
+        <div class="panel-actions">
+          <button class="btn" type="button" id="exampleBtn">Example</button>
+          <button class="btn" type="button" id="resetBtn">Reset</button>
+        </div>
+      </div>
+      <div class="preset-grid" id="presets">
+        <button class="btn" type="button" data-preset="allow">Allow everything</button>
+        <button class="btn" type="button" data-preset="noTraining">Block AI training but allow AI search</button>
+        <button class="btn" type="button" data-preset="noAi">Block all AI crawlers</button>
+        <button class="btn" type="button" data-preset="wordpress">WordPress defaults</button>
+        <button class="btn" type="button" data-preset="shopify">Shopify defaults</button>
+        <button class="btn" type="button" data-preset="nextjs">Next.js defaults</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="rules-h">
+      <h2 class="panel-heading" id="rules-h">2. Rules for all crawlers (User-agent: *)</h2>
+      <fieldset class="field-group" style="border:0">
+        <legend class="label">Default rule</legend>
+        <div class="radio-row">
+          <label class="check-row"><input type="radio" name="defaultRule" value="allow" checked /> Allow all</label>
+          <label class="check-row"><input type="radio" name="defaultRule" value="disallow" /> Disallow all</label>
+        </div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="starAllow">Allow paths <span class="hint">One per line, for example /wp-admin/admin-ajax.php</span></label>
+          <textarea id="starAllow" class="mono" spellcheck="false"></textarea>
+        </div>
+        <div class="field-group">
+          <label for="starDisallow">Disallow paths <span class="hint">One per line, for example /cart or /*?sort=</span></label>
+          <textarea id="starDisallow" class="mono" spellcheck="false"></textarea>
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="starDelay">Crawl-delay in seconds (optional) <span class="hint">Google ignores this. Bing and some other crawlers respect it.</span></label>
+        <input type="number" id="starDelay" min="0" max="60" step="1" inputmode="numeric" />
+      </div>
+
+      <div class="section-divider"></div>
+      <div class="subsection-label">Extra user-agent groups</div>
+      <p class="muted" style="margin-bottom:12px">Give a specific crawler its own rules. A crawler follows only the most specific group that names it, and ignores the * group.</p>
+      <div id="groups"></div>
+      <button class="repeat-add" type="button" id="addGroup">+ Add a user-agent group</button>
+    </section>
+
+    <section class="panel" aria-labelledby="ai-h">
+      <h2 class="panel-heading" id="ai-h">3. AI crawlers</h2>
+      <p class="muted" style="margin-bottom:16px">Tick a crawler to block it from the whole site. Unticked crawlers follow your rules above.</p>
+      <div id="botGroups"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="sitemap-h">
+      <h2 class="panel-heading" id="sitemap-h">4. Sitemaps</h2>
+      <div class="field-group">
+        <label for="sitemaps">Sitemap URLs <span class="hint">One per line. Use full absolute URLs.</span></label>
+        <textarea id="sitemaps" class="mono" spellcheck="false" placeholder="https://example.com/sitemap.xml"></textarea>
+      </div>
+    </section>
+  </div>
+
+  <div class="preview-col">
+    <div class="preview-panel">
+      <div class="preview-head">
+        <span class="preview-label" id="out-label">robots.txt</span>
+        <div class="preview-actions">
+          <button class="btn btn-light" type="button" id="copyBtn">Copy</button>
+          <button class="btn btn-ghost-dark" type="button" id="downloadBtn">Download</button>
+        </div>
+      </div>
+      <pre class="output" id="output" tabindex="0" aria-labelledby="out-label"></pre>
+    </div>
+    <ul class="results" id="checks" aria-live="polite"></ul>
+    <div class="notice info"><strong>robots.txt is a request, not enforcement.</strong> Well behaved crawlers follow it, but it does not stop anyone from fetching your pages, and a blocked URL can still be indexed if other sites link to it. Use authentication or noindex for anything private.</div>
+  </div>
+</main>
+
+<p class="privacy-note">Runs in your browser. Nothing is stored or sent anywhere.</p>
+
+<footer>
+  <a href="/index.html" class="footer-logo">
+    <span style="display:block;font-size:16px;font-family:'Instrument Serif',serif;">Harp Chatha</span>
+    <span style="display:block;font-size:12px;color:var(--accent);font-style:italic;font-family:'Instrument Serif',serif;">Search</span>
+  </a>
+  <ul class="footer-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/learn/">Learn</a></li>
+    <li><a href="/contact.html">Let's Talk</a></li>
+    <li><a href="https://seoespresso.com" target="_blank">Newsletter</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Harpreet Singh Chatha</div>
+</footer>
+
+<script src="/assets/tools.js"></script>
+<script>
+(function () {
+  var $ = HT.$, $$ = HT.$$;
+
+  var BOT_GROUPS = [
+    { id: 'training', title: 'AI training', desc: 'Collect content to train AI models. Blocking these does not affect regular search.', bots: [
+      ['GPTBot', 'OpenAI model training'],
+      ['ClaudeBot', 'Anthropic model training'],
+      ['Google-Extended', 'Gemini training and grounding control token, not a separate crawler'],
+      ['Applebot-Extended', 'Apple AI training control token'],
+      ['CCBot', 'Common Crawl dataset, widely used for training'],
+      ['Bytespider', 'ByteDance crawler, used for AI training'],
+      ['Meta-ExternalAgent', 'Meta AI training'],
+      ['Amazonbot', 'Amazon crawler, may be used for AI training']
+    ]},
+    { id: 'search', title: 'AI search index', desc: 'Build the indexes AI search products cite from. Blocking these can remove you from AI answers.', bots: [
+      ['OAI-SearchBot', 'ChatGPT search results'],
+      ['Claude-SearchBot', 'Claude search results'],
+      ['PerplexityBot', 'Perplexity search index']
+    ]},
+    { id: 'user', title: 'User-triggered fetch', desc: 'Visit a page because a person asked the assistant to. Some of these may not follow robots.txt.', bots: [
+      ['ChatGPT-User', 'Fetches pages for ChatGPT users'],
+      ['Claude-User', 'Fetches pages for Claude users'],
+      ['Perplexity-User', 'Fetches pages for Perplexity users']
+    ]}
+  ];
+
+  var PRESETS = {
+    allow: { rule: 'allow', allow: [], disallow: [], groups: [], block: [], sitemaps: ['https://example.com/sitemap.xml'] },
+    noTraining: { rule: 'allow', allow: [], disallow: [], groups: [], block: 'training', sitemaps: ['https://example.com/sitemap.xml'] },
+    noAi: { rule: 'allow', allow: [], disallow: [], groups: [], block: 'all', sitemaps: ['https://example.com/sitemap.xml'] },
+    wordpress: { rule: 'allow', allow: ['/wp-admin/admin-ajax.php'], disallow: ['/wp-admin/'], groups: [], block: [], sitemaps: ['https://example.com/wp-sitemap.xml'] },
+    shopify: { rule: 'allow', allow: [], disallow: ['/admin', '/cart', '/orders', '/checkouts/', '/checkout', '/account', '/collections/*sort_by*', '/*/collections/*sort_by*', '/collections/*+*', '/collections/*%2B*', '/collections/*%2b*', '/blogs/*+*', '/blogs/*%2B*', '/blogs/*%2b*', '/*?*oseid=*', '/*preview_theme_id*', '/*preview_script_id*', '/policies/', '/search', '/apple-app-site-association', '/recommendations/products'], groups: [], block: [], sitemaps: ['https://example.com/sitemap.xml'] },
+    nextjs: { rule: 'allow', allow: [], disallow: ['/api/'], groups: [], block: [], sitemaps: ['https://example.com/sitemap.xml'] }
+  };
+
+  var groups = [];
+
+  function lines(v) { return v.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean); }
+
+  function renderBots() {
+    $('#botGroups').innerHTML = BOT_GROUPS.map(function (g) {
+      return '<fieldset class="bot-group" style="border:0"><legend class="bot-group-title">' + g.title + '</legend>' +
+        '<p class="bot-group-desc">' + g.desc + '</p><div class="bot-list">' +
+        g.bots.map(function (b) {
+          return '<label class="check-row" title="' + HT.escapeHtml(b[1]) + '"><input type="checkbox" data-bot="' + b[0] + '" data-cat="' + g.id + '" /> <span>' + b[0] + '<br /><small>' + HT.escapeHtml(b[1]) + '</small></span></label>';
+        }).join('') + '</div></fieldset>';
+    }).join('');
+    $$('#botGroups input').forEach(function (i) { i.addEventListener('change', update); });
+  }
+
+  function renderGroups() {
+    var wrap = $('#groups');
+    wrap.innerHTML = groups.map(function (g, i) {
+      return '<div class="repeat-item" data-i="' + i + '">' +
+        '<div class="repeat-head"><span class="subsection-label" style="margin:0">Group ' + (i + 1) + '</span><button class="repeat-remove" type="button" data-remove="' + i + '" aria-label="Remove group ' + (i + 1) + '">Remove</button></div>' +
+        '<div class="field-group"><label for="g' + i + 'ua">User-agent</label><input type="text" id="g' + i + 'ua" data-k="ua" value="' + HT.escapeHtml(g.ua) + '" placeholder="Bingbot" /></div>' +
+        '<div class="field-row"><div class="field-group"><label for="g' + i + 'al">Allow paths</label><textarea id="g' + i + 'al" class="mono" data-k="allow" spellcheck="false">' + HT.escapeHtml(g.allow) + '</textarea></div>' +
+        '<div class="field-group"><label for="g' + i + 'dis">Disallow paths</label><textarea id="g' + i + 'dis" class="mono" data-k="disallow" spellcheck="false">' + HT.escapeHtml(g.disallow) + '</textarea></div></div>' +
+        '<div class="field-group" style="margin:0"><label for="g' + i + 'cd">Crawl-delay (optional)</label><input type="number" min="0" max="60" inputmode="numeric" id="g' + i + 'cd" data-k="delay" value="' + HT.escapeHtml(g.delay) + '" /></div>' +
+        '</div>';
+    }).join('');
+    $$('.repeat-item', wrap).forEach(function (el) {
+      var i = +el.dataset.i;
+      $$('[data-k]', el).forEach(function (inp) {
+        inp.addEventListener('input', function () { groups[i][inp.dataset.k] = inp.value; update(); });
+      });
+    });
+    $$('[data-remove]', wrap).forEach(function (b) {
+      b.addEventListener('click', function () { groups.splice(+b.dataset.remove, 1); renderGroups(); update(); });
+    });
+  }
+
+  function blockedBots() {
+    return $$('#botGroups input:checked').map(function (i) { return { name: i.dataset.bot, cat: i.dataset.cat }; });
+  }
+
+  function build() {
+    var out = [];
+    var rule = $('input[name="defaultRule"]:checked').value;
+    var allow = lines($('#starAllow').value), disallow = lines($('#starDisallow').value);
+    out.push('# robots.txt generated at harpsdigital.com/seo-aeo-tools/robots-txt-generator');
+    out.push('');
+    out.push('User-agent: *');
+    if (rule === 'disallow') out.push('Disallow: /');
+    allow.forEach(function (p) { out.push('Allow: ' + p); });
+    disallow.forEach(function (p) { out.push('Disallow: ' + p); });
+    if (rule === 'allow' && !disallow.length) out.push('Disallow:');
+    if ($('#starDelay').value) out.push('Crawl-delay: ' + $('#starDelay').value);
+
+    groups.forEach(function (g) {
+      if (!g.ua.trim()) return;
+      var a = lines(g.allow), d = lines(g.disallow);
+      out.push('');
+      out.push('User-agent: ' + g.ua.trim());
+      a.forEach(function (p) { out.push('Allow: ' + p); });
+      d.forEach(function (p) { out.push('Disallow: ' + p); });
+      if (!a.length && !d.length) out.push('Disallow:');
+      if (g.delay) out.push('Crawl-delay: ' + g.delay);
+    });
+
+    var blocked = blockedBots();
+    BOT_GROUPS.forEach(function (bg) {
+      var names = blocked.filter(function (b) { return b.cat === bg.id; }).map(function (b) { return b.name; });
+      if (!names.length) return;
+      out.push('');
+      out.push('# Block ' + bg.title.toLowerCase() + ' crawlers');
+      names.forEach(function (n) { out.push('User-agent: ' + n); });
+      out.push('Disallow: /');
+    });
+
+    var maps = lines($('#sitemaps').value);
+    if (maps.length) {
+      out.push('');
+      maps.forEach(function (m) { out.push('Sitemap: ' + m); });
+    }
+    return out.join('\n') + '\n';
+  }
+
+  // Finds the group a crawler would obey and reports whether it blocks the whole site.
+  function blocksWholeSite(bot) {
+    var b = bot.toLowerCase();
+    var own = groups.filter(function (g) { return g.ua.trim().toLowerCase() === b; });
+    var allow, disallow;
+    if (own.length) {
+      allow = []; disallow = [];
+      own.forEach(function (g) { allow = allow.concat(lines(g.allow)); disallow = disallow.concat(lines(g.disallow)); });
+    } else if (blockedBots().some(function (x) { return x.name.toLowerCase() === b; })) {
+      return true;
+    } else {
+      allow = lines($('#starAllow').value);
+      disallow = lines($('#starDisallow').value);
+      if ($('input[name="defaultRule"]:checked').value === 'disallow') disallow.push('/');
+    }
+    var rootBlocked = disallow.some(function (p) { return p === '/' || p === '/*'; });
+    var rootAllowed = allow.some(function (p) { return p === '/' || p === '/*' || p === '/$'; });
+    return rootBlocked && !rootAllowed;
+  }
+
+  function checks() {
+    var items = [];
+    ['Googlebot', 'Bingbot'].forEach(function (bot) {
+      if (blocksWholeSite(bot)) items.push(HT.resultItem('error', '<strong>' + bot + ' is blocked from the whole site.</strong> This will remove your pages from ' + (bot === 'Googlebot' ? 'Google' : 'Bing') + ' search over time. Only publish this if that is what you want.'));
+    });
+    var badPaths = [];
+    var allPaths = lines($('#starAllow').value).concat(lines($('#starDisallow').value));
+    groups.forEach(function (g) { allPaths = allPaths.concat(lines(g.allow), lines(g.disallow)); });
+    allPaths.forEach(function (p) { if (p[0] !== '/' && p[0] !== '*') badPaths.push(p); });
+    if (badPaths.length) items.push(HT.resultItem('warn', 'Paths should start with <code>/</code> (or <code>*</code>). Check: ' + badPaths.map(function (p) { return '<code>' + HT.escapeHtml(p) + '</code>'; }).join(', ')));
+    var maps = lines($('#sitemaps').value);
+    maps.forEach(function (m) { if (!HT.isAbsoluteUrl(m)) items.push(HT.resultItem('warn', 'Sitemap URLs must be absolute, including https://. Check <code>' + HT.escapeHtml(m) + '</code>')); });
+    if (!maps.length) items.push(HT.resultItem('info', 'No sitemap listed. Adding one helps crawlers find your pages.'));
+    groups.forEach(function (g, i) { if (!g.ua.trim()) items.push(HT.resultItem('warn', 'Group ' + (i + 1) + ' has no user-agent, so it is left out of the file.')); });
+    var blocked = blockedBots();
+    if (blocked.some(function (b) { return b.cat === 'search'; })) items.push(HT.resultItem('warn', 'You are blocking an AI search crawler. Your pages may stop appearing or being cited in that AI search product.'));
+    if (blocked.some(function (b) { return b.name === 'Google-Extended'; })) items.push(HT.resultItem('info', 'Google-Extended does not affect Google Search rankings or AI Overviews eligibility. It controls use in Gemini models and grounding.'));
+    if ($('#starDelay').value && +$('#starDelay').value > 10) items.push(HT.resultItem('warn', 'A crawl-delay above 10 seconds can seriously slow down how fast Bing discovers new pages.'));
+    if (!items.some(function (x) { return x.indexOf('class="error"') !== -1 || x.indexOf('class="warn"') !== -1; })) items.unshift(HT.resultItem('pass', 'No blocking problems found for Googlebot or Bingbot.'));
+    return items.join('');
+  }
+
+  function update() {
+    var text = build();
+    $('#output').innerHTML = HT.escapeHtml(text).replace(/^(#.*)$/gm, '<span class="c">$1</span>').replace(/^([A-Za-z-]+):/gm, '<span class="k">$1</span>:');
+    $('#checks').innerHTML = checks();
+  }
+
+  function applyPreset(name) {
+    var p = PRESETS[name];
+    $$('input[name="defaultRule"]').forEach(function (r) { r.checked = r.value === p.rule; });
+    $('#starAllow').value = p.allow.join('\n');
+    $('#starDisallow').value = p.disallow.join('\n');
+    $('#starDelay').value = '';
+    groups = p.groups.slice();
+    $$('#botGroups input').forEach(function (i) {
+      i.checked = p.block === 'all' || (p.block === 'training' && i.dataset.cat === 'training');
+    });
+    $('#sitemaps').value = p.sitemaps.join('\n');
+    renderGroups();
+    update();
+  }
+
+  renderBots();
+  $$('#presets [data-preset]').forEach(function (b) { b.addEventListener('click', function () { applyPreset(b.dataset.preset); }); });
+  $$('input[name="defaultRule"]').forEach(function (r) { r.addEventListener('change', update); });
+  ['#starAllow', '#starDisallow', '#starDelay', '#sitemaps'].forEach(function (s) { $(s).addEventListener('input', update); });
+  $('#addGroup').addEventListener('click', function () { groups.push({ ua: '', allow: '', disallow: '', delay: '' }); renderGroups(); update(); var last = $$('#groups input[data-k="ua"]').pop(); if (last) last.focus(); });
+  $('#exampleBtn').addEventListener('click', function () {
+    applyPreset('wordpress');
+    $$('#botGroups input').forEach(function (i) { i.checked = i.dataset.cat === 'training'; });
+    groups = [{ ua: 'Bingbot', allow: '', disallow: '/wp-admin/\n/?s=', delay: '5' }];
+    $('#sitemaps').value = 'https://example.com/wp-sitemap.xml\nhttps://example.com/news-sitemap.xml';
+    renderGroups();
+    update();
+  });
+  $('#resetBtn').addEventListener('click', function () { applyPreset('allow'); $('#sitemaps').value = ''; update(); });
+  $('#copyBtn').addEventListener('click', function () { HT.copyText(build(), $('#copyBtn')); });
+  $('#downloadBtn').addEventListener('click', function () { HT.download('robots.txt', build(), 'text/plain'); });
+
+  applyPreset('allow');
+})();
+</script>
+</body>
+</html>
