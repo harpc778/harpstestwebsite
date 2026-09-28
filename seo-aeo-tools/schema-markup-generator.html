@@ -3,9 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schema Markup Generator — Harpreet Chatha</title>
-  <meta name="description" content="Free schema markup generator — pick a schema type, fill in the fields, and copy clean JSON-LD for your page head. No sign-up, runs in your browser." />
-  <link rel="canonical" href="https://harpsdigital.com/schema-markup-generator" />
+  <title>Schema Markup Generator | Harpreet Chatha</title>
+  <meta name="description" content="Free schema markup generator: pick a schema type, fill in the fields and copy clean JSON-LD for your page head. No sign-up, and it runs in your browser." />
+  <link rel="canonical" href="https://harpsdigital.com/seo-aeo-tools/schema-markup-generator" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Harpreet Chatha" />
+  <meta property="og:title" content="Schema Markup Generator" />
+  <meta property="og:description" content="Free schema markup generator: pick a schema type, fill in the fields and copy clean JSON-LD for your page head. No sign-up, and it runs in your browser." />
+  <meta property="og:url" content="https://harpsdigital.com/seo-aeo-tools/schema-markup-generator" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Schema Markup Generator" />
+  <meta name="twitter:description" content="Free schema markup generator: pick a schema type, fill in the fields and copy clean JSON-LD for your page head. No sign-up, and it runs in your browser." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Schema Markup Generator",
+    "url": "https://harpsdigital.com/seo-aeo-tools/schema-markup-generator",
+    "description": "Free schema markup generator: pick a schema type, fill in the fields and copy clean JSON-LD for your page head. No sign-up, and it runs in your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Harpreet Singh Chatha", "url": "https://harpsdigital.com/" }
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -23,28 +46,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.6; }
 
-    /* NAV — matches site-wide navigation */
-    nav { position: sticky; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 68px; background: var(--cream); border-bottom: 3px solid var(--ink); }
-    .nav-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; letter-spacing: -0.3px; }
-    .nav-logo-top { font-size: 17px; }
-    .nav-logo-bottom { font-size: 12px; color: var(--accent); font-style: italic; }
-    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
-    .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
-    .nav-links a.active { color: var(--accent); }
-    .btn-brut { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: var(--ink); color: var(--cream); border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); text-decoration: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
-    .btn-brut:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
-    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: var(--cream); border: 2px solid var(--ink); padding: 6px; z-index: 110; }
-    .hamburger span { display: block; height: 2px; background: var(--ink); transition: transform 0.3s, opacity 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--cream); border-bottom: 3px solid var(--ink); padding: 16px 20px 24px; z-index: 99; flex-direction: column; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-family: 'JetBrains Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; padding: 14px 0; border-bottom: 2px solid var(--ink); transition: color 0.2s; }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { color: var(--ink); }
-    @media (max-width: 768px) { .nav-links { display: none; } .nav-cta { display: none; } .hamburger { display: flex; } nav { padding: 0 20px; } }
 
     .page-header { max-width: 1240px; margin: 0 auto; padding: 56px 40px 32px; border-bottom: 1px solid var(--border); }
     .article-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; background: var(--accent-light); color: var(--accent); }
@@ -113,13 +114,42 @@
     .validity-dot.warn { background: #C9821A; }
     .validity-card a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); margin-left: auto; white-space: nowrap; font-weight: 500; }
 
-    footer { border-top: 3px solid var(--ink); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1240px; margin: 0 auto; }
-    .footer-logo { font-family: 'Instrument Serif', serif; color: var(--ink); text-decoration: none; }
-    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--ink); }
-    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mid); }
-    @media (max-width: 768px) { footer { flex-direction: column; text-align: center; justify-content: center; } .footer-links { justify-content: center; } }
+
+    /* Tool page additions shared with the other /seo-aeo-tools pages */
+    input[type="text"], input[type="url"], input[type="date"], input[type="number"], textarea, select.field-select { font-size: 16px; min-height: 44px; }
+    .repeat-item-remove { width: 44px; height: 44px; top: 6px; right: 6px; }
+    .repeat-add, .copy-btn, .tool-btn { min-height: 44px; }
+    .copy-btn:focus-visible, .tool-btn:focus-visible, .repeat-add:focus-visible, .repeat-item-remove:focus-visible, .back-link:focus-visible, select#schemaType:focus-visible, .validity-card a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .preview-panel .copy-btn:focus-visible { outline-color: #6EE7A0; }
+    .preview-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .copy-btn.ghost { background: transparent; color: #E8F5EE; border: 1px solid rgba(255,255,255,0.3); }
+    .copy-btn.ghost:hover { background: rgba(255,255,255,0.08); }
+    .panel-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .panel-top .panel-heading { margin-bottom: 0; }
+    .tool-btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: #fff; color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .tool-btn:hover { border-color: var(--accent); }
+    .preview-head { flex-wrap: wrap; gap: 10px; }
+    .back-link { display: inline-flex; align-items: center; min-height: 44px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mid); text-decoration: none; margin-bottom: 8px; }
+    .back-link:hover { color: var(--accent); }
+    .privacy-note { max-width: 1240px; margin: -64px auto 0; padding: 0 40px 64px; font-size: 13.5px; color: var(--mid); display: flex; align-items: center; gap: 8px; }
+    .privacy-note::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .tool-wrap > * { min-width: 0; }
+    @media (max-width: 980px) { .privacy-note { margin-top: -32px; padding: 0 20px 48px; } .preview-col { position: static; } }
+    @media (max-width: 640px) { .panel { padding: 20px 16px; } .field-row { grid-template-columns: 1fr; } }
+
+    /* "More free tools" cards, same as /assets/tools.css */
+    .more-tools { max-width: 1240px; margin: 0 auto; padding: 48px 40px 80px; border-top: 1px solid var(--border); }
+    .more-tools h2 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); letter-spacing: -0.8px; margin-bottom: 20px; }
+    .tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; list-style: none; }
+    .tool-grid > li { display: flex; min-width: 0; }
+    .tool-card { display: flex; flex-direction: column; gap: 10px; width: 100%; background: #fff; border: 2px solid var(--ink); border-radius: 16px; padding: 24px; text-decoration: none; color: var(--ink); box-shadow: 4px 4px 0 var(--ink); transition: transform 0.15s, box-shadow 0.15s; }
+    .tool-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .tool-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .tool-card h3 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 24px; line-height: 1.15; letter-spacing: -0.4px; }
+    .tool-card p { font-size: 14.5px; color: var(--mid); line-height: 1.55; flex: 1; }
+    .tool-card .try { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+    @media (max-width: 980px) { .more-tools { padding: 40px 20px 64px; } .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .tool-grid { grid-template-columns: minmax(0, 1fr); } }
   </style>
 </head>
 <body>
@@ -149,16 +179,23 @@
 </div>
 
 <div class="page-header">
+  <a class="back-link" href="/seo-aeo-tools">&larr; Back to all tools</a><br />
   <div class="article-badge">✦ Free Tool</div>
   <h1 class="page-title">Schema Markup <em>Generator</em></h1>
-  <p class="page-sub">Pick a schema type, fill in the fields, and copy clean JSON-LD straight into your page's &lt;head&gt;. No sign-up, nothing sent anywhere — it all runs in your browser.</p>
+  <p class="page-sub">Pick a schema type, fill in the fields, and copy clean JSON-LD straight into your page's &lt;head&gt;. No sign-up, and nothing is sent anywhere: it all runs in your browser.</p>
 </div>
 
 <div class="tool-wrap">
 
   <!-- FORM -->
   <div class="panel">
-    <div class="panel-heading">1. Choose a schema type</div>
+    <div class="panel-top">
+      <label class="panel-heading" for="schemaType">1. Choose a schema type</label>
+      <div class="preview-actions">
+        <button class="tool-btn" id="exampleBtn" type="button">Example</button>
+        <button class="tool-btn" id="resetBtn" type="button">Reset</button>
+      </div>
+    </div>
     <div class="select-wrap">
       <select id="schemaType">
         <option value="Article">Article</option>
@@ -180,9 +217,12 @@
     <div class="preview-panel">
       <div class="preview-head">
         <span class="preview-label">JSON-LD Output</span>
-        <button class="copy-btn" id="copyBtn" type="button">Copy code</button>
+        <div class="preview-actions">
+          <button class="copy-btn" id="copyBtn" type="button">Copy code</button>
+          <button class="copy-btn ghost" id="downloadBtn" type="button">Download</button>
+        </div>
       </div>
-      <pre id="schemaOutput"></pre>
+      <pre id="schemaOutput" tabindex="0" aria-label="JSON-LD output"></pre>
     </div>
     <div class="validity-card">
       <span class="validity-dot" id="validityDot"></span>
@@ -192,6 +232,11 @@
   </div>
 
 </div>
+
+<p class="privacy-note">Runs in your browser. Nothing is stored or sent anywhere.</p>
+
+<!-- tools:more slug="schema-markup-generator" -->
+<!-- /tools:more -->
 
 <footer>
   <a href="/index.html" class="footer-logo">
@@ -376,7 +421,7 @@ function renderForm() {
       (field.options || []).forEach(opt => {
         const o = document.createElement("option");
         o.value = opt;
-        o.textContent = opt === "" ? "— Select —" : opt;
+        o.textContent = opt === "" ? "Select..." : opt;
         input.appendChild(o);
       });
       input.addEventListener("change", updateOutput);
@@ -406,13 +451,14 @@ function renderFaqForm() {
 
   const noteBox = document.createElement("div");
   noteBox.style.cssText = "background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px; font-size: 12.5px; color: var(--mid); line-height: 1.5;";
-  noteBox.innerHTML = "Google currently shows FAQ rich results mainly for government and health sites, and is retiring the FAQ check in its Rich Results Test. The markup is still valid schema.org — useful for AI search citation — just don't expect the classic dropdown in Google for most sites.";
+  noteBox.innerHTML = "Google currently shows FAQ rich results mainly for government and health sites, and is retiring the FAQ check in its Rich Results Test. The markup is still valid schema.org (useful for AI search citation), just don't expect the classic dropdown in Google for most sites.";
   wrap.appendChild(noteBox);
 
   const urlGroup = document.createElement("div");
   urlGroup.className = "field-group";
   const urlLabel = document.createElement("label");
-  urlLabel.innerHTML = 'Page URL <span class="hint">Optional — the page this FAQ content lives on. Not required by Google, but nice for context.</span>';
+  urlLabel.setAttribute("for", "f_pageUrl");
+  urlLabel.innerHTML = 'Page URL <span class="hint">Optional: the page this FAQ content lives on. Not required by Google, but nice for context.</span>';
   urlGroup.appendChild(urlLabel);
   const urlInput = document.createElement("input");
   urlInput.type = "url";
@@ -794,6 +840,61 @@ document.getElementById("copyBtn").addEventListener("click", () => {
     btn.classList.add("copied");
     setTimeout(() => { btn.textContent = original; btn.classList.remove("copied"); }, 1800);
   });
+});
+
+function currentSnippet() {
+  const json = JSON.stringify(buildSchema(), null, 2);
+  return `<script type="application/ld+json">\n${json}\n<\/script>`;
+}
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const blob = new Blob([currentSnippet()], { type: "text/html;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = typeSelect.value.toLowerCase() + "-schema.html";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 500);
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  faqItems = [{ question: "", answer: "" }];
+  faqPageUrl = "";
+  crumbItems = [{ name: "", url: "" }, { name: "", url: "" }];
+  renderForm();
+});
+
+// Example fills every field with its placeholder sample value.
+document.getElementById("exampleBtn").addEventListener("click", () => {
+  const type = typeSelect.value;
+  if (type === "FAQPage") {
+    faqPageUrl = "https://example.com/blog/seo-audit-faq";
+    faqItems = [
+      { question: "What is an SEO audit?", answer: "An SEO audit reviews a website for technical, content and link issues that hold back search visibility." },
+      { question: "How often should I run an SEO audit?", answer: "Most sites benefit from a full audit once or twice a year, with lighter monthly checks." }
+    ];
+    renderForm();
+    return;
+  }
+  if (type === "BreadcrumbList") {
+    crumbItems = [
+      { name: "Home", url: "https://harpsdigital.com/" },
+      { name: "Learn", url: "https://harpsdigital.com/learn/" },
+      { name: "Query Fan Out", url: "https://harpsdigital.com/learn/query-fan-out" }
+    ];
+    renderForm();
+    return;
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  schemaConfigs[type].fields.forEach(field => {
+    const el = document.getElementById("f_" + field.key);
+    if (!el) return;
+    if (field.type === "date") el.value = today;
+    else if (field.type === "select") el.value = field.options.find(o => o) || "";
+    else if (field.placeholder) el.value = field.placeholder;
+  });
+  updateOutput();
 });
 
 typeSelect.addEventListener("change", renderForm);

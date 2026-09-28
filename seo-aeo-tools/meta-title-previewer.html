@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meta Title and Description Previewer | Harpreet Chatha</title>
+  <meta name="description" content="Check meta title and description length in characters and pixels, preview the desktop and mobile search snippet, and see a rough AI citation card. Free tool." />
+  <link rel="canonical" href="https://harpsdigital.com/seo-aeo-tools/meta-title-previewer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Harpreet Chatha" />
+  <meta property="og:title" content="Meta Title and Description Previewer" />
+  <meta property="og:description" content="Check meta title and description length in characters and pixels, preview the desktop and mobile search snippet, and see a rough AI citation card. Free tool." />
+  <meta property="og:url" content="https://harpsdigital.com/seo-aeo-tools/meta-title-previewer" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Meta Title and Description Previewer" />
+  <meta name="twitter:description" content="Check meta title and description length in characters and pixels, preview the desktop and mobile search snippet, and see a rough AI citation card. Free tool." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/tools.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Meta Title and Description Previewer",
+    "url": "https://harpsdigital.com/seo-aeo-tools/meta-title-previewer",
+    "description": "Check meta title and description length in characters and pixels, preview the desktop and mobile search snippet, and see a rough AI citation card. Free tool.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Harpreet Singh Chatha", "url": "https://harpsdigital.com/" }
+  }
+  </script>
+  <style>
+    .meter { margin-top: 8px; }
+    .meter-bar { height: 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); overflow: hidden; }
+    .meter-fill { height: 100%; width: 0; border-radius: 999px; transition: width 0.2s, background 0.2s; }
+    .meter-meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--mid); margin-top: 6px; }
+    .meter-status { font-weight: 600; }
+    .s-short .meter-fill { background: #C9821A; } .s-short .meter-status { color: var(--warn); }
+    .s-good .meter-fill { background: var(--accent); } .s-good .meter-status { color: var(--accent); }
+    .s-long .meter-fill { background: #D97706; } .s-long .meter-status { color: #B45309; }
+    .s-trunc .meter-fill { background: var(--error); } .s-trunc .meter-status { color: var(--error); }
+    .s-empty .meter-status { color: var(--mid); }
+
+    .serp-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px; overflow: hidden; }
+    .serp { font-family: Arial, sans-serif; max-width: 600px; }
+    .serp.mobile { max-width: 360px; }
+    .serp-site { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; min-width: 0; }
+    .serp-favicon { width: 28px; height: 28px; border-radius: 50%; background: #F1F3F4; border: 1px solid #E3E3E3; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #4D5156; flex-shrink: 0; }
+    .serp-site-text { min-width: 0; line-height: 1.3; }
+    .serp-name { font-size: 14px; color: #202124; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .serp-crumb { font-size: 12px; color: #4D5156; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .serp-title { font-size: 20px; line-height: 1.3; color: #1A0DAB; margin-bottom: 4px; overflow-wrap: anywhere; }
+    .serp.mobile .serp-title { font-size: 18px; }
+    .serp-desc { font-size: 14px; line-height: 1.58; color: #4D5156; overflow-wrap: anywhere; }
+    .serp-note { font-size: 12px; color: var(--mid); margin-top: 12px; }
+
+    .ai-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    .ai-label { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--warn-light); color: var(--warn); padding: 3px 8px; border-radius: 999px; margin-bottom: 12px; }
+    .ai-answer { font-size: 14.5px; line-height: 1.6; color: var(--ink); margin-bottom: 14px; }
+    .ai-answer .cite { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; font-size: 11px; border-radius: 999px; background: var(--accent-light); color: var(--accent); font-weight: 600; margin-left: 2px; vertical-align: 1px; }
+    .ai-source { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+    .ai-source .num { font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .ai-source-title { font-size: 14px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+    .ai-source-domain { font-size: 12px; color: var(--mid); margin: 2px 0 6px; overflow-wrap: anywhere; }
+    .ai-source-quote { font-size: 13px; color: var(--ink); border-left: 3px solid var(--accent); padding-left: 10px; overflow-wrap: anywhere; }
+    .preview-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+
+<!-- site:nav -->
+<!-- /site:nav -->
+
+<header class="page-header">
+  <a class="back-link" href="/seo-aeo-tools">&larr; Back to all tools</a><br />
+  <div class="article-badge">✦ Free Tool</div>
+  <h1 class="page-title">Meta Title and Description <em>Previewer</em></h1>
+  <p class="page-sub">See how long your title and meta description are in characters and in pixels, which is how Google actually truncates them, then preview the snippet on desktop and mobile.</p>
+</header>
+
+<main class="tool-wrap">
+  <div>
+    <section class="panel" aria-labelledby="in-h">
+      <div class="panel-top">
+        <h2 class="panel-heading" id="in-h">Your page</h2>
+        <div class="panel-actions">
+          <button class="btn" type="button" id="exampleBtn">Example</button>
+          <button class="btn" type="button" id="resetBtn">Reset</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="title">Page title</label>
+        <input type="text" id="title" placeholder="How To Do an SEO Audit for Free in 11 Steps | Example Co." aria-describedby="titleMeter" />
+        <div class="meter" id="titleMeter" aria-live="polite"></div>
+      </div>
+      <div class="field-group">
+        <label for="desc">Meta description</label>
+        <textarea id="desc" placeholder="Learn how to run a full SEO audit with free tools. Follow 11 simple steps to find technical issues, fix content gaps and grow organic traffic." aria-describedby="descMeter"></textarea>
+        <div class="meter" id="descMeter" aria-live="polite"></div>
+      </div>
+      <div class="field-group">
+        <label for="url">Page URL <span class="hint">Used for the display URL and breadcrumb.</span></label>
+        <input type="url" id="url" placeholder="https://example.com/blog/seo-audit" />
+      </div>
+      <div class="notice" style="margin-top:8px"><strong>These numbers are approximations.</strong> Google truncates by pixel width, not characters, and often rewrites titles and descriptions. Widths here use Arial at 20px (title) and 14px (description), with limits of about 580px for titles, about 920px for desktop descriptions and about 680px for mobile.</div>
+    </section>
+
+    <section class="panel" aria-labelledby="chk-h">
+      <h2 class="panel-heading" id="chk-h">Quick checks</h2>
+      <ul class="results" id="checks" aria-live="polite"></ul>
+    </section>
+  </div>
+
+  <div class="preview-col">
+    <div class="serp-card">
+      <div class="preview-toolbar">
+        <span class="panel-heading" style="margin:0" id="serp-h">Search result preview</span>
+        <div class="seg" id="deviceSeg" role="group" aria-label="Preview device">
+          <button type="button" data-value="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-value="mobile" aria-pressed="false">Mobile</button>
+        </div>
+      </div>
+      <div class="serp" id="serp" aria-labelledby="serp-h">
+        <div class="serp-site">
+          <div class="serp-favicon" id="serpFav" aria-hidden="true">E</div>
+          <div class="serp-site-text">
+            <div class="serp-name" id="serpName"></div>
+            <div class="serp-crumb" id="serpCrumb"></div>
+          </div>
+        </div>
+        <div class="serp-title" id="serpTitle"></div>
+        <div class="serp-desc" id="serpDesc"></div>
+      </div>
+      <p class="serp-note">A simplified mock of a search result, not a screenshot of any search engine.</p>
+    </div>
+
+    <div class="ai-card" aria-labelledby="ai-h">
+      <span class="ai-label">Illustration only</span>
+      <div class="panel-heading" id="ai-h">Rough AI snippet preview</div>
+      <p class="ai-answer" id="aiAnswer"></p>
+      <div class="ai-source">
+        <span class="num">1</span>
+        <div style="min-width:0">
+          <div class="ai-source-title" id="aiTitle"></div>
+          <div class="ai-source-domain" id="aiDomain"></div>
+          <div class="ai-source-quote" id="aiQuote"></div>
+        </div>
+      </div>
+      <p class="serp-note">A generic mock of how a page might be cited in an AI answer. It does not show how any specific AI engine picks sources or excerpts.</p>
+    </div>
+
+    <div class="preview-panel">
+      <div class="preview-head">
+        <span class="preview-label" id="out-label">HTML tags</span>
+        <div class="preview-actions">
+          <button class="btn btn-light" type="button" id="copyBtn">Copy</button>
+          <button class="btn btn-ghost-dark" type="button" id="downloadBtn">Download</button>
+        </div>
+      </div>
+      <pre class="output wrap" id="output" tabindex="0" aria-labelledby="out-label" style="min-height:0"></pre>
+    </div>
+  </div>
+</main>
+
+<p class="privacy-note">Runs in your browser. Nothing is stored or sent anywhere.</p>
+
+<!-- tools:more slug="meta-title-previewer" -->
+<!-- /tools:more -->
+
+<!-- site:footer -->
+<!-- /site:footer -->
+
+<script src="/assets/tools.js"></script>
+<script>
+(function () {
+  var $ = HT.$;
+  var TITLE_FONT = '20px Arial', DESC_FONT = '14px Arial';
+  var TITLE_LIMIT = 580, TITLE_HARD = 600, DESC_DESKTOP = 920, DESC_MOBILE = 680;
+  var device = 'desktop';
+  var ctx = document.createElement('canvas').getContext('2d');
+
+  function width(text, font) { ctx.font = font; return Math.round(ctx.measureText(text).width); }
+
+  // Cuts text to fit a pixel budget, ending on a word where possible, and adds an ellipsis.
+  function truncate(text, font, max) {
+    if (width(text, font) <= max) return { text: text, cut: false };
+    var ell = ' ...', lo = 0, hi = text.length;
+    while (lo < hi) {
+      var mid = Math.ceil((lo + hi) / 2);
+      if (width(text.slice(0, mid) + ell, font) <= max) lo = mid; else hi = mid - 1;
+    }
+    var cut = text.slice(0, lo), sp = cut.lastIndexOf(' ');
+    if (sp > lo * 0.6) cut = cut.slice(0, sp);
+    return { text: cut.replace(/[\s,;:|\-]+$/, '') + ' ...', cut: true };
+  }
+
+  function meter(el, opts) {
+    var pct = opts.px ? Math.min(100, Math.round(opts.px / opts.limit * 100)) : 0;
+    el.className = 'meter s-' + opts.state;
+    el.innerHTML = '<div class="meter-bar" aria-hidden="true"><div class="meter-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="meter-meta"><span>' + opts.chars + ' characters, ' + opts.px + ' of about ' + opts.limit + ' px</span><span class="meter-status">' + opts.label + '</span></div>';
+  }
+
+  function titleState(chars, px) {
+    if (!chars) return ['empty', 'Add a title'];
+    if (chars < 30) return ['short', 'Too short'];
+    if (px <= TITLE_LIMIT) return ['good', 'Good length'];
+    if (px <= TITLE_HARD) return ['long', 'Too long, may be cut'];
+    return ['trunc', 'Will likely truncate'];
+  }
+
+  function descState(chars, px, limit) {
+    if (!chars) return ['empty', 'Add a description'];
+    if (chars < 70) return ['short', 'Too short'];
+    if (px <= limit * 0.95) return ['good', 'Good length'];
+    if (px <= limit) return ['long', 'Near the limit'];
+    return ['trunc', 'Will likely truncate'];
+  }
+
+  function parseUrl(raw) {
+    try { var u = new URL(raw); if (!/^https?:$/.test(u.protocol)) throw 0; return u; } catch (e) { return null; }
+  }
+
+  function firstSentence(t) {
+    var m = t.match(/^(.+?[.!?])(\s|$)/);
+    return (m ? m[1] : t).trim();
+  }
+
+  var STOP = 'a an and are as at be by for from how in is it of on or the to with your you our we this that what why when'.split(' ');
+
+  function checks(title, desc, u) {
+    var items = [];
+    var brand = u ? u.hostname.replace(/^www\./, '').split('.')[0].toLowerCase() : '';
+    var hasSep = /\s[|\-:·]\s|\s[|·]|[|·]\s/.test(title) || /:\s/.test(title);
+    var hasBrand = brand && title.toLowerCase().replace(/[^a-z0-9]/g, '').indexOf(brand.replace(/[^a-z0-9]/g, '')) !== -1;
+    if (!title) items.push(HT.resultItem('info', 'Enter a title to run the checks.'));
+    else if (hasSep || hasBrand) items.push(HT.resultItem('pass', 'The title includes ' + (hasBrand ? 'your brand' : 'a separator') + ', which helps it read like a finished title.'));
+    else items.push(HT.resultItem('warn', 'No separator or brand name found in the title. Consider something like <code>Topic | Brand</code>.'));
+
+    if (desc) {
+      var cta = /\b(learn|discover|find out|get|try|see|shop|buy|book|download|start|compare|read|explore|call|contact|sign up|join|check|save|order|request)\b/i.test(desc);
+      var num = /\d/.test(desc);
+      if (cta || num) items.push(HT.resultItem('pass', 'The description has ' + (cta && num ? 'a call to action and a number' : cta ? 'a call to action' : 'a number') + ', both of which tend to lift clicks.'));
+      else items.push(HT.resultItem('warn', 'The description has no call to action or number. Try a verb like <em>learn</em>, <em>compare</em> or <em>get</em>, or a specific figure.'));
+    }
+
+    var words = (title.toLowerCase().match(/[a-z0-9']+/g) || []).filter(function (w) { return w.length > 2 && STOP.indexOf(w) === -1; });
+    var dup = words.filter(function (w, i) { return words.indexOf(w) !== i; });
+    dup = dup.filter(function (w, i) { return dup.indexOf(w) === i; });
+    if (dup.length) items.push(HT.resultItem('warn', 'Repeated words in the title: ' + dup.map(function (w) { return '<code>' + HT.escapeHtml(w) + '</code>'; }).join(', ') + '. Repetition can look spammy.'));
+
+    [['title', title], ['description', desc]].forEach(function (pair) {
+      var letters = pair[1].replace(/[^A-Za-z]/g, '');
+      if (letters.length > 8 && letters === letters.toUpperCase()) items.push(HT.resultItem('warn', 'The ' + pair[0] + ' is in all caps. Search engines may rewrite it and it reads as shouting.'));
+      else {
+        var capsWords = (pair[1].match(/\b[A-Z]{4,}\b/g) || []);
+        if (capsWords.length >= 2) items.push(HT.resultItem('info', 'Several all caps words in the ' + pair[0] + ': ' + capsWords.slice(0, 4).map(function (w) { return '<code>' + HT.escapeHtml(w) + '</code>'; }).join(', ') + '.'));
+      }
+    });
+    if (u === null && $('#url').value.trim()) items.push(HT.resultItem('warn', 'The URL is not valid. Use a full URL starting with https://.'));
+    return items.join('');
+  }
+
+  function tags(title, desc) {
+    var esc = function (s) { return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); };
+    return '<title>' + esc(title) + '</title>\n<meta name="description" content="' + esc(desc) + '" />\n';
+  }
+
+  function update() {
+    var title = $('#title').value.trim(), desc = $('#desc').value.replace(/\s+/g, ' ').trim();
+    var rawUrl = $('#url').value.trim(), u = rawUrl ? parseUrl(rawUrl) : undefined;
+    var tpx = width(title, TITLE_FONT), dpx = width(desc, DESC_FONT);
+    var dLimit = device === 'mobile' ? DESC_MOBILE : DESC_DESKTOP;
+    var ts = titleState(title.length, tpx), ds = descState(desc.length, dpx, dLimit);
+    meter($('#titleMeter'), { chars: title.length, px: tpx, limit: TITLE_LIMIT, state: ts[0], label: ts[1] });
+    meter($('#descMeter'), { chars: desc.length, px: dpx, limit: dLimit, state: ds[0], label: ds[1] + (device === 'mobile' ? ' (mobile)' : ' (desktop)') });
+
+    var host = u ? u.hostname.replace(/^www\./, '') : 'example.com';
+    var crumbs = u ? u.pathname.split('/').filter(Boolean).map(function (p) { try { return decodeURIComponent(p); } catch (e) { return p; } }) : ['page'];
+    var siteName = host.split('.')[0];
+    siteName = siteName.charAt(0).toUpperCase() + siteName.slice(1);
+    $('#serpFav').textContent = siteName.charAt(0) || 'E';
+    $('#serpName').textContent = siteName;
+    $('#serpCrumb').textContent = 'https://' + host + (crumbs.length ? ' › ' + crumbs.join(' › ') : '');
+    var shownTitle = title || 'Your page title will appear here';
+    var shownDesc = desc || 'Your meta description will appear here. If it is missing, search engines usually pull text from the page instead.';
+    $('#serpTitle').textContent = truncate(shownTitle, TITLE_FONT, TITLE_HARD).text;
+    $('#serpDesc').textContent = truncate(shownDesc, DESC_FONT, dLimit).text;
+
+    var topic = title ? title.split(/\s[|\-:·]\s/)[0] : 'this topic';
+    $('#aiAnswer').innerHTML = 'Here is a short summary of ' + HT.escapeHtml(topic.toLowerCase()) + ', drawing on the most relevant sources I found.<span class="cite" aria-label="source 1">1</span>';
+    $('#aiTitle').textContent = shownTitle;
+    $('#aiDomain').textContent = host;
+    $('#aiQuote').textContent = firstSentence(shownDesc);
+
+    $('#checks').innerHTML = checks(title, desc, u);
+    $('#output').textContent = tags(title, desc);
+  }
+
+  var seg = HT.segmented($('#deviceSeg'), function (v) {
+    device = v;
+    $('#serp').classList.toggle('mobile', v === 'mobile');
+    update();
+  });
+
+  ['#title', '#desc', '#url'].forEach(function (s) { $(s).addEventListener('input', update); });
+  $('#exampleBtn').addEventListener('click', function () {
+    $('#title').value = 'How To Do an SEO Audit for Free in 11 Steps | Example Co.';
+    $('#desc').value = 'Learn how to run a full SEO audit with free tools. Follow 11 simple steps to find technical issues, fix content gaps and grow your organic traffic this quarter.';
+    $('#url').value = 'https://example.com/blog/seo-audit';
+    update();
+  });
+  $('#resetBtn').addEventListener('click', function () {
+    $('#title').value = ''; $('#desc').value = ''; $('#url').value = '';
+    seg.set('desktop');
+  });
+  $('#copyBtn').addEventListener('click', function () { HT.copyText(tags($('#title').value.trim(), $('#desc').value.replace(/\s+/g, ' ').trim()), $('#copyBtn')); });
+  $('#downloadBtn').addEventListener('click', function () { HT.download('meta-tags.html', tags($('#title').value.trim(), $('#desc').value.replace(/\s+/g, ' ').trim()), 'text/html'); });
+
+  update();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);
+})();
+</script>
+</body>
+</html>
