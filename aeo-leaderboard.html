@@ -174,7 +174,7 @@
   <div class="page-meta">
     <span class="meta-tag">86 brands tracked</span>
     <span class="meta-tag">17 industries</span>
-    <span class="meta-tag">Updated Aug 2026</span>
+    <span class="meta-tag">Updated Sep 2026</span>
   </div>
 </div>
 
@@ -192,7 +192,7 @@
       <div id="board-rows"></div>
     </div>
   </div>
-  <div class="board-footnote">AI citation counts are live Google AI Overview citation data pulled via Ahrefs (Aug 2026). Organic traffic is estimated monthly organic search visits, also via Ahrefs. Airlines and insurance figures are country-filtered (Canada/USA); all other figures are global.</div>
+  <div class="board-footnote">AI citation counts are Google AI Overview citation data pulled via Ahrefs (Sep 2026). Organic traffic is estimated monthly organic search visits, also via Ahrefs. Industries marked (Canada) use Canadian data; all other figures are USA.</div>
 </div>
 
 <div class="callout-wrap">
@@ -228,127 +228,127 @@
     mobileMenu.classList.remove('open');
   }));
 
-  // brand: [name, domain, citations, delta]
+  // brand: [name, domain, citations, organic traffic]
   const data = {
     "Personal injury law (Canada)": [
-      ["Preszler Injury Lawyers", "preszlerlaw.com", 410, 19600],
-      ["Diamond Injury Law", "diamondlaw.ca", 297, 11215],
-      ["Oatley Vigmond", "oatleyvigmond.com", 267, 2590],
-      ["McLeish Orlando", "mcleishorlando.com", 78, 3247],
-      ["Neinstein Personal Injury Lawyers", "neinstein.com", 54, 6983]
+      ["Diamond Injury Law", "diamondlaw.ca", 184, 10031],
+      ["Oatley Vigmond", "oatleyvigmond.com", 108, 2564],
+      ["Neinstein Personal Injury Lawyers", "neinstein.com", 48, 6811],
+      ["McLeish Orlando", "mcleishorlando.com", 45, 2634],
+      ["Preszler Injury Lawyers", "preszlerlaw.com", 21, 15854]
     ],
     "Athleisure": [
-      ["Nike", "nike.com", 177199, 52100245],
-      ["Adidas", "adidas.com", 37300, 12300124],
-      ["Under Armour", "underarmour.com", 21899, 2091954],
-      ["Lululemon", "lululemon.com", 8899, 13053796],
-      ["Vuori", "vuoriclothing.com", 1023, 1014851],
-      ["Alo Yoga", "aloyoga.com", 617, 1881057]
+      ["Nike", "nike.com", 53738, 12171491],
+      ["Adidas", "adidas.com", 22255, 7823993],
+      ["Under Armour", "underarmour.com", 12846, 1440498],
+      ["Lululemon", "lululemon.com", 8009, 8327002],
+      ["Vuori", "vuoriclothing.com", 1092, 879346],
+      ["Alo Yoga", "aloyoga.com", 493, 993681]
     ],
     "Banking (Canada)": [
-      ["TD", "td.com", 40805, 5809925],
-      ["RBC", "rbcroyalbank.com", 29000, 5884000],
-      ["Scotiabank", "scotiabank.com", 22496, 2051242],
-      ["CIBC", "cibc.com", 18941, 3900603],
-      ["BMO", "bmo.com", 12578, 3571372]
+      ["RBC", "rbcroyalbank.com", 22205, 3483507],
+      ["TD", "td.com", 20421, 3274801],
+      ["Scotiabank", "scotiabank.com", 16258, 1601901],
+      ["CIBC", "cibc.com", 15477, 3375733],
+      ["BMO", "bmo.com", 7919, 2163007]
     ],
     "FP&A software": [
-      ["Vena Solutions", "venasolutions.com", 2107, 33331],
-      ["Anaplan", "anaplan.com", 1594, 72397],
-      ["Planful", "planful.com", 879, 16234],
-      ["OneStream", "onestream.com", 859, 56023],
-      ["Pigment", "pigment.com", 554, 6300]
+      ["Vena Solutions", "venasolutions.com", 746, 12897],
+      ["Anaplan", "anaplan.com", 494, 30634],
+      ["OneStream", "onestream.com", 273, 11375],
+      ["Planful", "planful.com", 218, 7736],
+      ["Pigment", "pigment.com", 140, 2941]
     ],
     "CRM software": [
-      ["Salesforce", "salesforce.com", 131854, 10872508],
-      ["HubSpot", "hubspot.com", 40997, 4513342],
-      ["Zoho CRM", "zoho.com", 31071, 10456267],
-      ["Monday.com", "monday.com", 27320, 840432],
-      ["Pipedrive", "pipedrive.com", 24587, 956657]
+      ["Salesforce", "salesforce.com", 41481, 3169784],
+      ["HubSpot", "hubspot.com", 13639, 1925491],
+      ["Monday.com", "monday.com", 7029, 348860],
+      ["Zoho CRM", "zoho.com", 6616, 1047577],
+      ["Pipedrive", "pipedrive.com", 3687, 130422]
     ],
     "Email marketing software": [
-      ["Mailchimp", "mailchimp.com", 58754, 3272051],
-      ["ActiveCampaign", "activecampaign.com", 10154, 337626],
-      ["Brevo", "brevo.com", 5614, 589792],
-      ["Constant Contact", "constantcontact.com", 5262, 520585],
-      ["Klaviyo", "klaviyo.com", 5217, 546703]
+      ["Mailchimp", "mailchimp.com", 11376, 968332],
+      ["Constant Contact", "constantcontact.com", 2455, 363496],
+      ["ActiveCampaign", "activecampaign.com", 2296, 107280],
+      ["Klaviyo", "klaviyo.com", 1769, 233033],
+      ["Brevo", "brevo.com", 870, 96383]
     ],
     "Streaming": [
-      ["Netflix", "netflix.com", 552376, 153835395],
-      ["Amazon Prime Video", "primevideo.com", 239855, 223329865],
-      ["Apple TV+", "tv.apple.com", 189498, 23034000],
-      ["Disney+", "disneyplus.com", 110353, 27723144],
-      ["HBO Max", "max.com", 45130, 18510230]
+      ["Netflix", "netflix.com", 120891, 31041471],
+      ["Apple TV+", "tv.apple.com", 41872, 8212514],
+      ["Amazon Prime Video", "primevideo.com", 26677, 14886700],
+      ["Disney+", "disneyplus.com", 26193, 8698731],
+      ["HBO Max", "hbomax.com", 15618, 3629965]
     ],
     "Consumer tech": [
-      ["Apple", "apple.com", 2464775, 388438426],
-      ["Samsung", "samsung.com", 511627, 61547964],
-      ["Xiaomi", "mi.com", 117015, 23220279],
-      ["OnePlus", "oneplus.com", 13206, 2051183],
-      ["Google", "store.google.com", 9668, 4612391]
+      ["Apple", "apple.com", 831550, 119779524],
+      ["Samsung", "samsung.com", 88200, 6567435],
+      ["Google", "store.google.com", 3335, 745024],
+      ["Xiaomi", "mi.com", 2146, 303279],
+      ["OnePlus", "oneplus.com", 1657, 146572]
     ],
     "Telecoms (Canada)": [
-      ["Rogers", "rogers.com", 9442, 1310096],
-      ["Telus", "telus.com", 8488, 1944951],
-      ["Bell", "bell.ca", 8100, 970451],
-      ["Videotron", "videotron.com", 3593, 1270236],
-      ["Freedom Mobile", "freedommobile.ca", 2502, 588050]
+      ["Telus", "telus.com", 7770, 1768604],
+      ["Rogers", "rogers.com", 7479, 738995],
+      ["Bell", "bell.ca", 5984, 849266],
+      ["Videotron", "videotron.com", 3142, 1145936],
+      ["Freedom Mobile", "freedommobile.ca", 2094, 517710]
     ],
     "Airlines (Canada)": [
-      ["Air Canada", "aircanada.com", 18100, 3341288],
-      ["WestJet", "westjet.com", 5297, 1051624],
-      ["Sunwing", "sunwing.ca", 4088, 520031],
-      ["Porter Airlines", "flyporter.com", 1330, 388234],
-      ["Flair Airlines", "flyflair.com", 1013, 383211]
+      ["Air Canada", "aircanada.com", 18987, 2732739],
+      ["Sunwing", "sunwing.ca", 5514, 435103],
+      ["WestJet", "westjet.com", 5050, 899528],
+      ["Porter Airlines", "flyporter.com", 1391, 229060],
+      ["Flair Airlines", "flyflair.com", 1150, 297520]
     ],
     "Airlines (USA)": [
-      ["American Airlines", "aa.com", 30893, 9824050],
-      ["United Airlines", "united.com", 29504, 6142115],
-      ["Delta Air Lines", "delta.com", 26382, 7001298],
-      ["Southwest Airlines", "southwest.com", 20421, 7611200],
-      ["JetBlue", "jetblue.com", 7274, 2588757]
+      ["American Airlines", "aa.com", 27995, 8127195],
+      ["United Airlines", "united.com", 26560, 4975295],
+      ["Delta Air Lines", "delta.com", 22620, 4282149],
+      ["Southwest Airlines", "southwest.com", 21130, 6379171],
+      ["JetBlue", "jetblue.com", 7055, 2073526]
     ],
     "Hotels": [
-      ["Marriott", "marriott.com", 57296, 11468496],
-      ["Hilton", "hilton.com", 31707, 8449434],
-      ["Hyatt", "hyatt.com", 18081, 4790946],
-      ["Four Seasons", "fourseasons.com", 10928, 1970905],
-      ["Fairmont", "fairmont.com", 2595, 729207]
+      ["Marriott", "marriott.com", 42578, 5727962],
+      ["Hilton", "hilton.com", 30228, 4594655],
+      ["Hyatt", "hyatt.com", 15846, 2106095],
+      ["Four Seasons", "fourseasons.com", 7475, 908009],
+      ["Fairmont", "fairmont.com", 1241, 177980]
     ],
-    "Fast food": [
-      ["McDonald's", "mcdonalds.com", 57790, 13843186],
-      ["Wendy's", "wendys.com", 6434, 3056328],
-      ["Tim Hortons", "timhortons.ca", 2750, 438050],
-      ["Burger King", "bk.com", 1907, 1412373],
-      ["A&W", "aw.ca", 1039, 234338]
+    "Fast food (Canada)": [
+      ["McDonald's", "mcdonalds.com", 4651, 391064],
+      ["Tim Hortons", "timhortons.ca", 2446, 310337],
+      ["A&W", "aw.ca", 1125, 164609],
+      ["Wendy's", "wendys.com", 686, 124330],
+      ["Burger King", "bk.com", 78, 12499]
     ],
     "VPN": [
-      ["NordVPN", "nordvpn.com", 54777, 5954822],
-      ["Surfshark", "surfshark.com", 36079, 2624668],
-      ["ExpressVPN", "expressvpn.com", 30045, 1372745],
-      ["ProtonVPN", "protonvpn.com", 28646, 6148825],
-      ["Mullvad", "mullvad.net", 617, 229239]
+      ["NordVPN", "nordvpn.com", 10631, 1470264],
+      ["ProtonVPN", "protonvpn.com", 5785, 671003],
+      ["Surfshark", "surfshark.com", 5293, 412222],
+      ["ExpressVPN", "expressvpn.com", 2646, 333733],
+      ["Mullvad", "mullvad.net", 148, 97304]
     ],
     "Fitness & gyms": [
-      ["Planet Fitness", "planetfitness.com", 19544, 3932045],
-      ["Anytime Fitness", "anytimefitness.com", 17740, 1400231],
-      ["Orangetheory", "orangetheory.com", 1415, 284342],
-      ["F45 Training", "f45training.com", 1162, 223317],
-      ["GoodLife Fitness", "goodlifefitness.com", 746, 121016]
+      ["Planet Fitness", "planetfitness.com", 10129, 2097464],
+      ["Anytime Fitness", "anytimefitness.com", 5338, 443210],
+      ["Orangetheory", "orangetheory.com", 855, 207464],
+      ["F45 Training", "f45training.com", 536, 118779],
+      ["GoodLife Fitness", "goodlifefitness.com", 70, 3869]
     ],
     "Beauty": [
-      ["Sephora", "sephora.com", 67458, 9410718],
-      ["Charlotte Tilbury", "charlottetilbury.com", 16520, 1700231],
-      ["Maybelline", "maybelline.com", 12240, 573124],
-      ["Huda Beauty", "hudabeauty.com", 2130, 515000],
-      ["Fenty Beauty", "fentybeauty.com", 1434, 544214]
+      ["Sephora", "sephora.com", 37287, 5424748],
+      ["Charlotte Tilbury", "charlottetilbury.com", 4538, 373042],
+      ["Maybelline", "maybelline.com", 3978, 206933],
+      ["Fenty Beauty", "fentybeauty.com", 717, 475637],
+      ["Huda Beauty", "hudabeauty.com", 390, 141306]
     ],
     "Insurance (Canada)": [
-      ["Desjardins Insurance", "desjardins.com", 7085, 3846481],
-      ["TD Insurance", "tdinsurance.com", 4177, 517369],
-      ["Intact Insurance", "intact.ca", 2779, 265490],
-      ["Belairdirect", "belairdirect.com", 1785, 192405],
-      ["Aviva Canada", "aviva.ca", 204, 79722]
+      ["Desjardins Insurance", "desjardins.com", 7787, 3325673],
+      ["TD Insurance", "tdinsurance.com", 3485, 466819],
+      ["Intact Insurance", "intact.ca", 2604, 234954],
+      ["Belairdirect", "belairdirect.com", 1413, 167685],
+      ["Aviva Canada", "aviva.ca", 219, 77126]
     ]
   };
 
