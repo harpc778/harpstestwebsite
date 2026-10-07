@@ -82,7 +82,11 @@
     .hub-cta { max-width: 1240px; margin: 0 auto; padding: 0 40px 64px; }
     .hub-cta .notice { font-size: 15px; padding: 18px 20px; }
     .hub-cta a { color: var(--accent); font-weight: 600; }
-    @media (max-width: 980px) { .hub-tools { padding: 32px 20px 24px; } .hub-cta { padding: 0 20px 48px; } }
+    .hub-prompts { max-width: 1240px; margin: 0 auto 48px; padding: 40px 40px 0; border-top: 1px solid var(--border); }
+    .hub-prompts h2 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); letter-spacing: -0.8px; margin-bottom: 8px; }
+    .hub-prompts h2 em { font-style: italic; color: var(--accent); }
+    .hub-prompts p { color: var(--mid); max-width: 640px; margin-bottom: 18px; }
+    @media (max-width: 980px) { .hub-tools { padding: 32px 20px 24px; } .hub-cta { padding: 0 20px 48px; } .hub-prompts { padding: 32px 20px 0; margin-bottom: 40px; } }
   </style>
   <link rel="stylesheet" href="/assets/site-chrome.css" />
 </head>
@@ -130,6 +134,12 @@
 
 <p class="privacy-note">Every tool runs in your browser. Nothing is stored or sent anywhere.</p>
 
+<section class="hub-prompts" aria-labelledby="free-prompts">
+  <h2 id="free-prompts">Free AI <em>Prompts</em></h2>
+  <p>Copy-and-paste prompts for SEO and AI search: competitor research, page optimization, reporting and more.</p>
+  <a class="btn btn-accent" href="/prompt-library/">Browse the AI Prompt Library &rarr;</a>
+</section>
+
 <div class="hub-cta">
   <div class="notice info"><strong>Need more than a tool?</strong> I help companies audit their SEO and AI search footprint and build the strategy to grow it. <a href="/contact.html">Book a free consultation &rarr;</a></div>
 </div>
@@ -144,6 +154,7 @@
     <li><a href="/services">Services</a></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/" class="active" aria-current="page">Free Tools</a></li>
+    <li><a href="/prompt-library/">AI Prompt Library</a></li>
     <li><a href="/learn/">Learn</a></li>
     <li><a href="/contact">Let's Talk</a></li>
     <li><a href="https://seoespresso.com" target="_blank" rel="noopener">Newsletter</a></li>
