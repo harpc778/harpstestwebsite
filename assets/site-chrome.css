@@ -62,3 +62,7 @@ footer.site-footer .footer-copy { font-family: 'JetBrains Mono', monospace; font
 nav#nav a:focus-visible, nav#nav button:focus-visible, #mobile-menu a:focus-visible, footer.site-footer a:focus-visible {
   outline: 3px solid var(--accent, #1A6B3C); outline-offset: 3px;
 }
+
+/* In-text links between pages */
+a.inline-link { color: var(--accent, #1A6B3C); text-decoration: none; border-bottom: 1px solid var(--accent-light, #E8F5EE); transition: border-color 0.2s; }
+a.inline-link:hover { border-bottom-color: var(--accent, #1A6B3C); }

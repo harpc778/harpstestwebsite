@@ -5,6 +5,13 @@ RedirectMatch 301 ^/level-up/?$ https://harpsdigital.com/learn/
 RedirectMatch 301 ^/seo-vs-ai-search-podcast/?$ https://harpsdigital.com/learn/geo-aeo-ai-seo-panel
 RedirectMatch 301 ^/ai-in-google-search-console/?$ https://harpsdigital.com/learn/ai-search-console-signals
 RedirectMatch 301 ^/learn/index/?$ https://harpsdigital.com/learn/
+RedirectMatch 301 ^/learn/improving-salience-scores/?$ https://harpsdigital.com/learn/salience-scores
+RedirectMatch 301 ^/learn/seo-vs-ai-search/?$ https://harpsdigital.com/learn/geo-aeo-ai-seo-panel
+RedirectMatch 301 ^/learn/schema-markup-aeo/?$ https://harpsdigital.com/seo-aeo-tools/schema-markup-generator
+RedirectMatch 301 ^/learn/track-ai-traffic/?$ https://harpsdigital.com/learn/ai-search-console-signals
+RedirectMatch 301 ^/learn/chatgpt-calculator/?$ https://harpsdigital.com/learn/
+# Duplicate of the Wix case study article
+RedirectMatch 301 ^/learn/ai-in-search-console(\.html)?/?$ https://harpsdigital.com/learn/ai-seo-scale-patterns-penalties
 
 # ---------------------------------------------------------
 # Enable Apache rewrite rules
