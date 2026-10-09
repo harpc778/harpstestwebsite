@@ -23,6 +23,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<meta property="article:published_time" content="2026-10-02" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -111,7 +114,7 @@
   .article-badge{
     display:inline-flex; align-items:center; gap:5px;
     font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-    padding:5px 11px; border:2px solid var(--border); background:var(--accent); color:#fff; margin-bottom:18px;
+    padding:5px 11px; border:2px solid var(--border); background:#7A2E1E; color:#fff; margin-bottom:18px;
     box-shadow:3px 3px 0 var(--border); transform:rotate(-1.5deg);
     opacity:0; animation:fadeUp 0.6s 0.1s forwards;
   }
@@ -124,42 +127,43 @@
   .meta-tags{ display:flex; gap:6px; flex-wrap:wrap; margin-left:2px; }
   .meta-tag{ padding:3px 10px; background:#fff; border:2px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink); text-transform:uppercase; }
 
-  /* 2 COLUMN (no video) */
-  .two-col{ max-width:1200px; margin:0 auto; padding:48px 40px 80px; display:grid; grid-template-columns:1fr 260px; gap:40px; align-items:start; }
+  /* MOBILE VIDEO */
+  .mobile-video{ display:none; padding:28px 20px 0; }
+  .mobile-video-wrap{ border:3px solid var(--border); box-shadow:6px 6px 0 var(--border); overflow:hidden; background:#000; }
+  .mobile-video-wrap iframe{ display:block; width:100%; aspect-ratio:16/9; border:none; }
+
+  /* THREE COLUMN */
+  .three-col{ max-width:1200px; margin:0 auto; padding:48px 40px 80px; display:grid; grid-template-columns:1fr 320px; gap:56px; align-items:start; }
 
   .article-body{ min-width:0; }
   .article-body h2{ font-family:'Instrument Serif', serif; font-size:26px; letter-spacing:-0.5px; margin:44px 0 14px; scroll-margin-top:90px; }
   .article-body h2:first-of-type{ margin-top:0; }
-  .article-body h3{ font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; margin:28px 0 10px; color:var(--ink); }
+  .article-body h3{ font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; margin:26px 0 10px; color:var(--ink); }
   .article-body p{ font-size:17px; line-height:1.78; color:#2e2e2c; margin-bottom:18px; }
   .article-body ul, .article-body ol{ padding-left:22px; margin-bottom:18px; }
   .article-body li{ font-size:17px; line-height:1.75; color:#2e2e2c; margin-bottom:6px; }
   .article-body strong{ font-weight:700; color:var(--ink); }
-  .article-body img{ max-width:100%; margin:26px 0; border:2.5px solid var(--border); box-shadow:6px 6px 0 var(--border); display:block; }
   .standfirst{ font-size:19px; line-height:1.7; color:var(--ink); font-weight:400; margin-bottom:32px; padding-left:16px; border-left:3px solid var(--accent); }
   .callout{ background:var(--accent-light); border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:20px 24px; margin:30px 0; }
   .callout p{ margin:0; font-size:15px; color:var(--ink); }
+  .warning-callout{ background:#FFF3DE; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:20px 24px; margin:30px 0; }
+  .warning-callout p{ margin:0; font-size:15px; color:var(--ink); }
 
-  /* MOBILE TOC */
-  .mobile-toc{ display:none; margin-bottom:28px; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); overflow:hidden; }
-  .mobile-toc-toggle{
-    width:100%; background:#fff; border:none; padding:13px 18px; display:flex; align-items:center; justify-content:space-between;
-    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; cursor:pointer; color:var(--ink);
-  }
-  .mobile-toc-icon{ font-size:12px; transition:transform 0.2s; }
-  .mobile-toc-toggle.open .mobile-toc-icon{ transform:rotate(180deg); }
-  .mobile-toc-body{ display:none; background:var(--surface); padding:12px 18px 16px; border-top:2px solid var(--border); }
-  .mobile-toc-body.open{ display:block; }
-  .mobile-toc-body a{ display:block; font-size:14px; color:var(--mid); text-decoration:none; padding:8px 0; border-bottom:1px solid var(--border); }
-  .mobile-toc-body a:last-child{ border-bottom:none; }
-  .mobile-cta{ display:none; background:var(--forest); border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:24px 22px; margin-top:32px; }
+  .stat-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:26px 0; }
+  .stat-box{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:22px; text-align:center; }
+  .stat-box-num{ font-family:'Instrument Serif', serif; font-size:38px; letter-spacing:-1px; color:var(--ink); line-height:1; }
+  .stat-box-num.green{ color:var(--accent); }
+  .stat-box-label{ font-family:'JetBrains Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--mid); margin-top:8px; }
 
-  /* SIDEBAR */
+  /* RIGHT SIDEBAR */
   .sidebar-col{ position:sticky; top:88px; display:flex; flex-direction:column; gap:20px; }
+  .sidebar-video-wrap{ border:3px solid var(--border); box-shadow:7px 7px 0 var(--border); overflow:hidden; background:#000; }
+  .sidebar-video-wrap iframe{ display:block; width:100%; aspect-ratio:16/9; border:none; }
+
   .toc-card{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:20px 22px; display:none; }
   .toc-card.show{ display:block; }
   .toc-heading{ font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); margin-bottom:12px; }
-  .toc-list{ list-style:none; display:flex; flex-direction:column; gap:1px; }
+  .toc-list{ list-style:none; display:flex; flex-direction:column; gap:1px; max-height:calc(100vh - 600px); min-height:150px; overflow-y:auto; }
   .toc-list li a{ font-size:13px; color:var(--mid); text-decoration:none; display:block; padding:6px 8px; transition:background 0.15s, color 0.15s; line-height:1.4; }
   .toc-list li a:hover{ background:var(--surface); color:var(--ink); }
   .toc-list li a.active{ background:var(--accent-light); color:var(--accent); font-weight:600; border-left:2px solid var(--accent); }
@@ -175,6 +179,20 @@
     text-decoration:none; transition:transform 0.15s;
   }
   .side-cta-btn:hover{ transform:translate(-2px,-2px); }
+
+  /* MOBILE TOC */
+  .mobile-toc{ display:none; margin-bottom:28px; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); overflow:hidden; }
+  .mobile-toc-toggle{
+    width:100%; background:#fff; border:none; padding:13px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; cursor:pointer; color:var(--ink);
+  }
+  .mobile-toc-icon{ font-size:12px; transition:transform 0.2s; }
+  .mobile-toc-toggle.open .mobile-toc-icon{ transform:rotate(180deg); }
+  .mobile-toc-body{ display:none; background:var(--surface); padding:12px 18px 16px; border-top:2px solid var(--border); }
+  .mobile-toc-body.open{ display:block; }
+  .mobile-toc-body a{ display:block; font-size:14px; color:var(--mid); text-decoration:none; padding:8px 0; border-bottom:1px solid var(--border); }
+  .mobile-toc-body a:last-child{ border-bottom:none; }
+  .mobile-cta{ display:none; background:var(--forest); border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:24px 22px; margin-top:32px; }
 
   /* AUTHOR BIO */
   .author-section{ max-width:1200px; margin:0 auto; padding:0 40px 80px; }
@@ -215,13 +233,14 @@
     padding:11px 13px; width:80%;
   }
   .more-label-box.tilt-r{ transform:translate(-50%,-50%) rotate(2.5deg); }
+  .more-label-box.tilt-l-sm{ transform:translate(-50%,-50%) rotate(-1.5deg); }
   .more-label-title{ font-family:'Instrument Serif', serif; font-size:15px; line-height:1.16; color:var(--ink); }
   .more-body{ padding:12px 14px 13px; display:flex; align-items:center; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); }
   .more-arrow{ font-size:13px; transition:transform 0.2s; }
   .more-card:hover .more-arrow{ transform:translateX(3px); color:var(--ink); }
   .p1{ background: repeating-linear-gradient(135deg, #0D3D22 0px, #0D3D22 10px, #1A6B3C 10px, #1A6B3C 20px); }
   .p2{ background-color:#151A2E; background-image: radial-gradient(#3A4470 1.6px, transparent 1.6px); background-size:14px 14px; }
-  .p3{ background-color:#5C2A17; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 9px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 9px); }
+  .p6{ background-color:#4A4A1E; background-image: linear-gradient(45deg, rgba(255,255,255,0.09) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.09) 75%), linear-gradient(45deg, rgba(255,255,255,0.09) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.09) 75%); background-size:24px 24px; background-position:0 0, 12px 12px; }
 
   footer{ border-top:3px solid var(--border); padding:40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
   .footer-logo{ font-family:'Instrument Serif', serif; color:var(--ink); text-decoration:none; }
@@ -230,22 +249,23 @@
   .footer-links a:hover{ color:var(--ink); }
   .footer-copy{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); }
 
-  @media (max-width:1100px){
-    .two-col{ grid-template-columns:1fr; }
+  @media (max-width:1024px){
+    .three-col{ grid-template-columns:1fr; }
     .sidebar-col{ display:none; }
+    .mobile-video{ display:block; }
     .mobile-toc{ display:block; }
     .mobile-cta{ display:block; }
-  }
-  @media (max-width:720px){
-    .two-col{ padding:32px 20px 60px; gap:32px; }
-    .page-header{ padding:96px 20px 32px; }
-    .author-section, .more-section{ padding-left:20px; padding-right:20px; }
+    .three-col{ padding:32px 20px 60px; }
   }
   @media (max-width:768px){
     nav{ padding:0 20px; }
     .nav-links{ display:none; }
     .nav-cta{ display:none; }
     .hamburger{ display:flex; }
+    .page-header{ padding:96px 20px 32px; }
+    .author-section{ padding-left:20px; padding-right:20px; }
+    .more-section{ padding-left:20px; padding-right:20px; }
+    .stat-row{ grid-template-columns:1fr 1fr; }
     footer{ flex-direction:column; text-align:center; justify-content:center; }
     .footer-links{ justify-content:center; }
   }
@@ -270,7 +290,17 @@
     "name": "Harpreet Singh Chatha"
   },
   "mainEntityOfPage": "https://harpsdigital.com/learn/seo-talkers-interview",
-  "citation": "https://gaganghotra.com/blog/seo/seo-expert-harpreet-chatha-on-ai-seo/"
+  "citation": "https://gaganghotra.com/blog/seo/seo-expert-harpreet-chatha-on-ai-seo/",
+  "video": {
+    "@type": "VideoObject",
+    "name": "AI Search Tactics, Strategy, and the Real Trade-offs with Harpreet Singh Chatha (SEOTalk Webinar)",
+    "description": "From my SEO Talkers interview: why an AI citation isn't a recommendation, what my press release experiment showed and where to spend your budget.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/N7RWdVAcqv4/hqdefault.jpg",
+    "uploadDate": "2026-07-04T09:53:28-07:00",
+    "duration": "PT58M39S",
+    "embedUrl": "https://www.youtube.com/embed/N7RWdVAcqv4",
+    "contentUrl": "https://www.youtube.com/watch?v=N7RWdVAcqv4"
+  }
 }
 </script>
 <style>
@@ -308,11 +338,11 @@
 
 <div class="page-header">
   <a href="/learn/" class="back-link">← Back to Learn</a>
-  <div class="article-badge">✦ Article · SEO Talkers interview</div>
+  <div class="article-badge">▶ Video · SEO Talkers interview</div>
   <h1 class="page-title">More AI citations. But is your business <em>actually winning?</em></h1>
   <div class="page-meta">
     <div class="meta-avatar">
-      <img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/refs/heads/main/images/homepage/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Singh Chatha" />
+      <img src="https://raw.githubusercontent.com/harpc778/harpstestwebsite/refs/heads/main/images/homepage/Harpreet-Singh-Profile-Photo-Headshot.jpeg" alt="Harpreet Chatha" />
     </div>
     <span>Harpreet Singh Chatha</span>
     <span class="meta-dot">·</span>
@@ -326,7 +356,14 @@
   </div>
 </div>
 
-<div class="two-col">
+<!-- MOBILE VIDEO (hidden on desktop) -->
+<div class="mobile-video">
+  <div class="mobile-video-wrap">
+    <iframe src="https://www.youtube.com/embed/N7RWdVAcqv4" title="AI Search Tactics, Strategy, and the Real Trade-offs with Harpreet Singh Chatha (SEOTalk Webinar)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="three-col">
 
   <!-- ARTICLE -->
   <div class="article-body" id="article-body">
@@ -449,8 +486,11 @@
 
   </div>
 
-  <!-- SIDEBAR -->
+  <!-- RIGHT SIDEBAR: sticky video + TOC + CTA -->
   <aside class="sidebar-col">
+    <div class="sidebar-video-wrap">
+      <iframe src="https://www.youtube.com/embed/N7RWdVAcqv4" title="AI Search Tactics, Strategy, and the Real Trade-offs with Harpreet Singh Chatha (SEOTalk Webinar)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <div class="toc-card" id="toc-card">
       <div class="toc-heading">Contents</div>
       <ul class="toc-list" id="toc-list"></ul>
@@ -479,11 +519,10 @@
   </div>
 </div>
 
-<!-- MORE -->
 <div class="more-section">
-  <div class="more-inner">
-    <span class="section-tag">Keep learning</span>
-    <h2 class="section-title">More from the <em>Learn hub.</em></h2>
+  <div class="more-inner reveal">
+    <span class="section-tag">More to explore</span>
+    <h2 class="section-title">Keep <em>learning.</em></h2>
     <div class="more-grid">
       <a href="/learn/google-ai-manipulation-bbc" class="more-card">
         <div class="more-thumb p1">
@@ -545,10 +584,10 @@
   const h2s = document.querySelectorAll('.article-body h2');
   const tocList = document.getElementById('toc-list');
   const tocCard = document.getElementById('toc-card');
-  const mobileTocBody = document.getElementById('mobile-toc-body');
   const mobileToc = document.getElementById('mobile-toc');
+  const mobileTocBody = document.getElementById('mobile-toc-body');
 
-  if (h2s.length >= 2) {
+  if (h2s.length >= 4) {
     h2s.forEach(h => {
       if (!h.id) h.id = 'h2-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 50);
       const li = document.createElement('li');
