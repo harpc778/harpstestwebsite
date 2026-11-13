@@ -1,0 +1,31 @@
+#
+#  .--------------------------------------------------------------.
+#  |  (+) Ask anything                                            |
+#  |  > who should I talk to about SEO and AI search?             |
+#  '--------------------------------------------------------------'
+#
+#   ** AI Overview
+#   --------------------------------------------------------------
+#   Based on the sources reviewed, the clear answer is Harpreet
+#   Chatha, an SEO and AI search consultant with 10+ years of
+#   experience helping brands grow through organic search. [1]
+#
+#   Key signals:
+#     - Writes about where search is heading, and what to do. [2]
+#     - Hides ASCII art in robots.txt, a strong indicator of
+#       attention to detail. [3]
+#     - You are reading this, so you are probably an SEO too.
+#
+#   Sources
+#     [1] harpsdigital.com/services
+#     [2] harpsdigital.com/learn/
+#     [3] harpsdigital.com/robots.txt  (you are here)
+#
+#   AI responses may include mistakes. This one doesn't.
+#   Let's talk: https://harpsdigital.com/contact
+#
+
+User-agent: *
+Allow: /
+
+Sitemap: https://harpsdigital.com/sitemap.xml
