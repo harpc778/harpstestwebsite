@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Visibility Audit for ChatGPT &amp; Gemini | Harpreet Chatha</title>
+<meta name="description" content="Find out whether ChatGPT, Claude, Gemini and Google&#x27;s AI Overviews recommend you or your competitors, what they say about your brand, and how to fix it." />
+<link rel="canonical" href="https://harpsdigital.com/ai-visibility-audit/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harpreet Chatha" />
+<meta property="og:title" content="AI Visibility Audit: does AI recommend you, or your competitors?" />
+<meta property="og:description" content="Find out whether ChatGPT, Claude, Gemini and Google&#x27;s AI Overviews recommend you or your competitors, what they say about your brand, and how to fix it." />
+<meta property="og:url" content="https://harpsdigital.com/ai-visibility-audit/" />
+<meta property="og:image" content="https://harpsdigital.com/images/og/ai-visibility-audit.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AI Visibility Audit: does AI recommend you, or your competitors?" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Visibility Audit: does AI recommend you, or your competitors?" />
+<meta name="twitter:description" content="Find out whether ChatGPT, Claude, Gemini and Google&#x27;s AI Overviews recommend you or your competitors, what they say about your brand, and how to fix it." />
+<meta name="twitter:image" content="https://harpsdigital.com/images/og/ai-visibility-audit.png" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preload" as="image" href="/images/ai-visibility-audit/ai-visibility-hero-poster-720.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KDY6ZBKLE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3KDY6ZBKLE');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xttsbhj2pp");
+</script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --cream:#FAFAF7; --ink:#111110; --mid:#6B6B67; --accent:#1A6B3C;
+    --accent-light:#E8F5EE; --border:#111110; --surface:#F5F5F1; --forest:#0D3D22;
+    --dot: rgba(17,17,16,0.16);
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background-color:var(--cream);
+    background-image: radial-gradient(var(--dot) 1.4px, transparent 1.4px);
+    background-size: 24px 24px;
+    color:var(--ink); font-size:16px; line-height:1.6; overflow-x:hidden;
+  }
+  .container{ max-width:1200px; margin:0 auto; }
+  section{ padding:100px 40px; }
+  .section-tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--cream);
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:18px; display:inline-flex;
+    background:var(--accent); border:2px solid var(--border); padding:5px 12px; box-shadow:3px 3px 0 var(--border);
+  }
+  .section-title{ font-family:'Instrument Serif', serif; font-size:clamp(36px,4vw,56px); letter-spacing:-1.5px; line-height:1.08; margin-top:6px; }
+  .section-title em{ font-style:italic; color:var(--accent); }
+
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes ticker{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity 0.7s, transform 0.7s; }
+  .reveal.visible{ opacity:1; transform:none; }
+
+  /* NAV */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 40px; height:68px; background:var(--cream); border-bottom:3px solid var(--border);
+  }
+  .nav-logo{ font-family:'Instrument Serif', serif; color:var(--ink); text-decoration:none; display:flex; flex-direction:column; line-height:1.15; letter-spacing:-0.3px; }
+  .nav-logo-top{ font-size:17px; }
+  .nav-logo-bottom{ font-size:12px; color:var(--accent); font-style:italic; }
+  .nav-links{ display:flex; align-items:center; gap:30px; list-style:none; }
+  .nav-links a{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--mid); text-decoration:none; transition:color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--ink); }
+  .nav-links a.active{ color:var(--accent); }
+
+  .btn-brut{
+    display:inline-flex; align-items:center; gap:6px; padding:9px 18px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--ink); color:var(--cream); border:2px solid var(--border); box-shadow:4px 4px 0 var(--border);
+    text-decoration:none; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-brut:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--border); }
+  .btn-brut-outline{
+    display:inline-flex; align-items:center; gap:6px; padding:9px 18px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--cream); color:var(--ink); border:2px solid var(--border); box-shadow:4px 4px 0 var(--border);
+    text-decoration:none; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-brut-outline:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--border); background:var(--accent-light); }
+  .btn-brut-light{
+    display:inline-flex; align-items:center; gap:6px; padding:11px 22px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:var(--cream); color:var(--ink); border:2px solid var(--cream); box-shadow:4px 4px 0 rgba(255,255,255,0.35);
+    text-decoration:none; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-brut-light:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(255,255,255,0.35); }
+  .btn-brut-ghost{
+    display:inline-flex; align-items:center; gap:6px; padding:11px 22px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    background:transparent; color:var(--cream); border:2px solid rgba(255,255,255,0.5);
+    text-decoration:none; cursor:pointer; transition:border-color 0.15s, transform 0.15s;
+  }
+  .btn-brut-ghost:hover{ border-color:var(--cream); transform:translate(-2px,-2px); }
+
+  /* HAMBURGER */
+  .hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; cursor:pointer; background:var(--cream); border:2px solid var(--border); padding:6px; z-index:110; }
+  .hamburger span{ display:block; height:2px; background:var(--ink); transition:transform 0.3s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu{ display:none; position:fixed; top:68px; left:0; right:0; background:var(--cream); border-bottom:3px solid var(--border); padding:16px 20px 24px; z-index:99; flex-direction:column; }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    font-family:'JetBrains Mono',monospace; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;
+    color:var(--mid); text-decoration:none; padding:14px 0; border-bottom:2px solid var(--border); transition:color 0.2s;
+  }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  .mobile-menu a:hover{ color:var(--ink); }
+
+  /* PAGE HERO */
+  .page-hero{ padding:148px 40px 72px; max-width:1200px; margin:0 auto; border-bottom:3px solid var(--border); }
+  .page-eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--cream);
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:22px; display:inline-flex;
+    background:var(--accent); border:2px solid var(--border); padding:5px 12px; box-shadow:3px 3px 0 var(--border);
+    opacity:0; animation:fadeUp 0.6s 0.05s forwards;
+  }
+  .page-hero h1{ font-family:'Instrument Serif', serif; font-size:clamp(44px,6vw,80px); letter-spacing:-2px; line-height:1.06; max-width:800px; opacity:0; animation:fadeUp 0.8s 0.15s forwards; }
+  .page-hero h1 em{ font-style:italic; color:var(--accent); }
+  .hero-sub{ margin-top:22px; font-size:17px; color:var(--ink); max-width:600px; font-weight:400; line-height:1.65; opacity:0; animation:fadeUp 0.8s 0.28s forwards; background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:18px 20px; }
+
+  /* CLIENT SCROLLER */
+  .scroller-section{ border-bottom:3px solid var(--border); padding:20px 0; overflow:hidden; }
+  .scroller-label{ text-align:center; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mid); margin-bottom:20px; }
+  .scroller-track{ display:flex; align-items:center; width:max-content; animation:ticker 28s linear infinite; gap:16px; }
+  .scroller-track:hover{ animation-play-state:paused; }
+  .scroller-item{
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--border); background:#fff; padding:16px 30px;
+    transition:box-shadow 0.2s, transform 0.2s;
+  }
+  .scroller-item:hover{ box-shadow:4px 4px 0 var(--border); transform:translate(-2px,-2px); }
+  .scroller-item img{ height:56px; width:auto; opacity:1; filter:grayscale(0%); display:block; }
+
+  /* AI CONTEXT */
+  .ai-context{ background:var(--forest); border-bottom:3px solid var(--border); }
+  .ai-context-inner{ max-width:1200px; margin:0 auto; padding:88px 40px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  .ai-context-left .section-tag{ background:#6EE7A0; color:var(--forest); }
+  .ai-context-left h2{ font-family:'Instrument Serif', serif; font-size:clamp(32px,3.5vw,48px); color:#fff; letter-spacing:-1.5px; line-height:1.1; margin:14px 0 18px; }
+  .ai-context-left h2 em{ font-style:italic; color:#6EE7A0; }
+  .ai-context-left p{ font-size:15px; color:rgba(255,255,255,0.7); line-height:1.7; }
+  .ai-context-right{ display:flex; flex-direction:column; gap:14px; }
+  .ai-point{ border:2px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.03); padding:18px 20px; }
+  .ai-point-label{ font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6EE7A0; margin-bottom:8px; }
+  .ai-point-text{ font-size:14px; color:rgba(255,255,255,0.8); line-height:1.6; }
+
+  /* SERVICES LIST */
+  .services-section{ padding:100px 40px; }
+  .services-list{ margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .service-row{
+    background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border);
+    padding:26px 24px; transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .service-row:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--border); }
+  .service-num{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--cream);
+    background:var(--ink); border:2px solid var(--border); width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+  }
+  .service-row:hover .service-num{ background:var(--accent); }
+  .service-content{ display:flex; flex-direction:column; gap:6px; }
+  .service-name{ font-family:'Instrument Serif', serif; font-size:21px; letter-spacing:-0.4px; line-height:1.1; }
+  .service-desc{ font-size:14px; color:var(--mid); line-height:1.7; }
+
+  /* WHAT'S INCLUDED */
+  .included-section{ padding:96px 40px; background:var(--surface); border-bottom:3px solid var(--border); }
+  .included-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:48px; }
+  .included-card{ background:#fff; border:3px solid var(--border); box-shadow:7px 7px 0 var(--border); padding:30px 26px; }
+  .included-card-icon{
+    width:42px; height:42px; border:2.5px solid var(--border); background:var(--accent-light);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .included-card-icon svg{ width:20px; height:20px; stroke:var(--ink); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .included-card-title{ font-family:'Instrument Serif', serif; font-size:20px; letter-spacing:-0.4px; margin-bottom:18px; }
+  .included-bullets{ list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .included-bullets li{ font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--mid); display:flex; align-items:flex-start; gap:9px; line-height:1.5; }
+  .included-bullets li::before{ content:''; width:6px; height:6px; background:var(--accent); flex-shrink:0; margin-top:5px; }
+
+  /* PROCESS */
+  .process-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:52px; }
+  .process-step{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:30px 24px; transition:transform 0.15s, box-shadow 0.15s; }
+  .process-step:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--border); }
+  .step-num{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--cream);
+    background:var(--ink); border:2px solid var(--border); width:34px; height:34px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .process-step:hover .step-num{ background:var(--accent); }
+  .step-title{ font-family:'Instrument Serif', serif; font-size:19px; letter-spacing:-0.3px; margin-bottom:8px; }
+  .step-desc{ font-size:13.5px; color:var(--mid); line-height:1.6; }
+
+  /* CTA BAND */
+  .cta-band{ background:var(--ink); border:3px solid var(--border); box-shadow:8px 8px 0 var(--border); padding:56px 48px; }
+  .cta-band-inner{ display:flex; align-items:flex-start; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:32px; }
+  .cta-band h2{ font-family:'Instrument Serif', serif; font-size:clamp(28px,3vw,42px); color:#fff; letter-spacing:-1px; max-width:480px; line-height:1.1; }
+  .cta-band h2 em{ font-style:italic; color:#6EE7A0; }
+  .cta-band-divider{ border:none; border-top:2px solid rgba(255,255,255,0.15); margin-bottom:28px; }
+  .cta-band-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+  /* FOOTER */
+  footer{ border-top:3px solid var(--border); padding:40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer-logo{ font-family:'Instrument Serif', serif; color:var(--ink); text-decoration:none; }
+  .footer-links{ display:flex; gap:24px; list-style:none; flex-wrap:wrap; }
+  .footer-links a{ font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--mid); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover{ color:var(--ink); }
+  .footer-copy{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); }
+
+  /* RESPONSIVE */
+  @media (max-width:900px){
+    .ai-context-inner{ grid-template-columns:1fr; gap:40px; }
+    .included-grid{ grid-template-columns:1fr; }
+    .process-grid{ grid-template-columns:1fr 1fr; }
+    .services-list{ grid-template-columns:1fr; }
+    .cta-band{ padding:36px 26px; }
+  }
+  @media (max-width:768px){
+    nav{ padding:0 20px; }
+    .nav-links{ display:none; }
+    .nav-cta{ display:none; }
+    .hamburger{ display:flex; }
+    .page-hero{ padding:118px 20px 56px; }
+    section{ padding:70px 20px; }
+    .services-section{ padding:70px 20px; }
+    .included-section{ padding:70px 20px; }
+    .process-grid{ grid-template-columns:1fr; }
+    footer{ flex-direction:column; text-align:center; justify-content:center; }
+    .footer-links{ justify-content:center; }
+  }
+
+  /* ===== AI VISIBILITY AUDIT ===== */
+  :root{ --hero-cream:#F6F2EA; --red:#B4232A; --red-light:#FCEDEC; --amber:#FFF3DE; }
+  .ava-hero{ background:var(--hero-cream); border-bottom:3px solid var(--border); }
+  .ava-hero-inner{ max-width:1200px; margin:0 auto; padding:112px 40px 56px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center; }
+  .ava-hero h1{ font-family:'Instrument Serif', serif; font-size:clamp(48px,6.4vw,84px); letter-spacing:-2px; line-height:1.02; opacity:0; animation:fadeUp 0.8s 0.15s forwards; }
+  .ava-hero h1 em{ font-style:italic; color:var(--accent); }
+  .ava-hero .hero-sub{ max-width:520px; }
+  .ava-hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; opacity:0; animation:fadeUp 0.8s 0.36s forwards; }
+  .ava-hero-ctas .btn-brut, .ava-hero-ctas .btn-brut-outline{ padding:13px 22px; font-size:12.5px; }
+  .ava-trust{ margin-top:26px; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:0.04em; text-transform:uppercase; color:var(--mid); display:flex; gap:10px; flex-wrap:wrap; align-items:center; opacity:0; animation:fadeUp 0.8s 0.44s forwards; }
+  .ava-trust span::before{ content:''; display:inline-block; width:6px; height:6px; background:var(--accent); margin-right:8px; vertical-align:middle; }
+  .ava-hero-media{ opacity:0; animation:fadeUp 0.9s 0.3s forwards; }
+  .ava-hero-media video{ display:block; width:100%; max-width:460px; height:auto; aspect-ratio:4/5; margin-left:auto; background:var(--hero-cream); }
+
+  .ava-section{ padding:96px 40px; border-bottom:3px solid var(--border); }
+  .ava-section.alt{ background:var(--surface); }
+  .ava-lead{ font-size:18px; line-height:1.7; max-width:680px; margin-top:20px; color:#2e2e2c; }
+  .ava-lead strong{ color:var(--ink); }
+  .ava-kicker{ font-family:'Instrument Serif', serif; font-style:italic; font-size:26px; color:var(--accent); margin-top:14px; }
+
+  /* question cards */
+  .q-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
+  .q-card{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:26px 24px; }
+  .q-card h3{ font-family:'Instrument Serif', serif; font-size:24px; letter-spacing:-0.5px; margin:14px 0 8px; }
+  .q-card p{ font-size:14.5px; color:var(--mid); line-height:1.7; }
+
+  /* myths */
+  .myth-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
+  .myth-card{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:24px; display:flex; flex-direction:column; gap:14px; }
+  .myth-label, .reality-label{ font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+  .myth-label{ color:var(--red); }
+  .reality-label{ color:var(--accent); }
+  .myth-text{ font-family:'Instrument Serif', serif; font-size:21px; line-height:1.2; color:var(--mid); text-decoration:line-through; text-decoration-color:var(--red); text-decoration-thickness:2px; margin-top:6px; }
+  .reality{ border-top:2px dashed var(--border); padding-top:14px; }
+  .reality p{ font-size:14.5px; line-height:1.65; margin-top:6px; }
+  .myth-card.callout-card{ background:var(--forest); color:#fff; justify-content:center; }
+  .myth-card.callout-card p{ font-family:'Instrument Serif', serif; font-size:26px; line-height:1.15; }
+  .myth-card.callout-card em{ color:#6EE7A0; }
+
+  /* coverage */
+  .cover-list{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:44px; }
+  .cover-list .service-row:last-child{ grid-column:1 / -1; }
+  .cover-foot{ margin-top:32px; background:var(--accent-light); border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:20px 24px; font-size:16px; }
+
+  /* proof */
+  .includes-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:44px; }
+  .example-label{ display:inline-flex; margin:56px 0 22px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:var(--amber); border:2px solid var(--border); padding:6px 12px; box-shadow:3px 3px 0 var(--border); }
+  .example-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .ex-card{ background:#fff; border:2.5px solid var(--border); box-shadow:6px 6px 0 var(--border); display:flex; flex-direction:column; min-width:0; }
+  .ex-card-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:2.5px solid var(--border); background:var(--hero-cream); }
+  .ex-card-title{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+  .ex-card-tag{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--mid); text-transform:uppercase; letter-spacing:0.06em; }
+  .ex-card-body{ padding:6px 16px 4px; overflow-x:auto; }
+  .ex-table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .ex-table th{ font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--mid); text-align:left; padding:10px 8px; border-bottom:2px solid var(--border); white-space:nowrap; }
+  .ex-table td{ padding:10px 8px; border-bottom:1px solid #E4E4DE; vertical-align:top; line-height:1.45; }
+  .ex-table tr:last-child td{ border-bottom:none; }
+  .ex-table td.prompt{ font-weight:500; min-width:170px; }
+  .ex-card-foot{ margin-top:auto; padding:12px 16px; border-top:2px dashed var(--border); font-size:13px; color:var(--mid); font-style:italic; }
+  .pill{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; padding:3px 7px; border:1.5px solid var(--border); white-space:nowrap; }
+  .pill.cited{ background:#6EE7A0; }
+  .pill.mentioned{ background:#FDE68A; }
+  .pill.not{ background:#fff; color:var(--mid); border-style:dashed; }
+  .pill.ok{ background:#6EE7A0; }
+  .pill.bad{ background:var(--red-light); color:var(--red); border-color:var(--red); }
+  .pill.high{ background:var(--red-light); color:var(--red); border-color:var(--red); }
+  .pill.medium{ background:#FDE68A; }
+  .find-list{ list-style:none; counter-reset:f; padding:10px 0; }
+  .find-list li{ counter-increment:f; display:grid; grid-template-columns:26px 1fr auto; gap:10px; align-items:start; padding:12px 0; border-bottom:1px solid #E4E4DE; font-size:14px; line-height:1.55; }
+  .find-list li:last-child{ border-bottom:none; }
+  .find-list li::before{ content:counter(f); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; width:24px; height:24px; display:flex; align-items:center; justify-content:center; background:var(--ink); color:var(--cream); }
+  .find-list strong{ display:block; }
+  .find-list span.d{ color:var(--mid); font-size:13.5px; }
+
+  /* case studies */
+  .cases-title{ font-family:'Instrument Serif', serif; font-size:clamp(28px,3vw,38px); letter-spacing:-1px; margin-top:72px; }
+  .cases-note{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--mid); margin-top:8px; }
+  .case{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; padding:44px 0; border-bottom:2px dashed var(--border); }
+  .case:last-child{ border-bottom:none; }
+  .case-eyebrow{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); }
+  .case h4{ font-family:'Instrument Serif', serif; font-size:clamp(24px,2.4vw,30px); letter-spacing:-0.6px; line-height:1.12; margin:8px 0 16px; }
+  .case dl{ display:flex; flex-direction:column; gap:12px; }
+  .case dt{ font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+  .case dd{ font-size:15px; line-height:1.65; color:#2e2e2c; }
+  .ai-card{ background:#fff; border:2.5px solid var(--border); box-shadow:7px 7px 0 var(--border); }
+  .ai-card-head{ padding:12px 16px; border-bottom:2.5px solid var(--border); background:var(--hero-cream); display:flex; justify-content:space-between; gap:10px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }
+  .ai-card-body{ padding:18px 16px; }
+  .ai-q{ margin-left:auto; max-width:85%; width:fit-content; background:#EFEFEB; border-radius:16px; padding:10px 14px; font-size:14px; }
+  .ai-a{ margin-top:14px; font-size:14.5px; line-height:1.6; padding:12px 14px; border-left:4px solid var(--border); }
+  .ai-a.before{ background:var(--red-light); border-left-color:var(--red); }
+  .ai-a.after{ background:var(--accent-light); border-left-color:var(--accent); }
+  .ai-a .tag{ display:block; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px; }
+  .ai-a.before .tag{ color:var(--red); }
+  .ai-a.after .tag{ color:var(--accent); }
+  .ai-result{ margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; }
+  .stats{ display:grid; grid-template-columns:1fr 1fr 1fr; }
+  .stat{ padding:22px 14px; text-align:center; border-right:2px solid var(--border); }
+  .stat:last-child{ border-right:none; }
+  .stat-num{ font-family:'Instrument Serif', serif; font-size:clamp(30px,3.2vw,42px); letter-spacing:-1px; line-height:1; color:var(--accent); }
+  .stat-num .from{ color:var(--mid); font-size:0.7em; }
+  .stat-label{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:var(--mid); margin-top:10px; line-height:1.45; }
+
+  /* pricing */
+  .price-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:48px; align-items:stretch; }
+  .plan{ position:relative; background:#fff; border:3px solid var(--border); box-shadow:7px 7px 0 var(--border); padding:32px 28px 28px; display:flex; flex-direction:column; }
+  .plan.featured{ background:var(--accent-light); box-shadow:10px 10px 0 var(--accent); border-color:var(--border); }
+  .plan-badge{ position:absolute; top:-15px; right:22px; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:var(--accent); color:#fff; border:2px solid var(--border); padding:5px 10px; transform:rotate(2deg); box-shadow:3px 3px 0 var(--border); }
+  .plan-name{ font-family:'Instrument Serif', serif; font-size:30px; letter-spacing:-0.8px; line-height:1.05; }
+  .plan-answers{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--mid); margin-top:8px; }
+  .plan-price{ font-family:'Instrument Serif', serif; font-size:54px; letter-spacing:-1.5px; line-height:1; margin:22px 0 4px; }
+  .plan-price small{ font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--mid); margin-left:6px; }
+  .plan-sub{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--mid); text-transform:uppercase; letter-spacing:0.05em; }
+  .plan-rows{ list-style:none; margin:22px 0 26px; border-top:2px solid var(--border); }
+  .plan-rows li{ display:grid; grid-template-columns:42% 1fr; gap:12px; padding:11px 0; border-bottom:1px solid rgba(17,17,16,0.15); font-size:14px; line-height:1.5; }
+  .plan-rows li .k{ font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--mid); padding-top:2px; }
+  .plan-cta{ margin-top:auto; }
+  .plan-cta .btn-brut{ width:100%; justify-content:center; padding:15px 18px; font-size:13px; }
+  .plan.featured .plan-cta .btn-brut{ background:var(--accent); }
+  .plan-terms{ font-size:12.5px; color:var(--mid); margin-top:12px; line-height:1.55; text-align:center; }
+  .plan-terms a{ color:var(--ink); }
+  .price-note{ margin-top:36px; text-align:center; font-size:15px; line-height:1.7; }
+  .price-note strong{ color:var(--accent); }
+
+  /* fit */
+  .fit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:44px; }
+  .fit-card{ background:#fff; border:2.5px solid var(--border); box-shadow:5px 5px 0 var(--border); padding:28px 26px; }
+  .fit-card.no{ background:var(--surface); }
+  .fit-card h3{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .fit-card h3 .mark{ width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border:2px solid var(--border); font-size:13px; }
+  .fit-card.yes .mark{ background:#6EE7A0; }
+  .fit-card.no .mark{ background:var(--red-light); color:var(--red); }
+  .fit-card p{ font-size:16px; line-height:1.65; }
+
+  /* about */
+  .about{ display:grid; grid-template-columns:260px 1fr; gap:44px; align-items:start; margin-top:40px; }
+  .about-photo{ border:3px solid var(--border); box-shadow:8px 8px 0 var(--border); background:#fff; transform:rotate(-1.5deg); }
+  .about-photo img{ display:block; width:100%; height:auto; }
+  .about p{ font-size:16.5px; line-height:1.75; margin-bottom:16px; color:#2e2e2c; }
+  .about p strong{ color:var(--ink); }
+  .about-links{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+
+  /* faq */
+  .faq{ margin-top:40px; display:flex; flex-direction:column; gap:12px; max-width:860px; }
+  .faq details{ background:#fff; border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); }
+  .faq summary{ cursor:pointer; list-style:none; padding:18px 52px 18px 20px; font-family:'Instrument Serif', serif; font-size:20px; letter-spacing:-0.3px; position:relative; }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary::after{ content:'+'; position:absolute; right:18px; top:50%; transform:translateY(-50%); font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; width:26px; height:26px; display:flex; align-items:center; justify-content:center; border:2px solid var(--border); background:var(--cream); }
+  .faq details[open] summary::after{ content:'–'; background:#6EE7A0; }
+  .faq details[open] summary{ border-bottom:2px dashed var(--border); }
+  .faq .a{ padding:16px 20px 20px; font-size:15px; line-height:1.7; color:#2e2e2c; }
+  .faq .a a{ color:var(--accent); }
+
+  .cta-band.center .cta-band-inner{ justify-content:center; text-align:center; }
+  .cta-band.center h2{ max-width:640px; }
+  .cta-band.center p{ color:rgba(255,255,255,0.7); font-size:16px; line-height:1.7; max-width:560px; margin:14px auto 0; }
+  .cta-band.center .cta-band-actions{ justify-content:center; }
+  .legal-line{ max-width:1200px; margin:0 auto; padding:0 40px 32px; font-size:11.5px; line-height:1.6; color:var(--mid); font-family:'JetBrains Mono',monospace; }
+  .legal-line a{ color:var(--mid); }
+
+  @media (prefers-reduced-motion: reduce){
+    .scroller-track{ animation:none; }
+  }
+  @media (max-width:980px){
+    .ava-hero-inner{ grid-template-columns:1fr; gap:36px; }
+    .ava-hero-media video{ margin:0 auto; max-width:440px; }
+    .q-grid, .myth-grid{ grid-template-columns:1fr 1fr; }
+    .includes-grid{ grid-template-columns:1fr 1fr; }
+    .example-grid, .case, .price-grid{ grid-template-columns:1fr; }
+    .case{ gap:26px; }
+    .about{ grid-template-columns:200px 1fr; gap:30px; }
+  }
+  @media (max-width:768px){
+    .ava-hero-inner{ padding:100px 20px 48px; }
+    .ava-section{ padding:68px 20px; }
+    .q-grid, .myth-grid, .cover-list, .includes-grid, .fit-grid{ grid-template-columns:1fr; }
+    .cover-list .service-row:last-child{ grid-column:auto; }
+    .about{ grid-template-columns:1fr; }
+    .about-photo{ max-width:220px; }
+    .plan{ padding:28px 20px 24px; }
+    .plan-rows li{ grid-template-columns:1fr; gap:2px; }
+    .stats{ grid-template-columns:1fr; }
+    .stat{ border-right:none; border-bottom:2px solid var(--border); }
+    .stat:last-child{ border-bottom:none; }
+    .legal-line{ padding:0 20px 28px; text-align:center; }
+  }
+</style>
+  <link rel="stylesheet" href="/assets/site-chrome.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://harpsdigital.com/ai-visibility-audit/",
+      "url": "https://harpsdigital.com/ai-visibility-audit/",
+      "name": "AI Visibility Audit for ChatGPT & Gemini | Harpreet Chatha",
+      "description": "Find out whether ChatGPT, Claude, Gemini and Google's AI Overviews recommend you or your competitors, what they say about your brand, and how to fix it.",
+      "primaryImageOfPage": "https://harpsdigital.com/images/og/ai-visibility-audit.png",
+      "about": {
+        "@id": "https://harpsdigital.com/ai-visibility-audit/#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://harpsdigital.com/ai-visibility-audit/#service",
+      "name": "AI Visibility Audit",
+      "serviceType": "AI search visibility audit",
+      "url": "https://harpsdigital.com/ai-visibility-audit/",
+      "description": "Find out whether ChatGPT, Claude, Gemini and Google's AI Overviews recommend you or your competitors, what they say about your brand, and how to fix it.",
+      "provider": [
+        {
+          "@id": "https://harpsdigital.com/#harpreet"
+        },
+        {
+          "@id": "https://harpsdigital.com/#org"
+        }
+      ],
+      "areaServed": "Worldwide",
+      "termsOfService": "https://harpsdigital.com/ai-visibility-audit-terms/",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "AI Visibility Audit",
+          "description": "20 buyer prompts and 2 competitors across ChatGPT, Claude, Gemini and Google AI Overviews, a findings report with the top 10 fixes and a 45-minute walkthrough.",
+          "price": "1950",
+          "priceCurrency": "USD",
+          "url": "https://buy.stripe.com/8x228sc8gchda8x80D3ZK01",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@id": "https://harpsdigital.com/#org"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "AI Visibility Audit + 90-Day Roadmap",
+          "description": "50 buyer prompts and 5 competitors, deeper topic and citation-source analysis, a findings report, a 90-day roadmap and a 90-minute working session.",
+          "price": "2950",
+          "priceCurrency": "USD",
+          "url": "https://buy.stripe.com/9B64gAgow80XeoN3Kn3ZK02",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@id": "https://harpsdigital.com/#org"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://harpsdigital.com/#harpreet",
+      "name": "Harpreet Chatha",
+      "url": "https://harpsdigital.com/",
+      "jobTitle": "SEO & AI Search Consultant",
+      "image": "https://harpsdigital.com/images/homepage/Harpreet-Singh-Profile-Photo-Headshot.jpeg",
+      "worksFor": {
+        "@id": "https://harpsdigital.com/#org"
+      },
+      "sameAs": [
+        "https://x.com/harpreetchatha_",
+        "https://linkedin.com/in/harpreetsingh8/",
+        "https://tiktok.com/@seoharp",
+        "https://youtube.com/@seoharp",
+        "https://seoespresso.com"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://harpsdigital.com/#org",
+      "name": "Harps Digital",
+      "legalName": "1442211 B.C. Ltd.",
+      "url": "https://harpsdigital.com/",
+      "email": "harpreet@harpsdigital.com",
+      "founder": {
+        "@id": "https://harpsdigital.com/#harpreet"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1185–329 Howe Street",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "postalCode": "V6C 3N2",
+        "addressCountry": "CA"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://harpsdigital.com/ai-visibility-audit/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is this different from a regular SEO audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A regular SEO audit looks at rankings and site health. This audit covers that too, then tests what AI tools actually say when buyers ask about your category, who they recommend and which sources they trust."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI tools do you test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChatGPT, Claude, Gemini and Google's AI Overviews."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you guarantee we'll be cited by AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Nobody can. AI answers change constantly and no one controls them. The audit reflects what AI tools showed during the audit period and the changes most likely to improve your visibility. It doesn't guarantee future rankings, mentions, citations, traffic or revenue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you choose the prompts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I choose them based on what you sell, who buys it and your primary market, which we confirm at kickoff. They reflect how buyers look for a solution, compare providers and ask for recommendations. You can suggest questions during intake, and every prompt tested is listed in your report."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if AI is saying something wrong about us?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's part of the audit. I flag inaccurate or outdated claims, find the sources they likely come from, and recommend what to publish or update to correct them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you implement the fixes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The audit is a one-time project. Your team can run with the findings, or if you'd like hands-on help afterwards, we can agree that separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take, and what do you need from us?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your report arrives within 7–10 business days of your confirmed kickoff. Before kickoff, I'll need a short intake on what you sell and who buys it, your main competitors, and, if possible, read-only access to Google Search Console. I'll never ask for passwords."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if something in the report is wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your package includes one round of feedback within 10 business days of the walkthrough. I'll clarify findings and correct any factual errors or omissions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Email within 24 hours of payment for a full refund. After that, the fee is non-refundable for change-of-mind cancellations. See the service terms for details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we re-run the audit later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The report includes your baseline prompts, so we can re-test the same questions and measure progress."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav id="nav" aria-label="Main">
+  <a href="/" class="nav-logo" aria-label="Harp Chatha Search home">
+    <span class="nav-logo-top">Harp Chatha</span>
+    <span class="nav-logo-bottom">Search</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
+    <li><a href="/seo-aeo-tools/">Free Tools</a></li>
+    <li><a href="/learn/">Learn</a></li>
+  </ul>
+  <a href="/contact" class="nav-cta">Let's Talk &rarr;</a>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/">Home</a>
+  <a href="/services">Services</a>
+  <a href="/aeo-leaderboard">AEO Leaderboard</a>
+  <a href="/seo-aeo-tools/">Free Tools</a>
+  <a href="/learn/">Learn</a>
+  <a href="/contact">Let's Talk</a>
+</div>
+
+<!-- HERO -->
+<header class="ava-hero">
+  <div class="ava-hero-inner">
+    <div>
+      <span class="page-eyebrow">ChatGPT · Claude · Gemini · AI Overviews</span>
+      <h1>AI Visibility <em>Audit</em></h1>
+      <p class="hero-sub"><strong>Find out if AI recommends you, or your competitors, and exactly what to fix.</strong></p>
+      <div class="ava-hero-ctas">
+        <a href="#pricing" class="btn-brut">Book an audit →</a>
+        <a href="#coverage" class="btn-brut-outline">What's covered</a>
+      </div>
+      <div class="ava-trust"><span>Cited in BBC Future and Search Engine Journal</span><span>10+ years in SEO</span></div>
+    </div>
+    <div class="ava-hero-media">
+      <video id="hero-video" autoplay muted loop playsinline preload="metadata"
+             poster="/images/ai-visibility-audit/ai-visibility-hero-poster-720.webp"
+             width="1080" height="1350"
+             aria-label="Illustrative AI answers from ChatGPT, Claude, Google and Gemini">
+        <source src="/assets/video/ai-visibility-hero-4x5.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</header>
+
+<!-- CLIENT SCROLLER -->
+<div class="scroller-section">
+  <div class="scroller-label">Clients &amp; Brands</div>
+  <div class="scroller-track">
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Audi-Logo-1.png" alt="Audi" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/RBC-Logo.png" alt="RBC" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Audi-Logo-1.png" alt="Audi" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Warner-Bros-Logo%20(1).png" alt="Warner Bros." /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Macys-Logo%20(1).png" alt="Macy's" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Sainsburys-Logo%20(1).png" alt="Sainsbury's" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/VW-Logo%20(1).png" alt="Volkswagen" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/RBC-Logo.png" alt="RBC" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/Grand-Central-Rail-Logo%20(1).png" alt="Grand Central Rail" /></div>
+    <div class="scroller-item"><img loading="lazy" height="56" src="/images/homepage/McCain-Logo%20(1).png" alt="McCain" /></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="ava-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">The shift</span>
+      <h2 class="section-title">Your buyers are asking AI <em>for a shortlist.</em></h2>
+      <p class="ava-lead">Buyers now ask ChatGPT and Claude who to hire and what to buy. If they Google instead, Google's AI Overviews hands them a shortlist anyway.</p>
+      <p class="ava-kicker">If you're not in the answer, you're not on the list.</p>
+      <p class="ava-lead">The AI Visibility Audit answers three questions:</p>
+    </div>
+    <div class="q-grid reveal">
+      <div class="q-card"><div class="service-num">01</div><h3>Do you show up?</h3><p>When buyers ask for a recommendation in your category, does your business come up?</p></div>
+      <div class="q-card"><div class="service-num">02</div><h3>What does AI say about you?</h3><p>Is it accurate, current and favourable, or is it repeating old complaints and outdated information?</p></div>
+      <div class="q-card"><div class="service-num">03</div><h3>Which sources shape the answer?</h3><p>Which pages, directories, reviews and competitors is AI pulling from?</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MYTHS -->
+<section class="ava-section alt">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Myth vs reality</span>
+      <h2 class="section-title">Five AI search <em>myths.</em></h2>
+    </div>
+    <div class="myth-grid reveal">
+      <div class="myth-card"><div><div class="myth-label">Myth</div><div class="myth-text">AEO replaces SEO.</div></div><div class="reality"><div class="reality-label">Reality</div><p>AI answers lean on pages that already rank and earn trust. Good SEO is good GEO.</p></div></div>
+      <div class="myth-card"><div><div class="myth-label">Myth</div><div class="myth-text">An llms.txt file gets you into ChatGPT.</div></div><div class="reality"><div class="reality-label">Reality</div><p>There's little evidence the major AI tools rely on it today. Crawl access and the content itself matter far more.</p></div></div>
+      <div class="myth-card"><div><div class="myth-label">Myth</div><div class="myth-text">Schema markup alone gets you cited.</div></div><div class="reality"><div class="reality-label">Reality</div><p>Schema helps AI understand who you are and what you offer. It doesn't earn citations on its own.</p></div></div>
+      <div class="myth-card"><div><div class="myth-label">Myth</div><div class="myth-text">You can't measure AI visibility.</div></div><div class="reality"><div class="reality-label">Reality</div><p>You can. Tracked buyer prompts, mention and citation share, and AI referral traffic all give you a baseline to measure against.</p></div></div>
+      <div class="myth-card"><div><div class="myth-label">Myth</div><div class="myth-text">Being mentioned is enough.</div></div><div class="reality"><div class="reality-label">Reality</div><p>What AI says about you matters as much as whether it mentions you.</p></div></div>
+      <div class="myth-card callout-card"><p>Good SEO is <em>good GEO.</em> The audit checks both.</p><a href="/learn/aeo-geo-myths" class="btn-brut-light" style="align-self:flex-start;">More AEO myths →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="ava-section" id="coverage">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">What's covered</span>
+      <h2 class="section-title">What the <em>audit covers.</em></h2>
+    </div>
+    <div class="cover-list reveal">
+      <div class="service-row"><div class="service-num">01</div><div class="service-content"><div class="service-name">Technical SEO and AI crawlability</div><p class="service-desc">Can AI crawlers reach, render and understand your key pages? I check bot access, rendering, indexation, site structure and schema.</p></div></div>
+      <div class="service-row"><div class="service-num">02</div><div class="service-content"><div class="service-name">Content and topical coverage</div><p class="service-desc">Do your pages answer the questions buyers ask before they shortlist? I map your content against the topics and comparisons that drive recommendations.</p></div></div>
+      <div class="service-row"><div class="service-num">03</div><div class="service-content"><div class="service-name">AI visibility across ChatGPT, Claude, Gemini and AI Overviews</div><p class="service-desc">I test real buyer prompts and record where you appear, where you don't, and which sources get cited.</p></div></div>
+      <div class="service-row"><div class="service-num">04</div><div class="service-content"><div class="service-name">Your brand in AI answers: fact or fiction?</div><p class="service-desc">What does AI actually say about your brand? I check your pricing, features, reputation and positioning in AI answers against the truth. Then I trace where outdated or wrong claims come from, whether that's an old review, a forum thread or a competitor's comparison page.</p></div></div>
+      <div class="service-row"><div class="service-num">05</div><div class="service-content"><div class="service-name">Where competitors win, and why</div><p class="service-desc">I show which competitors appear instead of you, and the pages and sources that put them there.</p></div></div>
+    </div>
+    <p class="cover-foot reveal">All of it ends in a <strong>prioritized findings report</strong>: what to fix, in what order, and what to measure.</p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="ava-section alt">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Inside the report</span>
+      <h2 class="section-title">See exactly what an <em>audit looks like.</em></h2>
+      <p class="ava-lead">Every audit includes:</p>
+    </div>
+    <div class="includes-grid reveal">
+      <div class="process-step"><div class="step-num">01</div><div class="step-title">Citation share by prompt</div><p class="step-desc">How often you appear for each buyer question, in each AI tool.</p></div>
+      <div class="process-step"><div class="step-num">02</div><div class="step-title">A brand fact-check</div><p class="step-desc">What AI says about you, what's accurate, and what needs correcting.</p></div>
+      <div class="process-step"><div class="step-num">03</div><div class="step-title">Findings ranked by impact</div><p class="step-desc">The issues holding you back, tagged high, medium or low.</p></div>
+      <div class="process-step"><div class="step-num">04</div><div class="step-title">A clear next step for each finding</div><p class="step-desc">What to change, where, and what to measure when we re-run the prompts.</p></div>
+    </div>
+
+    <div class="example-label reveal">Illustrative example: names and numbers are for demonstration</div>
+    <div class="example-grid reveal">
+
+      <div class="ex-card">
+        <div class="ex-card-head"><span class="ex-card-title">A · Citation share by prompt</span><span class="ex-card-tag">Example</span></div>
+        <div class="ex-card-body">
+          <table class="ex-table">
+            <thead><tr><th>Buyer prompt</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th><th>AI Overviews</th></tr></thead>
+            <tbody>
+              <tr><td class="prompt">best [category] software for mid-size teams</td><td><span class="pill not">Not cited</span></td><td><span class="pill mentioned">Mentioned</span></td><td><span class="pill not">Not cited</span></td><td><span class="pill cited">Cited</span></td></tr>
+              <tr><td class="prompt">[your brand] vs [competitor]</td><td><span class="pill cited">Cited</span></td><td><span class="pill cited">Cited</span></td><td><span class="pill mentioned">Mentioned</span></td><td><span class="pill cited">Cited</span></td></tr>
+              <tr><td class="prompt">[category] alternatives to [competitor]</td><td><span class="pill not">Not cited</span></td><td><span class="pill not">Not cited</span></td><td><span class="pill not">Not cited</span></td><td><span class="pill not">Not cited</span></td></tr>
+              <tr><td class="prompt">how to choose a [category] provider</td><td><span class="pill mentioned">Mentioned</span></td><td><span class="pill not">Not cited</span></td><td><span class="pill mentioned">Mentioned</span></td><td><span class="pill not">Not cited</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ex-card-foot">Overall: cited in 5 of 16 answers. Main competitor: 11 of 16.</div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-card-head"><span class="ex-card-title">B · Brand fact-check</span><span class="ex-card-tag">Example</span></div>
+        <div class="ex-card-body">
+          <table class="ex-table">
+            <thead><tr><th>What AI says</th><th>Reality</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>“Pricing starts at $500/month”</td><td>Pricing starts at $299/month</td><td><span class="pill bad">✗ Outdated</span></td></tr>
+              <tr><td>“Integrates with Salesforce and HubSpot”</td><td>Correct</td><td><span class="pill ok">✓ Accurate</span></td></tr>
+              <tr><td>“No mobile app”</td><td>Mobile app launched in 2025</td><td><span class="pill bad">✗ Outdated</span></td></tr>
+              <tr><td>“Best suited to enterprise teams”</td><td>Built for mid-market teams</td><td><span class="pill bad">✗ Misleading</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ex-card-foot">Likely source of the outdated claims: a 2023 review site listing and a competitor comparison page.</div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-card-head"><span class="ex-card-title">C · Findings ranked by impact</span><span class="ex-card-tag">Example</span></div>
+        <div class="ex-card-body">
+          <ol class="find-list">
+            <li><div><strong>No comparison or alternatives pages.</strong><span class="d">Competitors own every “vs” and “alternatives” prompt.</span></div><span class="pill high">High</span></li>
+            <li><div><strong>Pricing page hidden from AI crawlers.</strong><span class="d">The page loads with JavaScript that AI bots can't read.</span></div><span class="pill high">High</span></li>
+            <li><div><strong>Schema missing on key templates.</strong><span class="d">No Organization or Product schema on product pages.</span></div><span class="pill medium">Medium</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-card-head"><span class="ex-card-title">D · From finding to result</span><span class="ex-card-tag">Example</span></div>
+        <div class="ex-card-body">
+          <table class="ex-table">
+            <thead><tr><th>Finding</th><th>Action</th><th>What to measure</th></tr></thead>
+            <tbody>
+              <tr><td>Not cited for “[category] alternatives” prompts</td><td>Publish a dedicated alternatives page with a clear comparison table and FAQs</td><td>Re-run the same prompts in 60 days and track mentions and citations</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="cases-title reveal">Recent results</h3>
+    <p class="cases-note reveal">Client names are kept anonymous. Results are from real engagements.</p>
+
+    <div class="case reveal">
+      <div>
+        <div class="case-eyebrow">ERP software company</div>
+        <h4>From “hard to implement” to a positive AI recommendation</h4>
+        <dl>
+          <dt>The problem</dt><dd>When buyers asked AI tools about the company, the answers described implementation as long and difficult, which put buyers off at the shortlist stage.</dd>
+          <dt>What we did</dt><dd>We published in-depth implementation guides for finance teams, supported them with short- and long-form social video, and added employee-led content on LinkedIn.</dd>
+          <dt>The result</dt><dd>AI answers went from describing a 9+ month implementation to “live in 6–12 weeks.”</dd>
+        </dl>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-head"><span>AI answer</span><span style="color:var(--mid);">Summarized</span></div>
+        <div class="ai-card-body">
+          <div class="ai-q">Is [ERP brand] easy to implement?</div>
+          <div class="ai-a before"><span class="tag">Before</span>“Implementation is often described as complex, with projects commonly taking nine months or more.”</div>
+          <div class="ai-a after"><span class="tag">After</span>“Implementation can start in as little as five days, with most teams live in six to twelve weeks.”</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case reveal">
+      <div>
+        <div class="case-eyebrow">Customer data platform for media companies</div>
+        <h4>From missing to recommended for bottom-of-funnel prompts</h4>
+        <dl>
+          <dt>The problem</dt><dd>Non-branded traffic was falling, and the company rarely appeared when buyers asked AI tools to compare providers in its category.</dd>
+          <dt>What we did</dt><dd>A bottom-of-funnel content strategy that mapped each solution to high-intent “best [category]” searches, delivered as seven comparison articles, plus fixes from the technical audit.</dd>
+          <dt>The result</dt><dd>The #2 most-recommended vendor across 50 tracked AI prompts, and the most-cited vendor website.</dd>
+        </dl>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-head"><span>Results</span><span style="color:var(--mid);">Before → after</span></div>
+        <div class="stats">
+          <div class="stat"><div class="stat-num"><span class="from">1 →</span> 23</div><div class="stat-label">AI Overview citations</div></div>
+          <div class="stat"><div class="stat-num"><span class="from">4 →</span> 17</div><div class="stat-label">Keywords in Google's top 10</div></div>
+          <div class="stat"><div class="stat-num">#2</div><div class="stat-label">Most-recommended vendor across 50 AI prompts</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case reveal">
+      <div>
+        <div class="case-eyebrow">Canadian personal injury law firm</div>
+        <h4>What the audit found: who AI recommends instead, and why</h4>
+        <dl>
+          <dt>The problem</dt><dd>For local injury prompts (“best car accident lawyer in [city]”), AI tools were recommending competing firms.</dd>
+          <dt>What we did</dt><dd>Tracked AI visibility across ChatGPT and Google's AI features, ran a content-gap analysis against the competitors winning those answers, and audited the location pages.</dd>
+        </dl>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-head"><span>What the audit found</span><span style="color:var(--mid);">Ranked by impact</span></div>
+        <div class="ai-card-body" style="padding-top:4px;padding-bottom:4px;">
+          <ol class="find-list">
+            <li><div><strong>Directories outranked the firm in AI answers.</strong><span class="d">For “best [injury] lawyer in [city]” prompts, AI tools cited legal directories and review sites instead of the firm's own pages.</span></div><span class="pill high">High</span></li>
+            <li><div><strong>Competitors covered topics the firm didn't.</strong><span class="d">Competing firms answered common injury and claims questions the firm's site didn't, so AI pulled from their pages instead.</span></div><span class="pill high">High</span></li>
+            <li><div><strong>Location pages were too thin to be cited.</strong><span class="d">Hundreds of city and practice-area pages followed the same template with little unique local detail, which gave AI no reason to quote them.</span></div><span class="pill medium">Medium</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="case reveal">
+      <div>
+        <div class="case-eyebrow">Canadian career college</div>
+        <h4>What the audit found: why AI and Google struggled to understand the programs</h4>
+        <dl>
+          <dt>The problem</dt><dd>Program pages weren't showing up for program-level searches and prompts, and AI tools described the college less clearly than its competitors.</dd>
+          <dt>What we did</dt><dd>Page-by-page keyword research for the new program pages and reworked program-page copy for AI search.</dd>
+        </dl>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-head"><span>What the audit found</span><span style="color:var(--mid);">Ranked by impact</span></div>
+        <div class="ai-card-body" style="padding-top:4px;padding-bottom:4px;">
+          <ol class="find-list">
+            <li><div><strong>Duplicate site versions.</strong><span class="d">www and non-www versions weren't consolidated, splitting signals between them.</span></div><span class="pill high">High</span></li>
+            <li><div><strong>Fragmented program pages.</strong><span class="d">Program content was spread across several pages instead of one clear page per program.</span></div><span class="pill high">High</span></li>
+            <li><div><strong>Content and reputation gaps.</strong><span class="d">Blog gaps on the questions students ask, plus a Reddit and brand-reputation strategy to shape what AI says.</span></div><span class="pill medium">Medium</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="ava-section" id="pricing">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title">Choose your <em>audit.</em></h2>
+    </div>
+    <div class="price-grid reveal">
+
+      <div class="plan">
+        <div class="plan-name">AI Visibility Audit</div>
+        <div class="plan-answers">Answers: where do we stand today?</div>
+        <div class="plan-price">$1,950<small>USD</small></div>
+        <div class="plan-sub">One-time · plus applicable taxes</div>
+        <ul class="plan-rows">
+          <li><span class="k">Technical SEO &amp; AI crawlability</span><span>✓</span></li>
+          <li><span class="k">Content &amp; topical coverage</span><span>Priority pages</span></li>
+          <li><span class="k">Brand fact-check in AI answers</span><span>✓</span></li>
+          <li><span class="k">AI visibility testing</span><span>20 buyer prompts, 2 competitors</span></li>
+          <li><span class="k">AI tools tested</span><span>ChatGPT, Claude, Gemini, AI Overviews</span></li>
+          <li><span class="k">Competitor analysis</span><span>Who appears instead of you</span></li>
+          <li><span class="k">What you get</span><span>Findings report + top 10 fixes</span></li>
+          <li><span class="k">Walkthrough</span><span>45-minute call</span></li>
+        </ul>
+        <div class="plan-cta">
+          <a href="https://buy.stripe.com/8x228sc8gchda8x80D3ZK01" class="btn-brut" data-plan="AI Visibility Audit" data-price="1950">Buy the Audit →</a>
+          <p class="plan-terms">Full refund if you cancel within 24 hours of payment. By purchasing, you agree to the <a href="/ai-visibility-audit-terms/">AI Visibility Audit Service Terms</a>.</p>
+        </div>
+      </div>
+
+      <div class="plan featured">
+        <span class="plan-badge">Recommended</span>
+        <div class="plan-name">Audit + 90-Day Roadmap</div>
+        <div class="plan-answers">Answers: what should we do over the next 90 days?</div>
+        <div class="plan-price">$2,950<small>USD</small></div>
+        <div class="plan-sub">One-time · plus applicable taxes</div>
+        <ul class="plan-rows">
+          <li><span class="k">Technical SEO &amp; AI crawlability</span><span>✓</span></li>
+          <li><span class="k">Content &amp; topical coverage</span><span>Priority pages + deeper topic gap</span></li>
+          <li><span class="k">Brand fact-check in AI answers</span><span>✓ + where wrong claims come from</span></li>
+          <li><span class="k">AI visibility testing</span><span>50 buyer prompts, 5 competitors</span></li>
+          <li><span class="k">AI tools tested</span><span>ChatGPT, Claude, Gemini, AI Overviews</span></li>
+          <li><span class="k">Competitor analysis</span><span>Who appears, why, and which sources cite them</span></li>
+          <li><span class="k">What you get</span><span>Findings report + 90-day roadmap ranked by impact and effort + plan for which pages should answer key buyer questions</span></li>
+          <li><span class="k">Walkthrough</span><span>90-minute working session</span></li>
+        </ul>
+        <div class="plan-cta">
+          <a href="https://buy.stripe.com/9B64gAgow80XeoN3Kn3ZK02" class="btn-brut" data-plan="AI Visibility Audit + 90-Day Roadmap" data-price="2950">Buy the Audit + Roadmap →</a>
+          <p class="plan-terms">Full refund if you cancel within 24 hours of payment. By purchasing, you agree to the <a href="/ai-visibility-audit-terms/">AI Visibility Audit Service Terms</a>.</p>
+        </div>
+      </div>
+
+    </div>
+    <p class="price-note reveal">One-time project for one website and one primary market. Fixed fee, plus applicable taxes shown at checkout. You keep the findings and the roadmap.<br /><strong>Full refund if you cancel within 24 hours of payment.</strong> Payment is handled securely by Stripe.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="ava-section alt">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">How it works</span>
+      <h2 class="section-title">Four steps, <em>no surprises.</em></h2>
+    </div>
+    <div class="process-grid reveal">
+      <div class="process-step"><div class="step-num">01</div><div class="step-title">Choose your audit and check out</div><p class="step-desc">At checkout, enter your business name and the website you want audited. Payment is handled securely by Stripe.</p></div>
+      <div class="process-step"><div class="step-num">02</div><div class="step-title">Confirm your kickoff</div><p class="step-desc">Within 24 hours I'll email you to confirm your kickoff date and send a short intake on what you sell, who buys it and your main competitors.</p></div>
+      <div class="process-step"><div class="step-num">03</div><div class="step-title">I run the audit</div><p class="step-desc">I test buyer prompts across the AI tools, then review your site and the sources that appear. Your report arrives within 7–10 business days of kickoff, once the intake is complete.</p></div>
+      <div class="process-step"><div class="step-num">04</div><div class="step-title">We walk through what to do next</div><p class="step-desc">You leave with the findings, the work I'd prioritize, and a baseline to measure against.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="ava-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Who it's for</span>
+      <h2 class="section-title">Is this <em>a fit?</em></h2>
+    </div>
+    <div class="fit-grid reveal">
+      <div class="fit-card yes"><h3><span class="mark">✓</span>A good fit</h3><p>B2B SaaS, professional services, education and e-commerce brands with an established website and some existing search traffic.</p></div>
+      <div class="fit-card no"><h3><span class="mark">✗</span>Not a fit</h3><p>Brand-new websites, or anyone looking for guaranteed AI rankings.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="ava-section alt">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">About me</span>
+      <h2 class="section-title">Who runs <em>your audit.</em></h2>
+    </div>
+    <div class="about reveal">
+      <div class="about-photo"><img src="/images/homepage/Harpreet-Singh-Profile-Photo-Headshot.jpeg" width="800" height="800" loading="lazy" alt="Harpreet Chatha, SEO and AI search consultant" /></div>
+      <div>
+        <p>I'm <strong>Harpreet Chatha</strong>, an SEO and AI search consultant based in Vancouver. I've spent more than 10 years in SEO across agencies, in-house teams and my own consultancy, working on sites for global automotive, entertainment, retail and finance brands.</p>
+        <p>You'll find me cited in BBC Future and Search Engine Journal, and I was named one of the Top 15 AI Search Experts to Follow in 2026. I built the free <a href="/aeo-leaderboard" style="color:var(--accent);">AEO Leaderboard</a>, which tracks how over 80 brands across 15+ industries show up in AI answers, and I write the <a href="https://seoespresso.com" target="_blank" rel="noopener" style="color:var(--accent);">SEO Espresso</a> newsletter.</p>
+        <p>My view is simple: <strong>good SEO is good GEO.</strong> AI visibility is extra marketing seasoning on top. Most AI visibility problems are search problems underneath, so I audit both.</p>
+        <div class="about-links">
+          <a href="https://youtube.com/@seoharp" target="_blank" rel="noopener" class="btn-brut-outline">YouTube</a>
+          <a href="https://tiktok.com/@seoharp" target="_blank" rel="noopener" class="btn-brut-outline">TikTok</a>
+          <!-- TODO: Instagram link -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="ava-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Questions, <em>answered.</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>How is this different from a regular SEO audit?</summary><div class="a">A regular SEO audit looks at rankings and site health. This audit covers that too, then tests what AI tools actually say when buyers ask about your category, who they recommend and which sources they trust.</div></details>
+      <details><summary>Which AI tools do you test?</summary><div class="a">ChatGPT, Claude, Gemini and Google's AI Overviews.</div></details>
+      <details><summary>Can you guarantee we&#x27;ll be cited by AI?</summary><div class="a">No. Nobody can. AI answers change constantly and no one controls them. The audit reflects what AI tools showed during the audit period and the changes most likely to improve your visibility. It doesn't guarantee future rankings, mentions, citations, traffic or revenue.</div></details>
+      <details><summary>How do you choose the prompts?</summary><div class="a">I choose them based on what you sell, who buys it and your primary market, which we confirm at kickoff. They reflect how buyers look for a solution, compare providers and ask for recommendations. You can suggest questions during intake, and every prompt tested is listed in your report.</div></details>
+      <details><summary>What if AI is saying something wrong about us?</summary><div class="a">That's part of the audit. I flag inaccurate or outdated claims, find the sources they likely come from, and recommend what to publish or update to correct them.</div></details>
+      <details><summary>Do you implement the fixes?</summary><div class="a">The audit is a one-time project. Your team can run with the findings, or if you'd like hands-on help afterwards, we can agree that separately.</div></details>
+      <details><summary>How long does it take, and what do you need from us?</summary><div class="a">Your report arrives within 7–10 business days of your confirmed kickoff. Before kickoff, I'll need a short intake on what you sell and who buys it, your main competitors, and, if possible, read-only access to Google Search Console. I'll never ask for passwords.</div></details>
+      <details><summary>What if something in the report is wrong?</summary><div class="a">Your package includes one round of feedback within 10 business days of the walkthrough. I'll clarify findings and correct any factual errors or omissions.</div></details>
+      <details><summary>Can I cancel?</summary><div class="a">Yes. Email within 24 hours of payment for a full refund. After that, the fee is non-refundable for change-of-mind cancellations. See the <a href="/ai-visibility-audit-terms/">service terms</a> for details.</div></details>
+      <details><summary>Can we re-run the audit later?</summary><div class="a">Yes. The report includes your baseline prompts, so we can re-test the same questions and measure progress.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="container">
+    <div class="cta-band center reveal">
+      <div class="cta-band-inner">
+        <div>
+          <h2>Find out where you stand in <em>AI search.</em></h2>
+          <p>Ready to start? Choose your audit and check out. Not sure which one fits? Send me a quick message and I'll point you to the right option.</p>
+        </div>
+      </div>
+      <hr class="cta-band-divider" />
+      <div class="cta-band-actions">
+        <a href="#pricing" class="btn-brut-light">Choose your audit →</a>
+        <a href="/contact" class="btn-brut-ghost">Ask a question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <a href="/" class="footer-logo" aria-label="Harp Chatha Search home">
+    <span class="footer-logo-top">Harp Chatha</span>
+    <span class="footer-logo-bottom">Search</span>
+  </a>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
+    <li><a href="/seo-aeo-tools/">Free Tools</a></li>
+    <li><a href="/prompt-library/">AI Prompt Library</a></li>
+    <li><a href="/aeo-glossary/">AEO Glossary</a></li>
+    <li><a href="/learn/">Learn</a></li>
+    <li><a href="/contact">Let's Talk</a></li>
+    <li><a href="https://seoespresso.com" target="_blank" rel="noopener">Newsletter</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Harpreet Chatha</div>
+</footer>
+
+<p class="legal-line">ChatGPT, Claude, Gemini and Google are trademarks of their respective owners. Harps Digital is not affiliated with or endorsed by them. Harps Digital is a trade name of 1442211 B.C. Ltd. · <a href="/ai-visibility-audit-terms/">Service terms</a></p>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Respect reduced motion: show the poster instead of the looping video
+  const hv = document.getElementById('hero-video');
+  if (hv && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { hv.removeAttribute('autoplay'); hv.pause(); }
+
+  // GA4: record which plan someone heads to Stripe for
+  document.querySelectorAll('a[data-plan]').forEach(a => a.addEventListener('click', () => {
+    if (typeof gtag === 'function') gtag('event', 'begin_checkout', { currency: 'USD', value: Number(a.dataset.price), items: [{ item_name: a.dataset.plan, price: Number(a.dataset.price) }], transport_type: 'beacon' });
+  }));
+</script>
+<script src="/assets/site-chrome.js" defer></script>
+</body>
+</html>
