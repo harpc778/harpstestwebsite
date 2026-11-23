@@ -441,7 +441,7 @@
     .legal-line{ padding:0 20px 28px; text-align:center; }
   }
 </style>
-  <link rel="stylesheet" href="/assets/site-chrome.css" />
+  <link rel="stylesheet" href="/assets/site-chrome.css?v=2" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -514,8 +514,9 @@
       "sameAs": [
         "https://x.com/harpreetchatha_",
         "https://linkedin.com/in/harpreetsingh8/",
-        "https://tiktok.com/@seoharp",
-        "https://youtube.com/@seoharp",
+        "https://www.youtube.com/@seoharp",
+        "https://www.instagram.com/seoharp/",
+        "https://www.tiktok.com/@seoharp",
         "https://seoespresso.com"
       ]
     },
@@ -637,7 +638,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
-    <li><a href="/services">Services</a></li>
+    <li class="nav-dd"><a href="/services" class="active">Services</a><button type="button" class="nav-dd-toggle" aria-expanded="false" aria-controls="nav-dd-services" aria-label="Open the Services menu"><svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav-dd-menu" id="nav-dd-services"><li><a href="/ai-visibility-audit/" class="active" aria-current="page">AI Visibility Audit</a></li></ul></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/">Free Tools</a></li>
     <li><a href="/learn/">Learn</a></li>
@@ -647,7 +648,8 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="/">Home</a>
-  <a href="/services">Services</a>
+  <a href="/services" class="active">Services</a>
+  <a href="/ai-visibility-audit/" class="mobile-sub active" aria-current="page">AI Visibility Audit</a>
   <a href="/aeo-leaderboard">AEO Leaderboard</a>
   <a href="/seo-aeo-tools/">Free Tools</a>
   <a href="/learn/">Learn</a>
@@ -1018,9 +1020,9 @@
         <p>You'll find me cited in BBC Future and Search Engine Journal, and I was named one of the Top 15 AI Search Experts to Follow in 2026. I built the free <a href="/aeo-leaderboard" style="color:var(--accent);">AEO Leaderboard</a>, which tracks how over 80 brands across 15+ industries show up in AI answers, and I write the <a href="https://seoespresso.com" target="_blank" rel="noopener" style="color:var(--accent);">SEO Espresso</a> newsletter.</p>
         <p>My view is simple: <strong>good SEO is good GEO.</strong> AI visibility is extra marketing seasoning on top. Most AI visibility problems are search problems underneath, so I audit both.</p>
         <div class="about-links">
-          <a href="https://youtube.com/@seoharp" target="_blank" rel="noopener" class="btn-brut-outline">YouTube</a>
-          <a href="https://tiktok.com/@seoharp" target="_blank" rel="noopener" class="btn-brut-outline">TikTok</a>
-          <!-- TODO: Instagram link -->
+          <a href="https://www.youtube.com/@seoharp" target="_blank" rel="noopener" class="btn-brut-outline">YouTube</a>
+          <a href="https://www.instagram.com/seoharp/" target="_blank" rel="noopener" class="btn-brut-outline">Instagram</a>
+          <a href="https://www.tiktok.com/@seoharp" target="_blank" rel="noopener" class="btn-brut-outline">TikTok</a>
         </div>
       </div>
     </div>
@@ -1077,6 +1079,7 @@
   <ul class="footer-links">
     <li><a href="/">Home</a></li>
     <li><a href="/services">Services</a></li>
+    <li><a href="/ai-visibility-audit/" class="active" aria-current="page">AI Visibility Audit</a></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/">Free Tools</a></li>
     <li><a href="/prompt-library/">AI Prompt Library</a></li>
@@ -1104,6 +1107,6 @@
     if (typeof gtag === 'function') gtag('event', 'begin_checkout', { currency: 'USD', value: Number(a.dataset.price), items: [{ item_name: a.dataset.plan, price: Number(a.dataset.price) }], transport_type: 'beacon' });
   }));
 </script>
-<script src="/assets/site-chrome.js" defer></script>
+<script src="/assets/site-chrome.js?v=2" defer></script>
 </body>
 </html>

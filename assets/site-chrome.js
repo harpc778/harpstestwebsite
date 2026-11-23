@@ -23,3 +23,41 @@
     }
   });
 })();
+
+/* Services dropdown: hover/focus open it with CSS; the chevron button
+   opens it for touch and keyboard users. */
+(function () {
+  var dds = document.querySelectorAll('nav#nav .nav-dd');
+  if (!dds.length) return;
+  function close(dd) {
+    dd.classList.remove('open');
+    var b = dd.querySelector('.nav-dd-toggle');
+    if (b) b.setAttribute('aria-expanded', 'false');
+  }
+  dds.forEach(function (dd) {
+    var btn = dd.querySelector('.nav-dd-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !dd.classList.contains('open');
+      dds.forEach(close);
+      dd.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    dd.addEventListener('focusout', function (e) {
+      if (!dd.contains(e.relatedTarget)) close(dd);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    dds.forEach(function (dd) { if (!dd.contains(e.target)) close(dd); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    dds.forEach(function (dd) {
+      if (dd.classList.contains('open') || dd.contains(document.activeElement)) {
+        close(dd);
+        var b = dd.querySelector('.nav-dd-toggle'); if (b) b.focus();
+      }
+    });
+  });
+})();

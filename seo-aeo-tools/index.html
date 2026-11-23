@@ -105,7 +105,7 @@
     .hub-prompts p { color: var(--mid); max-width: 640px; margin-bottom: 18px; }
     @media (max-width: 980px) { .hub-tools { padding: 32px 20px 24px; } .hub-cta { padding: 0 20px 48px; } .hub-prompts { padding: 32px 20px 0; margin-bottom: 40px; } }
   </style>
-  <link rel="stylesheet" href="/assets/site-chrome.css" />
+  <link rel="stylesheet" href="/assets/site-chrome.css?v=2" />
 </head>
 <body>
 
@@ -116,7 +116,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
-    <li><a href="/services">Services</a></li>
+    <li class="nav-dd"><a href="/services">Services</a><button type="button" class="nav-dd-toggle" aria-expanded="false" aria-controls="nav-dd-services" aria-label="Open the Services menu"><svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav-dd-menu" id="nav-dd-services"><li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li></ul></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/" class="active" aria-current="page">Free Tools</a></li>
     <li><a href="/learn/">Learn</a></li>
@@ -127,6 +127,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="/">Home</a>
   <a href="/services">Services</a>
+  <a href="/ai-visibility-audit/" class="mobile-sub">AI Visibility Audit</a>
   <a href="/aeo-leaderboard">AEO Leaderboard</a>
   <a href="/seo-aeo-tools/" class="active" aria-current="page">Free Tools</a>
   <a href="/learn/">Learn</a>
@@ -169,6 +170,7 @@
   <ul class="footer-links">
     <li><a href="/">Home</a></li>
     <li><a href="/services">Services</a></li>
+    <li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/" class="active" aria-current="page">Free Tools</a></li>
     <li><a href="/prompt-library/">AI Prompt Library</a></li>
@@ -181,6 +183,6 @@
 </footer>
 
 <script src="/assets/tools.js"></script>
-<script src="/assets/site-chrome.js" defer></script>
+<script src="/assets/site-chrome.js?v=2" defer></script>
 </body>
 </html>
