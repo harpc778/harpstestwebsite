@@ -81,3 +81,9 @@ nav#nav a:focus-visible, nav#nav button:focus-visible, #mobile-menu a:focus-visi
 /* In-text links between pages */
 a.inline-link { color: var(--accent, #1A6B3C); text-decoration: none; border-bottom: 1px solid var(--accent-light, #E8F5EE); transition: border-color 0.2s; }
 a.inline-link:hover { border-bottom-color: var(--accent, #1A6B3C); }
+
+/* Logo ticker (set up by site-chrome.js) */
+@keyframes ticker-loop { from { transform: translateX(0); } to { transform: translateX(var(--ticker-shift, -50%)); } }
+.scroller-track.ticker-js { animation: ticker-loop var(--ticker-duration, 28s) linear infinite; }
+.scroller-track.ticker-js:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .scroller-track.ticker-js { animation: none; } }

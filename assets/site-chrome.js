@@ -61,3 +61,65 @@
     });
   });
 })();
+
+/* Logo ticker: repeat the logo set until it fills the widest screen,
+   then slide by exactly one set so the loop never shows a gap. */
+(function () {
+  var tracks = document.querySelectorAll('.scroller-track');
+  if (!tracks.length) return;
+
+  function setup(track) {
+    var items = Array.prototype.slice.call(track.children);
+    var set = items;
+    var half = items.length / 2;
+    if (items.length % 2 === 0 && half > 0) {
+      var same = true;
+      for (var i = 0; i < half; i++) {
+        if (items[i].outerHTML !== items[i + half].outerHTML) { same = false; break; }
+      }
+      if (same) set = items.slice(0, half);
+    }
+    var originals = set.map(function (n) { return n.cloneNode(true); });
+    var lastWidth = 0;
+
+    function append(hidden) {
+      originals.forEach(function (n) {
+        var c = n.cloneNode(true);
+        if (hidden) {
+          c.setAttribute('aria-hidden', 'true');
+          Array.prototype.forEach.call(c.querySelectorAll('img'), function (img) { img.alt = ''; });
+        }
+        track.appendChild(c);
+      });
+    }
+
+    function build() {
+      var vw = window.innerWidth;
+      if (vw === lastWidth) return;
+      lastWidth = vw;
+      track.classList.remove('ticker-js');
+      while (track.firstChild) track.removeChild(track.firstChild);
+      append(false);
+      append(true);
+      var setW = track.children[originals.length].offsetLeft - track.children[0].offsetLeft;
+      if (setW <= 0) return;
+      var copies = Math.max(2, Math.ceil(vw / setW) + 1);
+      for (var k = 2; k < copies; k++) append(true);
+      track.style.setProperty('--ticker-shift', (-setW) + 'px');
+      track.style.setProperty('--ticker-duration', Math.round(setW / 37.5) + 's');
+      track.classList.add('ticker-js');
+    }
+
+    build();
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(build, 200); });
+    // Re-measure once logos finish loading (widths can change)
+    Array.prototype.forEach.call(track.querySelectorAll('img'), function (img) {
+      if (!img.complete) img.addEventListener('load', function () { lastWidth = 0; clearTimeout(t); t = setTimeout(build, 100); }, { once: true });
+    });
+  }
+
+  function start() { Array.prototype.forEach.call(tracks, setup); }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+})();
