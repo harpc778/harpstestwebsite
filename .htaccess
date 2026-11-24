@@ -10,6 +10,8 @@ RedirectMatch 301 ^/learn/seo-vs-ai-search/?$ https://harpsdigital.com/learn/geo
 RedirectMatch 301 ^/learn/schema-markup-aeo/?$ https://harpsdigital.com/seo-aeo-tools/schema-markup-generator
 RedirectMatch 301 ^/learn/track-ai-traffic/?$ https://harpsdigital.com/learn/ai-search-console-signals
 RedirectMatch 301 ^/learn/chatgpt-calculator/?$ https://harpsdigital.com/learn/
+# Services page moved into /services/ (Nov 2026)
+RedirectMatch 301 ^/services(\.html)?$ https://harpsdigital.com/services/
 # Duplicate of the Wix case study article
 RedirectMatch 301 ^/learn/ai-in-search-console(\.html)?/?$ https://harpsdigital.com/learn/ai-seo-scale-patterns-penalties
 

@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SEO Services — Harpreet Chatha</title>
 <meta name="description" content="SEO services built for how search works today — strategy across Google, Bing, AI Overviews, ChatGPT, Perplexity, and Claude, all in one approach." />
-<link rel="canonical" href="https://harpsdigital.com/services" />
+<link rel="canonical" href="https://harpsdigital.com/services/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Harpreet Chatha" />
 <meta property="og:title" content="SEO Services" />
 <meta property="og:description" content="SEO services built for how search works today — strategy across Google, Bing, AI Overviews, ChatGPT, Perplexity, and Claude, all in one approach." />
-<meta property="og:url" content="https://harpsdigital.com/services" />
+<meta property="og:url" content="https://harpsdigital.com/services/" />
 <meta property="og:image" content="https://harpsdigital.com/images/og/services.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -187,6 +187,9 @@
   .service-row:hover .service-num{ background:var(--accent); }
   .service-content{ display:flex; flex-direction:column; gap:6px; }
   .service-name{ font-family:'Instrument Serif', serif; font-size:21px; letter-spacing:-0.4px; line-height:1.1; }
+  .service-more{ font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent); text-decoration:none; margin-top:8px; align-self:flex-start; border-bottom:2px solid transparent; }
+  .service-more:hover{ border-bottom-color:var(--accent); }
+  .services-list .service-row:last-child:nth-child(odd){ grid-column:1 / -1; }
   .service-desc{ font-size:14px; color:var(--mid); line-height:1.7; }
 
   /* WHAT'S INCLUDED */
@@ -254,7 +257,7 @@
     .footer-links{ justify-content:center; }
   }
 </style>
-  <link rel="stylesheet" href="/assets/site-chrome.css?v=3" />
+  <link rel="stylesheet" href="/assets/site-chrome.css?v=4" />
 </head>
 <body>
 
@@ -265,7 +268,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
-    <li class="nav-dd"><a href="/services" class="active" aria-current="page">Services</a><button type="button" class="nav-dd-toggle" aria-expanded="false" aria-controls="nav-dd-services" aria-label="Open the Services menu"><svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav-dd-menu" id="nav-dd-services"><li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li></ul></li>
+    <li class="nav-dd"><a href="/services/" class="active" aria-current="page">Services</a><button type="button" class="nav-dd-toggle" aria-expanded="false" aria-controls="nav-dd-services" aria-label="Open the Services menu"><svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav-dd-menu" id="nav-dd-services"><li><a href="/services/ai-search">AI Search (AEO / GEO)</a></li><li><a href="/services/seo">SEO Consulting</a></li><li><a href="/services/ecommerce-seo">E-commerce SEO</a></li><li><a href="/services/b2b-seo">B2B SEO</a></li><li><a href="/services/on-demand-consulting">On-Demand Consulting</a></li><li><a href="/services/training-workshops">Training &amp; Workshops</a></li><li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li></ul></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/">Free Tools</a></li>
     <li><a href="/learn/">Learn</a></li>
@@ -275,7 +278,13 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="/">Home</a>
-  <a href="/services" class="active" aria-current="page">Services</a>
+  <a href="/services/" class="active" aria-current="page">Services</a>
+  <a href="/services/ai-search" class="mobile-sub">AI Search (AEO / GEO)</a>
+  <a href="/services/seo" class="mobile-sub">SEO Consulting</a>
+  <a href="/services/ecommerce-seo" class="mobile-sub">E-commerce SEO</a>
+  <a href="/services/b2b-seo" class="mobile-sub">B2B SEO</a>
+  <a href="/services/on-demand-consulting" class="mobile-sub">On-Demand Consulting</a>
+  <a href="/services/training-workshops" class="mobile-sub">Training &amp; Workshops</a>
   <a href="/ai-visibility-audit/" class="mobile-sub">AI Visibility Audit</a>
   <a href="/aeo-leaderboard">AEO Leaderboard</a>
   <a href="/seo-aeo-tools/">Free Tools</a>
@@ -346,14 +355,15 @@
       <h2 class="section-title">Every service you need to <em>grow.</em></h2>
     </div>
     <div class="services-list reveal">
-      <div class="service-row"><div class="service-num">01</div><div class="service-content"><div class="service-name">AEO and AI Search</div><p class="service-desc">Get your brand cited and recommended in AI-generated answers across ChatGPT, Perplexity, Gemini, and Google AI Overviews.</p></div></div>
-      <div class="service-row"><div class="service-num">02</div><div class="service-content"><div class="service-name">SEO Strategy</div><p class="service-desc">A bespoke roadmap built around your market, your competitors, and where your biggest organic growth opportunities actually are.</p></div></div>
-      <div class="service-row"><div class="service-num">03</div><div class="service-content"><div class="service-name">SEO Audits</div><p class="service-desc">Find out exactly what is holding your site back. You'll get solution-driven audits with a clear priority action plan, not a 60-page PDF never opened. Want to know how AI tools see you? See the <a href="/ai-visibility-audit/" style="color:var(--accent);font-weight:500;">AI Visibility Audit</a>.</p></div></div>
-      <div class="service-row"><div class="service-num">04</div><div class="service-content"><div class="service-name">Ecommerce SEO</div><p class="service-desc">Shopify, WooCommerce, something else? Turn organic search into a revenue channel. From product pages to category architecture, I build strategies around what drives purchases.</p></div></div>
-      <div class="service-row"><div class="service-num">05</div><div class="service-content"><div class="service-name">International SEO</div><p class="service-desc">Expand into new markets without losing the rankings you already have. Multi-region, multi-language strategies that actually scale.</p></div></div>
-      <div class="service-row"><div class="service-num">06</div><div class="service-content"><div class="service-name">Migration and Redesign</div><p class="service-desc">Protect the organic revenue you've built during site migrations, CMS changes, and domain moves.</p></div></div>
-      <div class="service-row"><div class="service-num">07</div><div class="service-content"><div class="service-name">Training and Workshops</div><p class="service-desc">Build search expertise inside your team. Bespoke in-house workshops for marketing, content, and development teams.</p></div></div>
-      <div class="service-row"><div class="service-num">08</div><div class="service-content"><div class="service-name">On-Demand Consulting</div><p class="service-desc">Senior SEO expertise whenever you need it, without a long-term retainer. Think of it as a senior SEO in your back pocket.</p></div></div>
+      <div class="service-row"><div class="service-num">01</div><div class="service-content"><div class="service-name">AEO and AI Search</div><p class="service-desc">Get your brand cited and recommended in AI-generated answers across ChatGPT, Perplexity, Gemini, and Google AI Overviews.</p><a href="/services/ai-search" class="service-more">More on AI search consulting →</a></div></div>
+      <div class="service-row"><div class="service-num">02</div><div class="service-content"><div class="service-name">SEO Strategy</div><p class="service-desc">A bespoke roadmap built around your market, your competitors, and where your biggest organic growth opportunities actually are.</p><a href="/services/seo" class="service-more">More on SEO consulting →</a></div></div>
+      <div class="service-row"><div class="service-num">03</div><div class="service-content"><div class="service-name">SEO Audits</div><p class="service-desc">Find out exactly what is holding your site back. You'll get solution-driven audits with a clear priority action plan, not a 60-page PDF never opened. Want to know how AI tools see you? See the <a href="/ai-visibility-audit/" style="color:var(--accent);font-weight:500;">AI Visibility Audit</a>.</p><a href="/services/seo" class="service-more">More on SEO audits →</a></div></div>
+      <div class="service-row"><div class="service-num">04</div><div class="service-content"><div class="service-name">Ecommerce SEO</div><p class="service-desc">Shopify, WooCommerce, something else? Turn organic search into a revenue channel. From product pages to category architecture, I build strategies around what drives purchases.</p><a href="/services/ecommerce-seo" class="service-more">More on e-commerce SEO →</a></div></div>
+      <div class="service-row"><div class="service-num">05</div><div class="service-content"><div class="service-name">International SEO</div><p class="service-desc">Expand into new markets without losing the rankings you already have. Multi-region, multi-language strategies that actually scale.</p><a href="/services/seo" class="service-more">More on international SEO →</a></div></div>
+      <div class="service-row"><div class="service-num">06</div><div class="service-content"><div class="service-name">Migration and Redesign</div><p class="service-desc">Protect the organic revenue you've built during site migrations, CMS changes, and domain moves.</p><a href="/services/seo" class="service-more">More on migrations →</a></div></div>
+      <div class="service-row"><div class="service-num">07</div><div class="service-content"><div class="service-name">Training and Workshops</div><p class="service-desc">Build search expertise inside your team. Bespoke in-house workshops for marketing, content, and development teams.</p><a href="/services/training-workshops" class="service-more">More on training →</a></div></div>
+      <div class="service-row"><div class="service-num">08</div><div class="service-content"><div class="service-name">On-Demand Consulting</div><p class="service-desc">Senior SEO expertise whenever you need it, without a long-term retainer. Think of it as a senior SEO in your back pocket.</p><a href="/services/on-demand-consulting" class="service-more">More on on-demand consulting →</a></div></div>
+      <div class="service-row"><div class="service-num">09</div><div class="service-content"><div class="service-name">B2B SEO and AI Search</div><p class="service-desc">Get found for the problems your product solves, with buyer-led pages and reporting tied to demos and pipeline.</p><a href="/services/b2b-seo" class="service-more">More on B2B SEO →</a></div></div>
     </div>
   </div>
 </div>
@@ -453,7 +463,7 @@
   </a>
   <ul class="footer-links">
     <li><a href="/">Home</a></li>
-    <li><a href="/services" class="active" aria-current="page">Services</a></li>
+    <li><a href="/services/" class="active" aria-current="page">Services</a></li>
     <li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/">Free Tools</a></li>
@@ -476,6 +486,6 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => io.observe(el));
 </script>
-<script src="/assets/site-chrome.js?v=3" defer></script>
+<script src="/assets/site-chrome.js?v=4" defer></script>
 </body>
 </html>

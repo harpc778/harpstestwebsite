@@ -311,7 +311,7 @@
     .hero-photo-wrap{ width:160px; }
   }
 </style>
-  <link rel="stylesheet" href="/assets/site-chrome.css?v=3" />
+  <link rel="stylesheet" href="/assets/site-chrome.css?v=4" />
 </head>
 <body>
 
@@ -322,7 +322,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="/" class="active" aria-current="page">Home</a></li>
-    <li class="nav-dd"><a href="/services">Services</a><button type="button" class="nav-dd-toggle" aria-expanded="false" aria-controls="nav-dd-services" aria-label="Open the Services menu"><svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav-dd-menu" id="nav-dd-services"><li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li></ul></li>
+    <li class="nav-dd"><a href="/services/">Services</a><button type="button" class="nav-dd-toggle" aria-expanded="false" aria-controls="nav-dd-services" aria-label="Open the Services menu"><svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav-dd-menu" id="nav-dd-services"><li><a href="/services/ai-search">AI Search (AEO / GEO)</a></li><li><a href="/services/seo">SEO Consulting</a></li><li><a href="/services/ecommerce-seo">E-commerce SEO</a></li><li><a href="/services/b2b-seo">B2B SEO</a></li><li><a href="/services/on-demand-consulting">On-Demand Consulting</a></li><li><a href="/services/training-workshops">Training &amp; Workshops</a></li><li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li></ul></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/">Free Tools</a></li>
     <li><a href="/learn/">Learn</a></li>
@@ -332,7 +332,13 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="/" class="active" aria-current="page">Home</a>
-  <a href="/services">Services</a>
+  <a href="/services/">Services</a>
+  <a href="/services/ai-search" class="mobile-sub">AI Search (AEO / GEO)</a>
+  <a href="/services/seo" class="mobile-sub">SEO Consulting</a>
+  <a href="/services/ecommerce-seo" class="mobile-sub">E-commerce SEO</a>
+  <a href="/services/b2b-seo" class="mobile-sub">B2B SEO</a>
+  <a href="/services/on-demand-consulting" class="mobile-sub">On-Demand Consulting</a>
+  <a href="/services/training-workshops" class="mobile-sub">Training &amp; Workshops</a>
   <a href="/ai-visibility-audit/" class="mobile-sub">AI Visibility Audit</a>
   <a href="/aeo-leaderboard">AEO Leaderboard</a>
   <a href="/seo-aeo-tools/">Free Tools</a>
@@ -349,7 +355,7 @@
       <p class="hero-sub">I'm Harpreet Chatha. 10+ years helping brands win through search. I build strategies that drive traffic, trust, and revenue across Google, Bing, ChatGPT, Claude, Perplexity, Copilot, and whatever comes next.</p>
       <div class="hero-actions">
         <a href="/contact" class="btn-brut">Book a Consultation →</a>
-        <a href="/services" class="btn-brut-outline">See Services</a>
+        <a href="/services/" class="btn-brut-outline">See Services</a>
       </div>
       <div class="hero-stats hero-stats-desktop">
         <div class="stat-chip"><div class="stat-num">$50<span>M+</span></div><div class="stat-label">Revenue generated</div></div>
@@ -414,7 +420,7 @@
       <div class="service-row"><div class="service-num">06</div><div class="service-content"><div class="service-name">Migration & Redesign</div><p class="service-desc">Protect your rankings during site migrations, CMS changes, or domain moves.</p></div></div>
     </div>
     <div class="services-footer reveal">
-      <a href="/services" class="btn-brut">View All Services →</a>
+      <a href="/services/" class="btn-brut">View All Services →</a>
       <a href="/contact" class="btn-brut-outline">Get a Quote</a>
     </div>
   </div>
@@ -569,7 +575,7 @@
   </a>
   <ul class="footer-links">
     <li><a href="/" class="active" aria-current="page">Home</a></li>
-    <li><a href="/services">Services</a></li>
+    <li><a href="/services/">Services</a></li>
     <li><a href="/ai-visibility-audit/">AI Visibility Audit</a></li>
     <li><a href="/aeo-leaderboard">AEO Leaderboard</a></li>
     <li><a href="/seo-aeo-tools/">Free Tools</a></li>
@@ -606,6 +612,6 @@
   track.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
   track.parentElement.addEventListener('mouseleave', () => { timer = setInterval(() => goTo((current + 1) % total), 4000); });
 </script>
-<script src="/assets/site-chrome.js?v=3" defer></script>
+<script src="/assets/site-chrome.js?v=4" defer></script>
 </body>
 </html>
